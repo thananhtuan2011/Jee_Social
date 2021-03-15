@@ -1,0 +1,79 @@
+<style>
+
+  span{
+    display:flex;flex-direction:column;
+    
+  }
+  .user{
+    position: fixed;
+  }
+
+	.mat-card{
+		width: 100%;
+	  }
+	 
+    @media screen and (max-width: 1030px) and (min-width: 900px) {
+	.khung{
+		width: 30%;
+	   
+	   
+	  }
+	}
+</style>
+
+<div class="khung" style="background-color: lightgrey;" fxLayout="row" fxLayoutAlign=" start" fxLayout.xs="column" fxFlexFill fxHide.yba  >
+           <!-- begin contetn left -->
+            <div  fxFlex="230px" 
+              style="padding: 2px;margin-bottom: 1em ;margin-right: 5px;">
+             <kt-content-left></kt-content-left>
+
+            </div>
+
+                <!-- end contetn left -->
+
+
+                 <!-- begin contetn mid  home  -->
+            <div style="text-align: center"   fxFlex="560px"
+              style="padding: 2px;margin-bottom: 1em">
+
+            
+             <!-- <kt-content-home></kt-content-home> -->
+             <router-outlet ></router-outlet>
+							
+            </div>
+               <!-- end contetn mid  home  -->
+
+
+                  <!-- begin contetn thong diem  home  -->
+              <div  fxFlex="230px" 
+              style="padding: 2px;margin-bottom: 1em;">
+                <kt-thong-diep></kt-thong-diep>
+                <!-- <kt-chatbox></kt-chatbox> -->
+                <!-- <kt-tool-user-right   ></kt-tool-user-right> -->
+            </div>
+           
+                 <!-- end contetn thong diem  home  -->
+
+    <!-- begin contetn user right -->
+   
+   
+            <div   fxFlex="300px"
+            style="padding: 2px; margin-left: 20px;">
+
+           
+                 <kt-tool-user-right   ></kt-tool-user-right>
+                 
+                
+           
+         
+         
+             
+         
+        </div>
+           <!-- end contetn user right -->
+         
+  </div>
+
+
+
+

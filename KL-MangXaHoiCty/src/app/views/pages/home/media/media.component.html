@@ -1,0 +1,124 @@
+<div [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '70vh', 'position': 'relative'}">
+
+
+
+
+  <div class="home__body__contentMiddle">
+
+    <div class="home__body__contentMiddle__top">
+
+      <!--IMAGE CARDS-->
+      <mat-card (click)="hiddenfileinput.click()" style="width:200px;height: 300px;margin-top: 5px;" class="image-card">
+        <img style="width: 100%;" alt="bg" class="bg" src="./assets/media/bg/bganh.jpg">
+
+        <input type='file' id="PDFInpdd" #hiddenfileinput (change)="onSelectFile_PDF($event)" style="display: none;">
+
+        <mat-card-content>
+          <!-- hình ảnh user chỗ  bản tin -->
+
+          <span style="margin: 45px;
+              margin-bottom: 100px;" class="card-name">Tạo Tin Ảnh
+            <br>
+           
+          </span>
+        </mat-card-content>
+      </mat-card>
+
+
+
+      <mat-card (click)="TaoTin_VanBan()"style="width:200px;height: 300px;margin-top: 5px;" class="image-card">
+        <img style="width: 100%;" alt="bg" class="bg" src="./assets/media/bg/bgtinvanban.jpg">
+
+
+
+        <mat-card-content>
+          <!-- hình ảnh user chỗ  bản tin -->
+
+          <span style="margin: 50px;
+                      margin-bottom: 100px;" class="card-name">Tạo Tin Văn Bản
+            <br>
+           
+
+          </span>
+        </mat-card-content>
+      </mat-card>
+
+
+
+    </div>
+  </div>
+
+
+  <div>
+    <div style="text-align: center;
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;">
+      <span> Tin Của Bạn</span>
+
+    </div>
+    <div>
+      <mat-card-title>
+
+        <div *ngFor="let item of listTT_user" style="margin-left: 250px;">
+
+          <div style="display:inline;">
+
+            <div style="text-align: start;
+                 display: flex ;">
+              <span *ngIf="item.hinhanh===null;then e1; else e2"></span>
+              <ng-template #e2>
+                <img class="avatar" src="{{item.Avatar}}">
+
+              </ng-template>
+
+              <ng-template #e1>
+
+                <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+
+              </ng-template>
+
+
+              <div style="margin-left:15px;display: flex;
+                       flex-direction: column;">
+                <span style="font-size: 15px;margin-top: 10px;">{{item.Username}}
+
+
+
+                </span>
+
+              </div>
+
+
+            </div>
+          </div>
+
+          <div>
+         
+          </div>
+
+        </div>
+        <div style="text-align: center;">
+
+       
+        <img style="height:300px;margin:10px;margin-top: 15px;" [src]="image" *ngIf="image">
+
+      </div>
+
+
+      </mat-card-title>
+      <span *ngIf="image;then show; else hide"></span>
+      <ng-template #show>
+        <div style="text-align: center;">
+          <button style="width: 200px;
+          margin-top: 10px;" (click)="Submit()" mat-raised-button color="accent">Đăng</button>
+        </div>
+  
+      </ng-template>
+      <ng-template #hide>
+          
+      </ng-template>
+    
+    </div>
+  </div>
+</div>

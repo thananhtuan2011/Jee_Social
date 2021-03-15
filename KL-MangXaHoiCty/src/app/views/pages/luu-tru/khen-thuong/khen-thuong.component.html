@@ -1,0 +1,119 @@
+<!-- <mat-tab-group [selectedIndex]="selectedTab" (selectedTabChange)="onLinkClick($event)">
+    <mat-tab label="{{tab.Title}}" *ngFor="let tab of listStatus"> -->
+        <div class="row">
+          
+
+          
+            <div   class="col-xl-4" style="margin-bottom: 10px;" *ngFor="let it of item" [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '150vh', 'position': 'relative'}" >
+
+                <!--begin::Stats Widget 1-->
+                <a [routerLink]="['/home/detail',it.Id_BaiDang]">
+
+              
+                <div    class="card card-custom bgi-no-repeat card-stretch gutter-b" style="background-position: right top; height: 100%; background-size: 30% auto; background-image: url(/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-4.svg)">
+                    <!--begin::Body-->
+                    <div class="card-body">
+                        <div class="title"> <a  class="card-title font-weight-bold text-muted text-hover-primary font-size-h5">{{it.tieude_kt}}:
+                            <span style="color: rgb(231, 99, 38)">{{it.tieude_baidang}}</span>
+                        </a>
+                            <div><span class="icon ficon-gift text-alt2"></span>&nbsp; Khen thưởng</div>
+                        </div>
+
+                        <div class="users" style=" margin: 0px 20px;
+                            padding: 15px 0 15px 0; display: flex;">
+                            <div>
+                                <img src="{{it.icon_kt}}">
+                            </div>
+
+                                <div style="text-align: center;    margin-top: 15px;margin-left: 10px;">
+                                    <span style="font-size:15px">{{it.noidungbaidang}}
+                                        <p style="font-size: 10px;margin-left: 10px;
+                                        padding-top: 2px;">
+                                             {{it.createdate  | date : 'd/M/yyyy h:mm'}}
+                                             {{ it.createdate | date : 'a' | lowercase }}
+               
+                                           </p>
+                                    </span>
+
+                                   
+                                </div>
+                              
+                              
+
+                            <div class="slide">
+
+                                <ng-template *ngIf="it.NguoiQuanTri =='';then condition2;else condition1">
+
+                                </ng-template>
+                                <!-- trả về hình ảnh người quản trị nến có hình thì load, còn không thì load tên viết tắt + màu chữ + background -->
+                                <ng-template #condition1>
+                                    <div class="symbol-group symbol-hover">
+                                        <!-- <ng-template *ngIf="it.NguoiQuanTri.length > 5;then c1;else c2"></ng-template> -->
+                                        <ng-template #c1>
+                                            <div *ngFor="let itt of it.NguoiQuanTri.slice(0,5) || []" [style.backgroundColor]="itt.Background" class="symbol symbol-30 symbol-circle" style="height: 32px;width: 32px;" data-toggle="tooltip" title="">
+                                                <ng-template *ngIf="itt.Image == '';then e1;else e2"></ng-template>
+                                                <!-- Kiểm tra nếu người không có hình thì load tên viết tắt -->
+                                                <ng-template #e1>
+                                                    <div [style.color]="itt.Color" style="text-align: center;margin: 4px;">{{itt.VietTat}}</div>
+                                                </ng-template>
+                                                <!-- kiểm tra nếu người có hình thì load hình lên -->
+                                                <ng-template #e2>
+                                                    <img alt="Pic" src="https://2.bp.blogspot.com/-0yUMg-UzcQA/VHvNOcQXgbI/AAAAAAAAQlo/fALw0-y1z-U/s1600/Avatar-Facebook-an-danh-trang-1.jpg">
+                                                </ng-template>
+                                            </div>
+
+                                            <!-- dòng này là thêm dấu cộng nếu trên 5 còn nếu bằng 5 thì load 5 hình nằm ở dòng #c2 -->
+                                            <div class="symbol symbol-30 symbol-circle" style="height: 32px;width: 32px;background-color: burlywood;" data-toggle="tooltip" title="">
+                                                <!-- <div style="text-align: center;margin: 4px;color: #111;font-size: 10px;padding-top: 3px;">{{it.NguoiQuanTri.length - 5| number}}+</div> -->
+                                            </div>
+
+
+                                        </ng-template>
+                                        <ng-template #c2>
+                                            <div *ngFor="let itt of it.NguoiQuanTri.slice(0,5) || []" [style.backgroundColor]="itt.Background" class="symbol symbol-30 symbol-circle" style="height: 32px;width: 32px;" data-toggle="tooltip" title="" data-original-title="Mark Stone">
+                                                <ng-template *ngIf="itt.Image == '';then e3;else e4"></ng-template>
+                                                <ng-template #e3>
+                                                    <div [style.color]="itt.Color" style="text-align: center;margin: 4px;">{{itt.VietTat}}</div>
+                                                </ng-template>
+                                                <ng-template #e4>
+                                                    <img alt="Pic" src="https://2.bp.blogspot.com/-0yUMg-UzcQA/VHvNOcQXgbI/AAAAAAAAQlo/fALw0-y1z-U/s1600/Avatar-Facebook-an-danh-trang-1.jpg">
+                                                </ng-template>
+
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                </ng-template>
+                                <!-- trả về hình mặc định khi người quản trị không có -->
+                                <ng-template #condition2>
+                                    <div class="symbol-group symbol-hover">
+                                        <div class="symbol symbol-30 symbol-circle" data-toggle="tooltip" title="" data-original-title="Mark Stone">
+                                            <img alt="Pic" src="https://2.bp.blogspot.com/-0yUMg-UzcQA/VHvNOcQXgbI/AAAAAAAAQlo/fALw0-y1z-U/s1600/Avatar-Facebook-an-danh-trang-1.jpg">
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                        <!-- <div class="row" style="
+							padding: 15px 0 15px 0;padding-bottom: 10px;font-size: 11px;">
+                            <div class="total col" style="
+								color: #111;
+								text-align: left;"><b>{{it.SLTatCa | number}}</b> Nhiệm vụ</div>
+                            <div class="stats col" style="color: #aaa;
+								text-align: right;"> <b class="text-success">{{it.SLHoanThanh}}</b> Đã hoàn thành · <b>{{it.SLThatBai}}</b> Thất bại </div>
+                        </div> -->
+                        <!-- Load thanh hoàn thành nhiệm vu -->
+                      
+
+                    </div>
+                </div>
+            </a>
+            </div>
+   
+
+         
+        </div>
+
+    <!-- </mat-tab>
+
+
+</mat-tab-group> -->

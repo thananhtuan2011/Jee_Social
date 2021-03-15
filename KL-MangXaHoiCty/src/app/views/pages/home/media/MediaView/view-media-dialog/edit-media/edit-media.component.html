@@ -1,0 +1,211 @@
+<style>
+    .div {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .title {
+        background-color: #f6f6f6;
+        text-align: center;
+        height: 50px;
+        padding-top: 12px;
+    }
+
+
+
+    span {
+        font-size: 15px;
+        font-weight: bold
+    }
+
+    .post {
+        text-align: center;
+        width: 200px;
+        margin-top: 32px;
+        background-color: rgb(243, 232, 232);
+        color: white;
+        margin-bottom: 10px;
+
+
+    }
+
+    .post:hover {
+        background-color: rgb(66, 26, 212);
+        color: white;
+    }
+
+    .center {
+        margin: auto;
+        width: 60%;
+        margin-top: 120px;
+        padding: 10px;
+    }
+</style>
+<div [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '70vh', 'position': 'relative'}">
+
+
+    <div style="left: 400px; top:30px">
+        <div class="title">
+            <button mat-icon-button style="float: right;padding-bottom: 12px; margin-right: 10px;">
+
+                <mat-icon class="close" style="float: right; padding: 3px;" (click)="closeDilog()">close</mat-icon>
+            </button>
+            <span>Edit  tin </span>
+        </div>
+        <div class="kt-login__form">
+            <div class="kt-login__title" *ngFor="let item of listTT_user " style="display:flex">
+
+
+                <span *ngIf="item.hinhanh===null;then e1; else e2"></span>
+                <ng-template #e2>
+                    <img class="avatar" src="{{item.Avatar}}">
+
+                </ng-template>
+
+                <ng-template #e1>
+
+                    <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+
+                </ng-template>
+                <div style="display:flex;flex-direction: column;margin-left: 15px;">
+                    <span style="font-weight: bold;"> {{item.Username}}</span>
+
+
+                </div>
+
+            </div>
+            <div class="home__body__contentMiddle">
+
+                <div class="home__body__contentMiddle__top">
+
+                    <!--IMAGE CARDS-->
+
+                    <span *ngIf="image;then e1; else e2"></span>
+                    <ng-template #e2>
+                        <span *ngIf="media.img_media===null||media.img_media==='';then s1;else s2"></span>
+                        <ng-template #s1>
+                            <mat-card 
+                            style="width:200px;height: 300px;margin-top: 5px;" class="image-card {{media.template}}">
+                            <!-- <img style="width: 100%;" alt="bg" class="bg" src="{{media.hinhanh}}"> -->
+    
+                               
+                             <!-- <img *ngIf="img_media!=null" style="width: 100%;" alt="bg" class="bg" src="{{media.hinhanh}}"> -->
+                            <mat-card-content>
+                                <!-- hình ảnh user chỗ  bản tin -->
+    
+                                <span style="margin: 45px;
+                      margin-bottom: 100px;" class="card-name">
+                                    {{media.title}}
+                                    <br>
+    
+                                </span>
+                            </mat-card-content>
+                        </mat-card>
+                        </ng-template>
+                        <ng-template #s2>
+                            <mat-card 
+                            style="width:200px;height: 300px;margin-top: 5px;" class="image-card">
+                            <img style="width: 100%;" alt="bg" class="bg" src="{{media.hinhanh}}">
+    
+                               
+                             <!-- <img *ngIf="img_media!=null" style="width: 100%;" alt="bg" class="bg" src="{{media.hinhanh}}"> -->
+                            <mat-card-content>
+                                <!-- hình ảnh user chỗ  bản tin -->
+    
+                                <span style="margin: 45px;
+                      margin-bottom: 100px;" class="card-name">
+                                    {{media.title}}
+                                    <br>
+    
+                                </span>
+                            </mat-card-content>
+                        </mat-card>
+                        </ng-template>
+                    </ng-template>
+                     
+                    <!-- </ng-template> -->
+
+                    <ng-template #e1>
+
+                        <!-- <img style="height:300px;margin:10px;margin-top: 15px;" [src]="image"> -->
+                        <div class="home__body__contentMiddle">
+
+                            <div class="home__body__contentMiddle__top">
+
+                                <!--IMAGE CARDS-->
+                                <mat-card (click)="hiddenfileinput.click()  "
+                                    style="width:200px;height: 300px;margin-top: 5px;" class="image-card">
+                                    <img style="width: 100%;" alt="bg" class="bg" [src]="image">
+
+                                    <input type='file' id="PDFInpdd" #hiddenfileinput
+                                        (change)="onSelectFile_PDF($event)" style="display: none;">
+                                        
+                                    <mat-card-content>
+                                        <!-- hình ảnh user chỗ  bản tin -->
+
+                                        <span style="margin: 45px;
+                              margin-bottom: 100px;" class="card-name">
+                                            {{media.title}}
+                                            <br>
+
+                                        </span>
+                                    </mat-card-content>
+                                </mat-card>
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </ng-template>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="attachment">
+            <!-- up load file -->
+            <button style="float: right;" mat-icon-button type="button" (click)="hiddenfileinput.click()"
+                matTooltip="Upload File">
+                <mat-icon>attach_file</mat-icon>
+            </button>&nbsp;
+            <input type='file' id="PDFInpdd" #hiddenfileinput (change)="onSelectFile_PDF($event)"
+                style="display: none;">
+            <!-- </div> -->
+        </div>
+
+        <div style=" margin:15px;">
+            <span>Nhập nội dung</span>
+            <textarea placeholder="Nhập nội dung !" style="border:1px solid lightcoral;outline: none;" rows="5"
+                cols="70" name="comment" form="usrform" [(ngModel)]="media.title">
+           </textarea>
+        </div>
+
+
+
+
+
+        <div style="padding-left: 20px;" class="col-md-12 m--margin-bottom-10-mobile">
+            <!-- <kt-color-picker [selected]="_color" (ItemSelected)="Selected_Color($event)">
+            </kt-color-picker> -->
+        </div>
+        <div style="text-align: center;">
+            <button class="post" (click)="Submit()">
+
+                <span style="font-size:14px; color:black">Đăng</span>
+            </button>
+        </div>
+
+    </div>
+</div>

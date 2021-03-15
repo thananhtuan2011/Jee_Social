@@ -1,0 +1,127 @@
+
+<style>
+    .div {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .title {
+        background-color: #f6f6f6;
+        text-align: center;
+        height: 50px;
+        padding-top: 12px;
+    }
+
+    .mat-icon:hover {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+    }
+
+    span {
+        font-size: 15px;
+        font-weight: bold
+    }
+
+    .post {
+        text-align: center;
+        width: 200px;
+        margin-top: 32px;
+        background-color: rgb(243, 232, 232);
+        color: white;
+        margin-bottom: 10px;
+
+
+    }
+
+    .post:hover {
+        background-color: rgb(66, 26, 212);
+        color: white;
+    }
+</style>
+<div  [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '70vh', 'position': 'relative'}" >
+
+
+<div style="left: 400px; top:30px" >
+    <div class="title">
+       <button mat-icon-button style="float: right;padding-bottom: 12px; margin-right: 10px;">
+
+                        <mat-icon class="close" style="float: right; padding: 3px;" (click)="closeDilog()">close</mat-icon>
+                    </button>
+        <span>Đề Xuất Ý Tưởng</span>
+    </div>
+    <div style="display:flex;flex-direction: column; margin:15px">
+        <mat-form-field class="example-full-width">
+            <textarea matInput required placeholder="Tiêu Đề"
+                [(ngModel)]="tieude"
+            >
+
+            </textarea>
+          </mat-form-field>
+        
+
+
+    </div>
+    <div class="attachment">
+        <!-- up load file -->
+        <button style="float: right;" mat-icon-button type="button" (click)="hiddenfileinput.click()"
+          matTooltip="Upload File">
+          <mat-icon>attach_file</mat-icon>
+        </button>&nbsp;
+        <input type='file' id="PDFInpdd" #hiddenfileinput (change)="onSelectFile_PDF($event)" style="display: none;">
+       
+      </div>
+
+
+
+
+    <div style=" margin:15px;">
+        <span>Nhập nội dung</span>
+        <textarea placeholder="Nhập nội dung !" style="border:1px solid lightcoral;outline: none;" rows="5" cols="70"
+            name="comment" form="usrform" [(ngModel)]="noidung">
+           </textarea>
+    </div>
+    <div >
+        <img style="width:480px;height: 250px;margin: 10px;" [src]="image" *ngIf="image">
+</div>
+
+  
+
+    <div class="row">
+        <div class="col-md-11 kt--margin-bottom-10-mobile" style="margin-left: 25px;">
+            <mat-form-field class="mat-form-field-fluid">
+                <mat-select [formControl]="id_group" class="require" 
+                    placeholder="Đề xuất trong ?"
+                    [(ngModel)]="selected"
+                    [(value)]="congkhai">
+                    <mat-option>
+                        <ngx-mat-select-search [formControl]="groupFilterCtrl" [placeholderLabel]="' '"
+                        [noEntriesFoundLabel]="' '">
+                    </ngx-mat-select-search>
+                    </mat-option>
+                    <mat-option value="Công Khai">
+                        <span style="color: black;">Công Khai</span>
+                        
+                    </mat-option>
+                    <mat-option  [value]="item.ID_group" *ngFor="let item of list_group">
+                        <span style="color: rgb(136, 30, 30);">{{item.Ten_Group}}</span>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+           
+        </div>
+</div>
+
+
+
+
+    <div style="text-align: center;">
+        <button class="post"(click)="submit()">
+
+            <span style="font-size:14px; color:black">Đề Xuất</span>
+        </button>
+    </div>
+
+</div>
+</div>

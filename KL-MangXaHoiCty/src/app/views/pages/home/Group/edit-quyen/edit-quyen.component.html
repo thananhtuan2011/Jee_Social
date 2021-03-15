@@ -1,0 +1,87 @@
+<style>
+    
+    .avatar {
+     border-radius: 50%;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     width: 42px;
+     height: 40px;
+     background-size: cover;
+   }
+ </style>
+
+<div class="kt-portlet" [ngClass]="{ 'kt-portlet--body-progress kt-portlet--body-progress-overlay' : viewLoading }">
+   <div class="kt-portlet__head kt-portlet__head__custom">
+       <div class="col-md-12 kt-margin-bottom-10-mobile" style="margin-top: 20px;">
+           <h3 class="kt-portlet__head-title">Update Quyền Group</h3>
+       </div>
+
+       
+
+   </div>
+   <div class="kt-portlet__body">
+       <div class="form-group kt-form__group row">
+      
+           
+       <div class="kt-login__form">
+           <div class="kt-login__title" style="display:flex">
+              
+                <span *ngIf="quyen.hinhanh===null||quyen.hinhanh==='';then v1;else v2"></span>
+                <ng-template #v1>
+                  <img style="margin-left: 15px;" class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+                </ng-template>
+                <ng-template #v2>
+                  <img style="margin-left: 15px;" class="avatar" src="{{quyen.Avatar}}">
+                </ng-template>
+              
+               <div style="display:flex;flex-direction: column;margin-left: 15px;">
+                 <span style="font-weight: bold;">  {{quyen.Username}}</span>
+
+                 <span *ngIf="quyen.quyen_group===true;then e1;else e2">
+
+                             
+                                
+                </span>
+
+                <ng-template #e1>
+                    Quản trị viên
+                </ng-template>
+                
+                <ng-template #e2>
+                  Thành viên
+                </ng-template>
+               </div>
+
+             </div>   
+           </div>
+           <div class="col-md-12 kt--margin-bottom-10-mobile">
+
+
+            <mat-form-field style="width:100%">
+              
+                <mat-select [(value)]="selected">
+                    <mat-option>
+                        <ngx-mat-select-search [formControl]="groupFilterCtrl" [placeholderLabel]="' '"
+                        [noEntriesFoundLabel]="' '">
+                    </ngx-mat-select-search>
+                    </mat-option>
+               
+                  <mat-option value="option1">Quản Trị Viên</mat-option>
+                  <mat-option value="option2">Thành viên</mat-option>
+               
+                </mat-select>
+              </mat-form-field>
+
+              
+
+
+           </div>
+       </div>
+       <div class="form-group kt-form__group row">
+           <div class="col-md-12 kt--margin-bottom-10-mobile text-center">
+               <button mat-raised-button (click)="closeDilog()">Cancel</button>&nbsp;
+               <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+           </div>
+       </div>
+   </div>
+</div>

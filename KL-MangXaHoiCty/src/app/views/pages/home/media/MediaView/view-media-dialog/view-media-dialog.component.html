@@ -1,0 +1,97 @@
+<div class="kt-grid kt-grid--desktop kt-grid--ver kt-grid--ver-desktop kt-app tab-tuychinh" style="margin-bottom: -100px;">
+    <!--Begin:: App Aside-->
+    <div class="kt-grid__item kt-app__toggle kt-app__aside position-relative" style="width:350px;">
+        <div class="kt-portlet tab-tuychinh--menu">
+            <div class="kt-portlet__body kt-portlet__body--fit-y" style="height:600px">
+                <!--begin::Widget -->
+                
+                <div class="kt-widget kt-widget--user-profile-1" [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '90vh', 'position': 'relative'}">
+                    <div class="kt-widget__body">
+                        <div class="kt-widget__items pt-15">
+                            <h5 style="color:#ccc;text-align: center;
+                            margin-top: 25px;">My News</h5>
+                           <div *ngFor="let item of listmedia;let vi=index">
+                            <!--./ [routerLinkActiveOptions]="{exact:true}" -->
+                       
+                            <a 
+                            [routerLink]="['/mynews/detail',item.id_media]" class="kt-widget__item " routerLinkActive="kt-widget__item--active" >
+                                <span class="kt-widget__section">
+									<span class="kt-widget__icon">
+                                        <span *ngIf="item.hinhanh_user===null;then e1; else e2"></span>
+                                        <ng-template #e2>
+                                          <img style="width: 30px; height: 30px;border:2px solid rgb(57, 45, 230);" alt="avatar" class="avatar"
+                                          src="{{item.Avatar}}">
+                                        </ng-template>
+                                
+                                        <ng-template #e1>
+                                          <img style="width: 30px; height: 30px;border:2px solid rgb(57, 45, 230);" alt="avatar" class="avatar"
+                                          src="../../assets/media/users/avatar_macdinh.jpg">
+                                        </ng-template>
+                                     
+                                
+                                        <span style="font-size: 12px; margin-left: 5px;color:blueviolet"  class="card-name">{{item.username}}</span>
+									</span>
+                                <span class="kt-widget__desc" style="    margin-right: 10px;" >
+                                    <span *ngIf="item.title===null||item.title==='';then s1;else s2"></span>
+									<ng-template #s1>
+                                        Thẻ hình ảnh
+                                        <br>
+                                        <p style="font-size: 10px;
+                                        margin-left: 40px;
+                                      
+                                        margin-top: -10px;">
+                                            {{item.createdate  | date : 'd/M/yyyy h:mm'}}
+                                            {{ item.createdate | date : 'a' | lowercase }}
+                                          </p>
+                                    </ng-template>
+                                    <ng-template #s2>
+                                       {{item.title}}
+                                       <br>
+                                       <p style="font-size: 10px;
+                                       margin-left: 40px;
+                                    
+                                       margin-top: -10px;">
+                                        {{item.createdate  | date : 'd/M/yyyy h:mm'}}
+                                        {{ item.createdate | date : 'a' | lowercase }}
+                                      </p>
+                                    </ng-template>
+                                    </span>
+                                
+                                </span>
+                             
+                            </a>
+                            <button style="float: right;margin-top:-70px" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                <mat-icon style="float: right">more_vert</mat-icon>
+                              </button>
+                              <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="Update_Media(item,vi)">
+                                  <mat-icon>edit</mat-icon>
+                                  <span>Sửa</span>
+                                </button>
+                              
+                                <button mat-menu-item (click)="DeleteMedia(item.id_media)">
+                                  <mat-icon>delete</mat-icon>
+                                  <span>Xóa</span>
+                                </button>
+                              </mat-menu>
+                        </div>
+                       </div>
+                    </div>
+                </div>
+                <!--end::Widget -->
+            </div>
+        </div>
+        <!--end:: Widgets/Applications/User/Profile1-->
+    </div>
+    <!--End:: App Aside-->
+    <div class="kt-grid__item kt-grid__item--fluid kt-app__content tab-tuychinh--item">
+        <div class="kt-portlet" style="padding-left: 15px;">
+            <div class="kt-portlet__body kt-portlet__body--fit-y">
+            <!-- <kt-showmedia></kt-showmedia> -->
+
+            <router-outlet></router-outlet>
+          
+            </div>
+        </div>
+    </div>
+</div>

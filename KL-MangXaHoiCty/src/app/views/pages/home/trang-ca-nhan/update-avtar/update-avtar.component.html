@@ -1,0 +1,78 @@
+
+<div>
+
+
+<mat-card style="padding: 0px;margin:0px; width: 100%; text-align:center
+">
+
+<!-- *ngFor="let item of list_user_group;let gr=index;" -->
+  <div class="channel-cover-wrap" id="js-channel-cover" >
+    <div class="channel-cover">
+      <div class="cover">
+        <div class="image">
+        
+        </div>
+
+        <div class="main">
+
+          <div class="name " *ngFor="let us of listTT_user">
+
+            <span *ngIf="image;then a1; else a2"></span>
+            <ng-template #a1>
+                <img   mat-card-avatar class="avatar" [src]="image" >
+            </ng-template>
+            <ng-template #a2>
+                <span *ngIf="us.hinhanh===null ;then e1; else e2"></span>
+                <ng-template #e2>
+                  <img   mat-card-avatar class="avatar" src="{{us.Avatar}}">
+                </ng-template>
+        
+                <ng-template #e1>
+                  <img   mat-card-avatar class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+                </ng-template>
+            </ng-template>
+    
+            <!-- <span *ngIf="us.hinhanh===null;then e1; else e2"></span>
+            <ng-template #e1>
+              <span style="margin-top:-140px" class="url center" data-xurl="home">
+                <img alt="" mat-card-avatar class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+            </span>
+            </ng-template>
+            <ng-template #e2>
+              <span style="margin-top:-140px" class="url center" data-xurl="home">
+                <img alt="" mat-card-avatar class="avatar" src="{{us.Avatar}}">
+            </span>
+            </ng-template>
+           -->
+         
+             
+            
+      </div>
+      
+        </div>
+    
+
+
+      </div>
+
+
+   
+
+    </div>
+  </div>
+</mat-card>
+
+<span *ngIf="image;then h1;else h2;"></span>
+    <ng-template #h1>
+       
+        <button (click)="insert_file()" matTooltip="Save" style="float: right;margin:5px" mat-flat-button color="accent">	<mat-icon>save_alt</mat-icon>Lưu</button>
+    </ng-template>
+    <ng-template #h2>
+        <button (click)="hiddenfileinput.click()" matTooltip="Upload Avatar" style="float: right;margin:5px" mat-raised-button color="primary">	<mat-icon>save_alt</mat-icon>Tải ảnh lên</button>
+    </ng-template>
+ 
+
+<input type='file' id="PDFInpdd" #hiddenfileinput (change)="onSelectFile_PDF($event)" style="display: none;">
+
+<button (click)="Close_Dialog()" style="float: right;margin:5px;margin-right: 15px;" mat-stroked-button>Hủy</button>
+</div>

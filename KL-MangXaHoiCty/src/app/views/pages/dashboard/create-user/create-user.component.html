@@ -1,0 +1,128 @@
+
+<style>
+    .mat-form-field
+     {
+      width: 100%;
+     }
+     .avatar {
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      width: 42px;
+      height: 40px;
+      background-size: cover;
+    }
+  </style>
+  <div class="row" style="margin: 0px;"style="height:400px">
+      <div class="col-12">
+ 
+  
+        
+              <div class="kt-login__body">
+                  <!--begin::Signin-->
+                  <div class="kt-login__form">
+                      <div class="kt-login__title"*ngFor="let item of listTT_user " style="display:flex;margin-top: 20px;
+                      margin-left: 5px;">
+                         
+                           
+                          <div class="kt-login__title"*ngFor="let item of listTT_user " style="display:flex">
+               
+                            <span *ngIf="item.hinhanh_user===null;then e1; else e2"></span>
+                            <ng-template #e2>
+                              <img style="width: 42px; height: 42px;border:2px solid rgb(57, 45, 230);margin-left: 20px;" alt="avatar" class="avatar"
+                              src="{{item.Avatar}}">
+                            </ng-template>
+                    
+                            <ng-template #e1>
+                              <img style="width: 42px; height: 42px;border:2px solid rgb(57, 45, 230);margin-left: 20px;" alt="avatar" class="avatar"
+                              src="../../assets/media/users/avatar_macdinh.jpg">
+                            </ng-template>
+                            <!-- <img style="margin-left: 15px;" class="avatar" src="{{item.Avatar}}"> -->
+                            <div style="display:flex;flex-direction: column;margin-left: 15px;">
+                              <span style="font-weight: bold;">  {{item.Username}}</span>
+            
+                                <p>Quản trị viên</p>
+                            </div>
+            
+                          
+                          </div>
+                        
+                      </div>
+                      
+  
+  
+  
+                      <form class="kt-login__form kt-form" autocomplete="off">
+                          <div class="form-group">
+                              
+                          </div>
+  
+                         
+                          <div class="row">
+                              <div class="col-md-12 kt--margin-bottom-10-mobile">
+              
+              
+              
+                                  <!-- @@ để gán thẻ -->
+              
+                                  <mat-form-field class="mat-form-field-fluid " style="    margin: 5px;">
+              
+                                      <input matInput placeholder="Thêm Nhân Viên" id="InputAssign" type="text"
+                                          value="{{_Assign}}" [popover]="Assign" [popoverOnHover]="false"
+                                          (input)="onSearchChange_Assign($event)">
+                                  </mat-form-field>
+
+                                  
+              
+                                  <mat-form-field class="example-full-width"style="    margin: 5px;">
+                                    <input style="margin-left: 5px;" matInput placeholder="Tài khoản" name="Email" [(ngModel)]="Email">
+                                  </mat-form-field>
+                                  <mat-form-field class="example-full-width" style="    margin: 5px;">
+                                    <input style="margin-left: 5px;" matInput placeholder="PassWord" name="Pass" [(ngModel)]="Pass">
+                                  </mat-form-field>
+                                  <popover-content #Assign placement="bottom-left" [closeOnClickOutside]="true">
+                                      <div [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '40vh', 'position': 'relative'}" class="kt-notification kt-margin-t-10 kt-margin-b-10">
+                                          <kt-chose-nv [options]="options_assign" (ItemSelected)="ItemSelected_Assign($event)">
+                                          </kt-chose-nv>
+                                        
+                                          <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                              <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                          </div>
+                                          <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                              <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                                          </div>
+                                      </div>
+                                      
+                                  </popover-content>
+                              </div>
+                          </div>
+  
+                         
+                      
+  
+                          <!--begin::Action-->
+                          <div style="text-align: center;" class="kt-login__actions">
+                              <button  style="text-align: center;"(click)="submit()" (onclick)="Test()"   id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}">Thêm</button>
+                            
+                              <button (click)="closeDilog()" style="margin-left: 10px;" mat-button ="menu">Cancel</button>
+
+                          </div>
+                          <!--end::Action-->
+                      </form>
+                     
+                  </div>
+              </div>
+  
+
+                
+         
+      </div>
+  
+  
+  
+  </div>
+  
+  <div >
+              
+  </div>
+  

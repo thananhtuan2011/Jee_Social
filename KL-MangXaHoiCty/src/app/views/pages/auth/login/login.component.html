@@ -1,0 +1,229 @@
+
+<style>
+ 
+	@media screen and (max-width: 1000px) and (min-width: 600px) {
+	.mat-card {
+		width: 45%;
+	  
+	   
+	  }
+	}
+
+	@media only  screen and (max-width: 840px)  {
+	.mat-card {
+		width:100% ;
+		
+	  
+	   
+	  }
+	}
+	@media  screen and (max-width: 999px) and (min-width: 839px)  {
+	.mat-card {
+		width:100%;
+		
+	  
+	   
+	  }
+	}
+	@media  screen and (max-width: 599px) and (min-width: 500px)  {
+	.mat-card {
+		width:50% ! important;
+		
+	  
+	   
+	  }
+	}
+	@media screen and (max-width: 499px) and (min-width: 300px) {
+	.mat-card{
+		width: 300px;
+	   
+	   
+	  }
+	}
+  
+	@media screen and (max-width: 1500px) and (min-width: 1001px) {
+	.mat-card{
+		width: 100%;
+	   
+	   
+	  }
+	}
+	.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+	width: 28%;
+	margin: 10% auto;
+}
+  
+  
+	.login-page {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* background-color: #303F9F; */
+    background-image: url("/assets/media/bg/background_1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  mat-card {
+    /* width: 30%;
+    margin: 10% auto; */
+    border-radius: 8px;
+  }
+  mat-form-field, mat-checkbox {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+  mat-card-content {
+    margin-top: 20px;
+  }
+  
+  .login-button {
+    /* margin-top: 20px; */
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid bisque;
+    font-weight: bold;
+	padding-bottom:  20px;
+ 
+
+  }
+ 
+  .mat-tab-body.mat-tab-body-active {
+    position: relative;
+    overflow-x: hidden;
+     overflow-y: hidden !important; 
+    z-index: 1;
+    flex-grow: 1;
+}
+.login-gg{
+	padding-top: 20px;
+	
+}
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #366cf3;
+    margin-bottom: 20px;
+
+}
+
+
+
+
+  
+
+  @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+
+  
+   
+	</style>
+	  
+		
+	<mat-card-content  >
+		<form  [formGroup]="loginForm">
+		  <mat-form-field >
+			<input
+			  matInput
+			  placeholder="Email"
+			  required
+			
+			value="{{txtemail}}"
+				[(ngModel)]="txtemail"
+			
+			  formControlName="gmail">
+
+			
+			  <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+				Please enter a valid email address
+			  </mat-error> -->
+			  <mat-icon matSuffix>email</mat-icon>
+			  <mat-error *ngIf="loginForm.hasError('required', 'gmail')">
+				Email <strong> is required</strong>
+			  </mat-error>
+			
+			  <mat-error *ngIf="loginForm.hasError('email', 'gmail')">
+				Email <strong> không hợp lệ</strong>
+			  </mat-error>
+
+		
+			 
+		  </mat-form-field>
+		  <mat-form-field >
+			<input
+			  matInput
+			  placeholder="Password"
+			  type="password"
+			  required
+			  (keydown.space)="$event.preventDefault()"
+			  formControlName="pass"
+				
+			  minlength=6
+			  value="{{txtpass}}"
+			
+			  [(ngModel)]="txtpass"
+			
+			>
+			
+	   
+			<mat-error style="margin-bottom: 10px;" *ngIf="loginForm.hasError('required', 'pass')">
+			  Password is required
+			</mat-error>
+
+			<mat-error style="margin-bottom: 10px;" *ngIf="loginForm.hasError('minlength', 'pass')">
+				Password is minlength 6
+			  </mat-error>
+			
+			<!-- <mat-error
+			  *ngIf="password.errors && password.errors.minlength">
+			  Password must be of length 6
+			</mat-error> -->
+			
+			<mat-icon matSuffix>lock</mat-icon>
+		  </mat-form-field>
+		  <a style="float: right;margin-top: -5px; font-size: 12px; margin-right:18px" class="nav-link" href="#">Quên mật khẩu ?</a>
+		
+		  <mat-checkbox [(ngModel)]="checkmenber"  name="checked" formControlName="checked" style="float: left;margin-top: -25px; font-size: 12px">Remember Me!</mat-checkbox>
+		 	 
+		<form style="text-align: center;" class="form-group"> 
+
+	
+			<button
+				mat-raised-button
+				color="primary"
+				class="login-button " (click)="submit
+				()"(click)="checkRemember()" style="margin-top: 40px;height: 40px;">
+			Login
+			</button>
+	
+		
+
+<!-- 	
+		  <button
+			mat-raised-button 
+			class="login-button login-gg center">
+			<span>
+			  <img style="width: 20px; height: 20px" src="./assets/media//bg/icongg.jpg">
+			</span>
+			Login with Google
+		  </button> -->
+		</form>
+		
+	   
+		</form>
+	  </mat-card-content>
+
+	

@@ -1,0 +1,43 @@
+<div class="card-body">
+   
+   
+    <div class="attachment">
+        <!-- up load file -->
+        <div class="kt-login__title" style="display:flex">
+
+            <!-- <div >
+                <img style="width:250px;height: 250px;" [src]="image" *ngIf="image">
+        </div> -->
+     
+
+            
+    
+            <div style="display:flex;flex-direction: column;margin-left: 15px;">
+
+              <span style="font-weight: bold;"> Gỡ tin nhắn </span>
+
+                <p>
+                   Chọn hình thức xóa ? Gỡ ở phía bạn hoặc gỡ đối với mọi người
+                </p>
+            </div>
+
+          </div>   
+          <div style="text-align:center">
+
+         
+          <button style="float: left;" mat-button (click)="closeDia()">Cancel</button>
+          <button (click)="DeleteForeverMess()" style="margin-right: 10px;"class="btn btn-danger btn-round"  type="button"
+          matTooltip="Gỡ đối với mọi người ">
+          Gỡ đối với mọi người !
+          </button>
+          
+        <button  (click)="DeleteMess()" class="btn btn-primary btn-round"  type="button"
+          matTooltip=" Gỡ ở phía bạn">
+          Gỡ ở phía bạn !
+        </button>
+       
+    </div>
+   
+</div>
+    <!-- <a href="javascript:void(0)" class="btn btn-danger btn-round">Chọn Ảnh</a> -->
+</div>

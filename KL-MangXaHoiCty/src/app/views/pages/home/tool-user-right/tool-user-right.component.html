@@ -1,0 +1,512 @@
+<style>
+    .khung {
+
+
+        position: fixed !important;
+        align-content: start;
+        height: 100%;
+
+
+    }
+     
+    .imgchat
+{
+    border-top: 2px solid #FFF!important;
+    margin-left: -7px!important;
+    height: 100px!important;
+    width: 100px!important;
+    margin-right: -7px!important;
+    margin-bottom: -3px;
+    margin-top: -22px;
+    
+}
+.onlyimg
+{
+    margin-top: -4px !important;
+  
+    margin-left: -7px!important;
+    height: 100px!important;
+    width: 100px!important;
+    margin-right: -7px!important;
+    margin-bottom: -4px!important;
+}
+.clear
+    {
+        border-radius: 50%;
+    }
+.clear:hover
+{
+
+    border-radius: 50%;
+    background:lightgray
+}
+    /* position: absolute; */
+
+
+
+    .kt-notification .kt-notification__item:after {
+        border: 0;
+        font-family: "LineAwesome";
+        text-decoration: inherit;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        /* font-smoothing: antialiased; */
+        content: "";
+        font-size: 0.8rem;
+        line-height: 0;
+        position: relative;
+        color: #74788d;
+    }
+
+    .input {
+        margin-left: 30px;
+
+    }
+
+    /* img {
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    } */
+
+     .imgavatar {
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+    .avatar.-online {
+        position: relative;
+        overflow: visible;
+    }
+
+    .avatar.avatar-32 {
+        width: 32px;
+        height: 32px;
+    }
+
+
+    .avatar.-online:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border: 1px solid #fff;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        position: absolute;
+        right: -6px;
+        top: 28px;
+        background-color: #63b814;
+        z-index: 100;
+    }
+
+    .avatar.-ofline:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border: 1px solid #fff;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        position: absolute;
+        right: -6px;
+        top: 28px;
+        /* background-color: #63b814; */
+        z-index: 100;
+    }
+
+    .avatar.avatar-32.-circled,
+    .avatar.avatar-32.-circled>.more,
+    .avatar.avatar-32.-circled>.image {
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    /* .mat-card{
+  position: fixed;
+} */
+</style>
+<div style="height: 100%;">
+
+
+<div class="khung">
+
+    <mat-card class="users">
+
+        <ngb-tabset>
+
+
+            <ngb-tab title="Danh sách bạn bè">
+                <!--  -->
+
+
+                <ng-template -template ngbTabContent>
+
+
+                    <div style="border-bottom: 1px solid #74788d;">
+
+                        <a href="javascript:;" class="kt-notification__item">
+                            <div class="kt-notification__item-icon">
+                                <mat-icon style="float: left;" class="search-icon">search_outline</mat-icon>
+                                <div class="input">
+                                    <form>
+                                        <input [formControl]="userControl" placeholder="Search " type="text">
+                                    </form>
+                                </div>
+                            </div>
+
+
+                            <!-- begin search user -->
+
+                        </a>
+                    </div>
+                    <div [perfectScrollbar]="{wheelPropagation: false}"
+                        [ngStyle]="{'max-height': '70vh', 'position': 'relative'}"
+                        class="kt-notification kt-margin-t-10 kt-margin-b-10">
+
+                        <div *ngFor="let item of listUser | async;let vi=index">
+
+                            <div id="id02{{vi}}"></div>
+                            <!--   begin nơi hiển thị khung chat và show chat -->
+
+                                  <!-- HIỂN THỊ CHÁT BOX THỨ 2 -->
+                          
+
+                            <!-- HIỂN THỊ CHÁT BOX ĐẦU TIÊN  -->
+                            <div id="chatbox" class="child" style="
+                               float: left;
+                               margin-left: -450px;
+                               position: fixed;">
+
+                                <div *ngIf="isShowForm==true" class="container">
+                                    <div class="row pt-3">
+                                        <div class="chat-main" *ngFor="let it1 of user_chat1">
+                                            <div class="col-md-12 chat-header">
+                                                <div class="row header-one text-white p-1">
+                                                    <div class="col-md-6 name pl-2">
+                                                        <i class="fa fa-comment"></i>
+                                                        <h6 class="ml-1 mb-0">{{it1.Username}}</h6>
+                                                    </div>
+                                                    <div class="col-md-6 options text-right pr-0">
+                                                        <!-- <i class="fa fa-window-minimize hide-chat-box hover text-center pt-1"></i> -->
+                                                        <p class="arrow-up mb-0">
+                                                            <!-- <i class="fa fa-arrow-up text-center pt-1"></i> -->
+                                                        </p>
+                                                        <i [ngClass]="['bntStyle']"
+                                                            class="fa fa-times hover text-center pt-1"
+                                                            (click)="close()"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="row header-two w-100" style="height: 40px;">
+                                                    <div class="col-md-6 options-left pl-1">
+                                                        <!-- <i class="fa fa-video-camera mr-3"></i>
+                               <i class="fa fa-user-plus"></i> -->
+                                                    </div>
+                                                    <div class="col-md-6 options-right text-right pr-2">
+                                                        <!-- <i class="fa fa-cog"></i> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--   BEGIN NƠI HIỂN THỊ NỘI DUNG CHAT -->
+                                            <div class="chat-content"
+                                           >
+                                                <div class="col-md-12 chats pt-3 pl-2 pr-3 pb-3" [perfectScrollbar]="{wheelPropagation: false}"
+                                                [ngStyle]="{'max-height': '70vh', 'position': 'relative'}">
+                                                    <ul class="p-0"*ngFor="let ms of list_messenger">
+                                                        <li class="send-msg float-right mb-2  comment comment-string " style="display: flex;">
+                                                            <button class="action" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                                                <mat-icon>more_vert</mat-icon>
+                                                              </button>
+                                                              <mat-menu #menu="matMenu">
+                                                                <button mat-menu-item (click)="Create_Delete(ms.idchat)">
+                                                                  <mat-icon style="color:rgb(238, 26, 61)" >delete_forever</mat-icon>
+                                                                  <span>Xóa</span>
+                                                                </button>
+                                                             
+                                                                <button mat-menu-item (click)="Create_Edit(ms,vi)">
+                                                                  <mat-icon style="color:rgb(238, 26, 192)">edit</mat-icon>
+                                                                  <span>Sửa</span>
+                                                                </button>
+                                                              </mat-menu>
+                                                            <p style=" width: 100px;" class="pt-1 pb-1 pl-2 pr-2 m-0 rounded bg-primary" style="color: white; width:100px" *ngIf="ms.userid_send==id_user_current">
+                                                               
+                                                                <span *ngIf="ms.hinhanh===null||ms.hinhanh==='';then ms1;else ms2"></span>
+                                                                <ng-template #ms1>
+                                                                    {{ms.message}}
+                                                                </ng-template>
+                                                                <ng-template #ms2>
+                                                                    <span  *ngIf="ms.message===null||ms.message===''||ms.message==='\n';then s1;else s2"></span>
+                                                                    <ng-template #s1>
+                                                                        <img  class="onlyimg" src="{{ms.imgchat}}">
+                                                                    </ng-template>
+                                                                    <ng-template #s2>
+                                                                        {{ms.message}}
+                                                                        <br>
+                                                                        <img style="margin: auto;" class="imgchat" src="{{ms.imgchat}}">
+                                                                    </ng-template>
+                                                                </ng-template>
+                                                            </p>
+                                                           
+                                                           
+                                                        </li>
+                                                        <li class="receive-msg float-left mb-2" *ngIf="ms.userid_send==id_nhan">
+                                                            <div class="sender-img" *ngFor="let items of listTT_user_receive">
+                                                                <span ></span>
+                                                                <span
+                                                                    *ngIf="items.hinhanh===null||items.hinhanh==='';then e1; else e2"></span>
+                                                                <ng-template #e2>
+                                                                    <img src="{{items.Avatar}}"  class="float-left">
+
+                                                                </ng-template>
+
+                                                                <ng-template #e1>
+
+                                                                    <img src="../../assets/media/users/avatar_macdinh.jpg"
+                                                                    class="float-left">
+
+                                                                </ng-template>
+                                                                
+                                                                    
+                                                            </div>
+                                                            <div class="receive-msg-desc float-left ml-2 comment comment-string " style="display:flex" >
+                                                               
+                                                                <p class="bg-white m-0 pt-1 pb-1 pl-2 pr-2 rounded " style="width: 100px;">
+                                                                   
+                                                                    <!-- {{ms.message}} -->
+                                                                    <span *ngIf="ms.hinhanh===null||ms.hinhanh==='';then ms1;else ms2"></span>
+                                                                    <ng-template #ms1>
+                                                                        {{ms.message}}
+                                                                    </ng-template>
+                                                                    <ng-template #ms2>
+                                                                        <span  *ngIf="ms.message===null||ms.message===''||ms.message==='\n';then s1;else s2"></span>
+                                                                        <ng-template #s1>
+                                                                            <img  class="onlyimg" src="{{ms.imgchat}}">
+                                                                        </ng-template>
+                                                                        <ng-template #s2>
+                                                                            {{ms.message}}
+                                                                            <br>
+                                                                            <img  style="margin: auto;" class="imgchat" src="{{ms.imgchat}}">
+                                                                        </ng-template>
+                                                                    </ng-template>
+                                                                  
+                                                               
+                                                                        
+                                                                        
+                                                                </p>
+                                                                <button class="action" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                                                    <mat-icon>more_vert</mat-icon>
+                                                                  </button>
+                                                                  <mat-menu #menu="matMenu">
+                                                                    <button mat-menu-item (click)="Create_Delete(ms.idchat)">
+                                                                      <mat-icon style="color:rgb(238, 26, 61)" >delete_forever</mat-icon>
+                                                                      <span>Xóa</span>
+                                                                    </button>
+                                                                 
+                                                                    <button mat-menu-item (click)="Create_Edit(ms,vi)">
+                                                                      <mat-icon style="color:rgb(238, 26, 192)">edit</mat-icon>
+                                                                      <span>Sửa</span>
+                                                                    </button>
+                                                                  </mat-menu>
+                                                            </div>
+                                                        </li>
+                                                       
+                                                    </ul>
+                                                    <div *ngIf="image">
+                                                        <!-- <button (click)="CloseIMG()" mat-icon-button>
+                                                            <mat-icon style="    margin-top: 130px;
+                                                            margin-right: -250px;
+                                                            background:greenyellow;
+                                                        
+                                                            margin-left: 170px;
+                                                        "  class="clear">clear</mat-icon>
+                                                        </button> -->
+                                                       
+                                                      
+                                                        <img style="width:100px;height: 100px;margin: 10px; border-radius: 5px; margin-left: 140px;" [src]="image" > 
+                                                     
+                                                            <mat-icon  class="clear" (click)="CloseIMG()"style="float: right;
+                                                            margin-top: -120px;    margin-top: -120px;  margin-right: 90px;}">clear</mat-icon>
+                                                         
+                                                       
+                                                    </div>
+                                                </div>
+                                                <div style="	background:white;" class="col-md-12 p-2 msg-box ">
+                                                    <div class="row" style="height:40px">
+                                                        <div class="col-md-2 options-left">
+                                                            <i class="fa fa-smile-o"></i>
+                                                        </div>
+                                                        <div class="col-md-7 pl-0">
+                               
+                                                            <mat-form-field style=" width: 200px;
+                                                                                    margin: -5px;
+                                                                                    height: 50px;
+                                                                                            
+                                                                                    margin-left: -41px;" class="example-full-width">
+                                                                <textarea (keydown.enter)="SendMessage()" style="  margin-left:5px" matInput [(ngModel)]="noidung"
+                                                                    placeholder="Send message"></textarea>
+                                                                   
+                                                                 
+                                                            </mat-form-field>
+                                                         
+                                                                
+                                                            
+                                                                
+                                                             
+
+                                                            <button style="float: right;
+                                                            margin-right: -80px;
+                                                            margin-left: 10px;
+                                                            margin-top: -30px;" (click) ="toggleEmojiPicker()" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                                                <span style="font-size:20px;">😀</span>
+                                                              </button>
+                                                              <mat-menu  #menu="matMenu">
+                                                                <span (click)="$event.stopPropagation(); false;">
+                                                                    <emoji-mart class="emoji-mart" set="{{set}}" (emojiSelect)="addEmoji($event)" title="Pick your emoji…"></emoji-mart>
+                                                                </span>
+                                                              </mat-menu>       
+                                                             
+                                                               <div class="attachment">
+                                                                <!-- up load file -->
+                                                                <button style="float: right;padding-left: 35px; margin-right: -25px;" mat-icon-button type="button" (click)="hiddenfileinput.click()"
+                                                                matTooltip="Upload File">
+                                                                <mat-icon style="margin-top: -55px;">attach_file</mat-icon>
+                                                              </button>&nbsp;
+                                                              <input type='file' id="PDFInpdd" #hiddenfileinput (change)="onSelectFile_PDF($event)" style="display: none;">
+                                                                <!-- </div> -->
+                                                              </div>
+                                                                
+                                   </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                             <!--   END NƠI HIỂN THỊ NỘI DUNG CHAT -->
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                             <!-- HIỂN THỊ CHÁT BOX THỨ 3 -->
+                           
+
+
+                               <!-- end nơi hiển thị khung chat và show chat -->
+
+
+
+
+                              
+                            <a href="javascript:;" class="kt-notification__item"
+                                (click)="ShowOrHideComment(item.ID_user,vi)">
+                                <!-- duyệt mảng -->
+                                <div class="kt-notification__item-icon">
+
+
+                                    <div style="margin-right: 20px;" class="kt-notification__item-icon">
+                                        <!-- icon mũi tên -->
+
+                                        <!-- kiểm tra điều kiện lưu trong mảng -->
+                                        <!-- *ngIf="item.acti==='false';then online;else offline" -->
+                                        <span *ngIf="item.TinhTrang===true;then online;else offline">
+
+                                        </span>
+                                        <ng-template #online>
+
+
+                                            <div class="avatar avatar-32 -circled -online">
+
+                                                <span *ngIf="item.hinhanh===null;then e1; else e2"></span>
+                                                <ng-template #e2>
+                                                    <div class="image">
+                                                        <img class="imgavatar" src="{{item.Avatar}}">
+
+                                                    </div>
+                                                </ng-template>
+
+                                                <ng-template #e1>
+                                                    <div class="image">
+                                                        <img class="imgavatar" src="../../assets/media/users/avatar_macdinh.jpg">
+
+                                                    </div>
+                                                </ng-template>
+
+                                            </div>
+                                        </ng-template>
+
+                                        <ng-template #offline>
+
+                                            <div class="avatar avatar-32 -circled -offline">
+
+                                                <span *ngIf="item.hinhanh===null;then e1; else e2"></span>
+                                                <ng-template #e2>
+                                                    <div class="image">
+                                                        <img  class="imgavatar"src="{{item.Avatar}}">
+
+                                                    </div>
+                                                </ng-template>
+
+                                                <ng-template #e1>
+                                                    <div class="image">
+                                                        <img class="imgavatar" src="../../assets/media/users/avatar_macdinh.jpg">
+
+                                                    </div>
+                                                </ng-template>
+
+                                            </div>
+                                        </ng-template>
+
+                                        <!-- <img src="./assets/media/users/avatar_tuan.jpg"  > -->
+
+                                    </div>
+                                </div>
+                                <div class="kt-notification__item-details">
+                                    <div class="kt-notification__item-title">
+                                        {{item.Username}}
+                                    </div>
+                                    <span *ngIf="item.TinhTrang===false;then s1;else s2"></span>
+                                    <ng-template #s1>
+                                        <div class="kt-notification__item-time">
+                                            Offline
+                                        </div>
+                                    </ng-template>
+
+                                    <ng-template #s2>
+                                        <div class="kt-notification__item-time">
+                                            Online
+                                        </div>
+                                    </ng-template>
+
+                                </div>
+                            </a>
+
+
+
+                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </ng-template>
+            </ngb-tab>
+
+
+        </ngb-tabset>
+
+    </mat-card>
+</div>
+
+</div>

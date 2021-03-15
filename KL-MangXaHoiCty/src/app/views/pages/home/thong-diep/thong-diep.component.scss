@@ -1,0 +1,350 @@
+
+
+#live-side {
+  
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    // margin-left: 15px;
+    margin-right: -10px;
+
+   
+}
+.pull-right {
+    // position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+  
+}
+.pull-right {
+    float: right;
+}
+#live-epage {
+ padding: 0;
+}
+#live-side .section .row .index {
+    font-size: 11px;
+    font-weight: 500;
+    position: absolute;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid rgba(61, 137, 224, 0.8);
+    background: rgba(61, 137, 224, 0.8);
+    color: #fff;
+    top: 9px;
+    left: 15px;
+    padding-top: 5px;
+    line-height: 16px;
+    margin-left: 4px;
+}
+#live-side .section .box {
+    position: relative;
+    padding: 0;
+}
+#live-side .section .subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    padding: 12px 15px;
+}
+
+#live-side .section .subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    padding: 12px 15px;
+}
+.inside-anniversary {
+    position: relative;
+}
+.inside-anniversary-image {
+    position: absolute;
+    left: 20px;
+    width: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+img {
+    border: none;
+    overflow: hidden;
+    font-size: 10px;
+    color: transparent;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+}
+.inside-anniversary > .info {
+    padding: 12px 12px 12px 60px;
+}
+.inside-anniversary-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+.inside-anniversary-info {
+    font-size: 13px;
+    color: #666;
+}
+#live-side .section .box {
+    position: relative;
+    padding: 0;
+}
+#live-side .section .subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    padding: 12px 15px;
+}
+.list.home-links .li:hover{
+    background-color:#75716f;
+    color: white;
+}
+
+#live-side .implinks .implink.-rule {
+    background: rgba(216,87,67,0.1);
+    color: #d74128;
+   
+  
+}
+.xdot, .ap-xdot {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+#live-side .implinks .implink.-rule:hover
+{
+    background-color:#d74128;
+    color:white;
+}
+
+#live-side .implinks .implink.-news:hover
+{
+    background-color:#d74128;
+    color:white;
+}
+#live-side .implinks .implink {
+    // padding: 12px 15px 12px 40px;
+    padding-top: 15px;
+    padding-bottom: 12px;
+    position: relative;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#live-side .ceo-letter:hover
+{
+    background-color:green;
+}
+.list.home-links .li{
+    padding: 11px 16px 11px 40px;
+    position: relative;
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+   
+}
+// font icon ở lưu trữ
+.list.home-links .li .-ap {
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    top: 13px;
+    left: 16px;
+}
+.url {
+    cursor: pointer;
+}
+.section-subtitle {
+    color: #d85743;
+    background: rgba(216,87,67,0.1);
+    padding: 8px 15px !important;
+}
+.xdot, .ap-xdot {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+#live-side .section .row {
+    position: relative;
+    font-size: 13px;
+    cursor: pointer;
+    // border-bottom: 1px solid #eee;
+    padding: 15px 15px 15px 50px;
+}
+.xdot, .ap-xdot {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+#live-side .section .subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    padding: 12px 15px;
+}
+.xdot, .ap-xdot {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+#live-side .section {
+    border: 1px solid #dedede;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.9);
+}
+#live-side .ceo-letter {
+    background-color: #ED6334;
+    color: rgba(255,255,255,0.75);
+    padding: 10px 15px 10px 55px;
+    -moz-border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    cursor: pointer;
+}
+#live-side .ceo-letter .icon {
+    font-size: 28px;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+}
+#live-side .ceo-letter .title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+}
+#live-side .ceo-letter .name {
+    font-size: 15px;
+    color: #fff;
+    padding-top: 4px;
+    padding-bottom: 5px;
+}
+.xdot, .ap-xdot {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+//icon ở thông điệp
+
+.ficon-star:before {
+    font-family: LineAwesome;
+    content: "\f31a";
+
+
+}
+
+.icon-heart-outlined:before {
+    font-family: LineAwesome;
+    content: "\f233";
+    margin-left: 4px;
+}
+.icon-newspaper:before {
+    font-family: LineAwesome;
+    content: "\f29c";
+    margin-left: 4px;
+}
+[class^="ficon-"], [class*=" ficon-"] {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal; 
+    text-decoration: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+}
+#live-side .section .row:after {
+       // content: "\e111";
+    font-family: "LineAwesome";
+    content: "";
+
+    font-size: 0.8rem;
+    position: absolute;
+    color: #aaa;
+  
+    right: 15px;
+    top: 13px;
+    border-bottom: unset;
+}
+// icon trước đánh dấu
+.icon{
+    float: left;
+    padding-right: 3px;
+}
+.icon-pin3:before {
+    font-family: "LineAwesome";
+    content: "\f17c";
+    
+}
+
+.icon-bullhorn:before {
+    font-family: "LineAwesome";
+    content: "\f156";
+}
+.icon-chat:before {
+    font-family: "LineAwesome";
+    content: "\f377";
+}
+.icon-gift2:before {
+    font-family: "LineAwesome";
+    content: "\f212";
+}
+.-ap, .ap {
+    font-family: 'ap' !important;
+  
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.list.home-links .li:after {
+    font-family: ap;
+    // content: "\e111";
+    font-family: "LineAwesome";
+    content: "";
+
+    font-size: 0.8rem;
+    position: absolute;
+    color: #aaa;
+    right: 16px;
+    top: 16px;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.paddingDiv:focus {
+	outline: 0;
+  }
+

@@ -1,0 +1,220 @@
+<!--begin: Messenger -->
+
+<style>
+	
+		
+	/* position: absolute; */
+
+
+	.clear
+    {
+        border-radius: 50%;
+    }
+.clear:hover
+{
+
+    border-radius: 50%;
+    background:lightgray
+}
+.kt-notification .kt-notification__item:after {
+border: 0;
+font-family: "LineAwesome";
+text-decoration: inherit;
+text-rendering: optimizeLegibility;
+text-transform: none;
+-moz-osx-font-smoothing: grayscale;
+-webkit-font-smoothing: antialiased;
+/* font-smoothing: antialiased; */
+content: "";
+font-size: 0.8rem;
+line-height: 0;
+position: relative;
+color: #74788d;
+}
+
+.input
+{
+margin-left: 30px;
+
+}
+img {
+border-radius:50%;
+-moz-border-radius:50%;
+-webkit-border-radius:50%;
+width:40px;
+height: 40px;
+}
+.avatar.-online {
+position: relative;
+overflow: visible;
+}
+
+.avatar.avatar-32 {
+width: 32px;
+height: 32px;
+}
+
+
+.avatar.-online:after {
+content: "";
+width: 10px;
+height: 10px;
+border: 1px solid #fff;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+border-radius: 6px;
+position: absolute;
+right: -6px;
+top: 28px;
+background-color: #63b814;
+z-index: 100;
+}
+
+.avatar.-ofline:after {
+content: "";
+width: 10px;
+height: 10px;
+border: 1px solid #fff;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+border-radius: 6px;
+position: absolute;
+right: -6px;
+top: 28px;
+/* background-color: #63b814; */
+z-index: 100;
+}
+
+.avatar.avatar-32.-circled, .avatar.avatar-32.-circled > .more, .avatar.avatar-32.-circled > .image {
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+}
+
+.mat-icon{
+font-size: 25px;
+color:crimson;
+}
+/* .mat-card{
+position: fixed;
+} */
+
+
+
+</style>
+<div ngbDropdown placement="bottom" autoClose="outside" class="kt-header__topbar-item"  >
+<div ngbDropdownToggle class="kt-header__topbar-wrapper">
+	<span class="kt-header__topbar-icon" matBadge="{{list_userchat.length}}" matBadgeColor="accent"   [ngClass]="{ 'kt-header__topbar-icon--warning': iconType === 'warning' }">
+		<i *ngIf="!useSVG" [ngClass]="icon"></i>
+		
+		<span *ngIf="useSVG" class="kt-svg-icon"    [inlineSVG]="icon" [ngClass]="{ 'kt-svg-icon--warning': iconType === 'warning' }" ></span>
+		<span class="kt-pulse__ring" [hidden]="!pulse"></span>
+	</span>
+</div>
+<div ngbDropdownMenu class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-lg">
+	<form>
+		<!--begin: Head -->
+		<div class="kt-head kt-head--skin-{{skin}}" [ngStyle]="{'background-image': 'url('+bgImage+')'}">
+			<h3 class="kt-head__title" >
+					Messenger of User 
+				<span class="kt-space-15"></span>
+				<span class="btn btn-success btn-sm btn-bold btn-font-md">{{list_userchat.length}}</span>
+			</h3>
+		</div>
+		
+			 
+			<div  class="kt-notification__item-icon" style="margin-top: 10px;">
+				<mat-icon style="float: left; margin-top: 10px;"  color="" class="search-icon">search_outline</mat-icon>
+				<div class="input" >
+				  <form>
+					<input  [(ngModel)]="searchText" name="Username"  placeholder="Search " type="text">
+				  </form>
+				</div>
+			  </div>
+			  <div [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '40vh', 'position': 'relative'}">
+
+			 
+			<div  *ngFor="let item of list_userchat "  class="kt-notification kt-margin-t-10 kt-margin-b-10 ">
+				
+				
+
+				
+			  <a [routerLink]="['/mymessenger/chat',item.id_user_nhan]"  href="javascript:;" class="kt-notification__item " *ngFor="let user of item.TT_user | filter:searchText">
+			  
+				<div style="margin-right: 20px;" class="kt-notification__item-icon" >
+				  <!-- icon mũi tên -->
+				  <span *ngIf="user.TinhTrang===true;then online; else offline"></span>
+				  <ng-template #offline>
+					<div class="avatar avatar-32 -circled -ofline"> 
+						<div class="image"> 
+							<span *ngIf="user.hinhanh===null;then e1; else e2"></span>
+				<ng-template #e2>
+				  <img class="avatar" src="{{user.avatar}}">
+
+				</ng-template>
+
+				<ng-template #e1>
+
+				  <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+
+				</ng-template>
+					  
+					  </div>
+					
+			
+					  <!-- <img src="./assets/media/users/avatar_tuan.jpg"  > -->
+					</div>
+				  </ng-template>
+				  <ng-template #online>
+					<div class="avatar avatar-32 -circled -online"> 
+						<div class="image"> 
+							<span *ngIf="user.hinhanh===null;then e1; else e2"></span>
+				<ng-template #e2>
+				  <img class="avatar" src="{{user.avatar}}">
+
+				</ng-template>
+
+				<ng-template #e1>
+
+				  <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+
+				</ng-template>
+					  
+					  </div>
+					
+			
+					  <!-- <img src="./assets/media/users/avatar_tuan.jpg"  > -->
+					</div>
+				  </ng-template>
+					
+				</div>
+			  
+				<div class="kt-notification__item-details">
+				  <div class="kt-notification__item-title">
+					{{user.Username}}
+				  </div>
+				  <div class="kt-notification__item-time">
+					{{item.Mess.message}}
+				  </div>
+				</div>
+				<mat-icon style="font-size: 20px;" class="clear">clear</mat-icon>
+			  </a>
+		
+		 
+			  <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+				<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+			  </div>
+			  <div class="ps__rail-y" style="top: 0px; right: 0px;">
+				<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+			  </div>
+			</div>
+		 
+		</div>
+
+		<!--end: Head -->
+		<!--begin: Grid Nav -->
+	
+	</form>
+</div>
+</div>
+<!--end:Messenger -->

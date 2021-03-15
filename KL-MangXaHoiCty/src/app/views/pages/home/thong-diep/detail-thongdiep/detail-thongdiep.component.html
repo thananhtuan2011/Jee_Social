@@ -1,0 +1,194 @@
+<style>
+
+    span{
+      display:flex;flex-direction:column;
+      
+    }
+    .user{
+      position: fixed;
+    }
+  
+      .mat-card{
+          width: 100%;
+        }
+       
+      @media screen and (max-width: 1030px) and (min-width: 900px) {
+      .khung{
+          width: 30%;
+         
+         
+        }
+      }
+      .avatar {
+    border-radius: 50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+  }
+  .avatarluotxem {
+    border-radius: 50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius: 50%;
+    width: 37px;
+    height: 37px;
+    background-size: cover;
+  }
+
+  </style>
+  
+  <div *ngFor="let item of listThongdiep" class="khung" style="background-color: lightgrey;" fxLayout="row" fxLayoutAlign=" start" fxLayout.xs="column" fxFlexFill fxHide.yba  >
+             <!-- begin contetn left -->
+              <div  fxFlex="330px" 
+                style="padding: 2px;margin-bottom: 1em ;margin-right: 5px;">
+               <!-- <kt-content-left></kt-content-left>
+                
+   -->
+   <mat-card class="example-card" >
+    <!-- <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header> -->
+    <span *ngIf="item.hinhanh!=null ||item.hinhanh!='';then s1;else s2"></span>
+    <ng-template #s2>
+      <div style="text-align:center" >
+        <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+    <mat-card-content>
+      <span>{{item.hoten}}</span>
+      <br>
+      <p>
+      {{item.chucvu}}
+      </p>
+    
+    </mat-card-content>
+</div>
+    </ng-template>
+
+    <ng-template #s1>
+      <div style="text-align:center" >
+        <img class="avatar" src="{{item.Avatar}}">
+    <mat-card-content>
+
+      <span>{{item.hoten}}</span>
+      <br>
+      <p>
+      {{item.chucvu}}
+      </p>
+    </mat-card-content>
+</div>
+    </ng-template>
+   
+    <mat-card-actions>
+      <!-- <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button> -->
+    </mat-card-actions>
+  
+  </mat-card>
+
+  <div style="margin-top:15px" *ngFor="let lx of count_lx">
+    <span  style="margin-left: 10px;font-weight: bold;">{{lx.luotxem}} nguười đã xem</span>
+  </div>
+  <div style="display: flex;">
+
+ 
+  <div  style="margin-top:5px" *ngFor="let itu of listUserXem" >
+    <!-- <img src="{{itu.Avatar}}">  -->
+    <div *ngFor="let us of itu.User_Xem" >
+      <span *ngIf="us.hinhanh===null||us.hinhanh==='';then d1;else d2"></span>
+        <ng-template #d1>
+          <img style="margin-left: 10px;" class="avatarluotxem" src="../../assets/media/users/avatar_macdinh.jpg">
+        </ng-template>
+        <ng-template #d2>
+          <img style="margin-left: 10px;"  class="avatarluotxem"src="{{us.Avatar}}">
+        
+        </ng-template>
+    </div>
+    
+  </div>
+</div>
+
+              </div>
+  
+                  <!-- end contetn left -->
+  
+  
+                   <!-- begin contetn mid  home  -->
+              <div style="text-align: center"   fxFlex="800px"
+                style="padding: 2px;margin-bottom: 1em">
+  
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title style="font-weight: bold;font-size:25px">{{item.title}}</mat-card-title>
+                      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+                    </mat-card-header>
+                
+                    <mat-card-content>
+                      <p>
+                        {{item.noidung}}
+                      </p>
+                    </mat-card-content>
+                    <span *ngIf="item.media===null||item.media==='';then c1;else c2"></span>
+                    <ng-template #c2>
+                      <img style=" height: 300px;
+                      width: 775px;  margin-left: -5px;" src="{{item.imgmedia}}">
+                    </ng-template>
+                    <ng-template #c1>
+                      <img style=" height: 300px;
+                      width: 775px;  margin-left: -5px;" src="https://static-devgcs.basecdn.net/inside/image/components/default-letter.png">
+                    </ng-template>
+                
+
+       
+
+
+                   
+                 
+                      <mat-card-actions>
+                     
+                     <span *ngIf="item.ghim===false;then k1;else k2"></span>
+                        <ng-template #k1>
+                        <button mat-button (click)="Ghim()">Ghim</button>
+                      </ng-template>
+
+
+                      <ng-template #k2>
+                     
+                        <button mat-button (click)="UpdateGhim()"> <mat-icon>assistant_photo</mat-icon>Đã Ghim</button>
+
+                    </ng-template>
+                      </mat-card-actions>
+               
+                
+                 
+                  </mat-card>
+                  
+            
+               <!-- <router-outlet ></router-outlet> -->
+                              
+              </div>
+                 <!-- end contetn mid  home  -->
+  
+  
+                    <!-- begin contetn thong diem  home  -->
+                <!-- <div  fxFlex="230px" 
+                style="padding: 2px;margin-bottom: 1em;">
+              
+              </div> -->
+           
+     
+     
+              <div   fxFlex="50px"
+              style="padding: 2px; margin-left: 20px;">
+                   <!-- <kt-tool-user-right></kt-tool-user-right> -->
+          </div>
+             <!-- end contetn user right -->
+           
+    </div>
+  
+  
+  
+  
+  

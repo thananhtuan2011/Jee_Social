@@ -1,0 +1,81 @@
+
+.khung {
+    display: block;
+    padding: 24px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    // width: 100%;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+}
+.__customdialog .__dialogcontent {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    font-size: 15px;
+    overflow: hidden;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 2px 8px 0px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 0 2px 8px 0px rgba(0,0,0,0.8);
+    box-shadow: 0 2px 8px 0px rgba(0,0,0,0.8);
+}
+.__customdialog .__dialogwrapper {
+    position: relative;
+   float: left;
+    padding-bottom: 40px;
+    -webkit-transition-property: top;
+    -moz-transition-property: top;
+    -o-transition-property: top;
+    transition-property: top;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+}
+.__customdialog .__dialogwrapper-inner {
+    margin: auto;
+    overflow: hidden;
+}
+
+.list.list-action-boxes {
+    margin-right: -1px;
+    margin-bottom: -1px;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.list.list-action-boxes .li {
+    width: 200px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    height: 180px;
+    background-color: #fff;
+}
+.list.list-action-boxes .li .-icon {
+    max-width: 120px;
+    height: 120px;
+    margin: auto;
+}
+.list.list-action-boxes .li .label {
+    font-size: 14px;
+    color: #888;
+}
+
+.list.list-action-boxes .li:hover {
+    background: rgba(255,208,0,0.1);
+    color: #111;
+    font-weight: 500;
+}
+

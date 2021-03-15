@@ -1,0 +1,198 @@
+<div class="main-content" >
+	<!-- *ngFor="let item of list_userprofile" -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Edit Profile</h4>
+						<p class="card-category">Thông tin user 
+
+							<button  (click)="ChangePassWork()" style="width:150px;float: right;" mat-raised-button type="submit"
+							 class="btn btn-danger pull-right">Thay Đổi Mật Khẩu</button>
+						</p>
+					
+					</div>
+					
+			
+                    <div class="card-body">
+                        
+<div class="kt-login__body">
+	<!--begin::Signin-->
+	<div class="kt-login__form">
+		<div class="kt-login__title">
+			<!-- <h3 style="text-align:center">{{ 'AUTH.REGISTER.TITLE' | translate }}</h3> -->
+		</div>
+
+
+
+		<form class="kt-login__form kt-form" [formGroup]="registerForm" autocomplete="off">
+			<div class="form-group">
+			
+			</div>
+
+			<div class="form-group">
+				<mat-form-field>
+					<mat-label>Username</mat-label>
+					<input matInput type="text" formControlName="username"
+              [(ngModel)]="Username"
+							required
+					
+					/>
+					<!-- icon của user -->
+					<mat-icon matSuffix>account_box</mat-icon>
+					<mat-error *ngIf="registerForm.hasError('required','username')">
+						<!-- <strong>{{ 'AUTH.VALIDATION.REQUIRED_FIELD' | translate }}</strong> -->
+						Username <strong> is required</strong>
+					</mat-error>
+			
+				</mat-form-field>
+			</div>
+			<div class="form-group">
+				<mat-form-field>
+					<mat-label>Phone</mat-label>
+					<input matInput type="text" formControlName="phone"
+          [(ngModel)]="sdt"
+							required
+							minlength=5
+							maxlength=11
+					
+					/>
+					<!-- icon của user -->
+					<mat-icon matSuffix>phone</mat-icon>
+					<mat-error *ngIf="registerForm.hasError('required','phone')">
+					
+						Phone <strong> is required</strong>
+					</mat-error>
+					<mat-error *ngIf="registerForm.hasError('minlength','phone')">
+						Phone <strong> is minlength 5</strong>
+					</mat-error>
+
+					<mat-error *ngIf="registerForm.hasError('maxlength','phone')">
+						Phone <strong> is maxlength 11</strong>
+					</mat-error>
+				
+				</mat-form-field>
+			</div>
+		
+			<div class="form-group">
+				<mat-form-field>
+					<mat-label>Address</mat-label>
+					<input matInput type="text" formControlName="address" autocomplete="off"
+							required
+              [(ngModel)]="diachi"
+					/>
+					<mat-icon matSuffix>address</mat-icon>
+					<mat-error *ngIf="registerForm.hasError('required','address')">
+						Address <strong> is required</strong>
+					</mat-error>
+				
+        </mat-form-field>
+        <mat-form-field>
+					<mat-label>Giới tính</mat-label>
+					<input matInput type="text" formControlName="gioitinh" autocomplete="off"
+							required
+              [(ngModel)]="gioitinh"
+					/>
+					<mat-icon matSuffix>assignment_ind</mat-icon>
+					<mat-error *ngIf="registerForm.hasError('required','address')">
+						Giới tính <strong> is required</strong>
+					</mat-error>
+				
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker1" placeholder="Ngày sinh " formControlName="date" required
+         
+          [(ngModel)]="ngaysinh"
+          >
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+			</div>
+			
+		
+			
+			<div class="form-group">
+				<mat-checkbox name="agree" formControlName="agree">
+					I agree the <a href="javascript:;">terms & conditions</a>
+				</mat-checkbox>
+			</div>
+
+			<!--begin::Action-->
+			<div style="text-align: center;" class="kt-login__actions">
+				
+				<button  style="text-align: center;"(click)="onsubmit()" id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}">Submit</button>
+				<!-- <button routerLink="/auth/login" [disabled]="loading" id="kt_login_signup_cancel" class="btn btn-secondary btn-elevate kt-login__btn-secondary">{{ 'AUTH.GENERAL.BACK_BUTTON' | translate }}</button> -->
+				<!-- <button  (click)="TabIndex.selectedIndex = 0" id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}">Register</button> -->
+			</div>
+			<!--end::Action-->
+		</form>
+	</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                           
+                        </a>
+                    </div>
+                    <div class="card-body">
+						<div>
+
+						</div>
+					   
+						<div class="attachment">
+							<!-- up load file -->
+							<div class="kt-login__title"*ngFor="let it of list_userprofile " style="display:flex">
+               
+								<!-- <div >
+									<img style="width:250px;height: 250px;" [src]="image" *ngIf="image">
+							</div> -->
+							<span *ngIf="image;then a1; else a2"></span>
+									<ng-template #a1>
+										<img  style="width:40px; height:40px;border-radius:50%; margin-right:10px" [src]="image" >
+									</ng-template>
+									<ng-template #a2>
+										<span *ngIf="it.hinhanh===null ;then e1; else e2"></span>
+										<ng-template #e2>
+										  <img style="width:40px; height:40px;border-radius:50%; margin-right:10px"  alt="" mat-card-avatar class="avatar" src="{{it.Avatar}}">
+										</ng-template>
+								
+										<ng-template #e1>
+										  <img style="width:40px; height:40px;border-radius:50%; margin-right:10px"  alt="" mat-card-avatar class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+										</ng-template>
+									</ng-template>
+							
+
+								
+						
+								<div style="display:flex;flex-direction: column;margin-left: 15px;">
+
+								  <span style="font-weight: bold;"> {{it.Username}}</span>
+				
+									<p>{{it.chucvu}}</p>
+								</div>
+				
+							  </div>   
+							<button  class="btn btn-danger btn-round" style="float: right;"  type="button" (click)="hiddenfileinput.click()"
+							  matTooltip="Upload Img">
+							  Chọn Ảnh
+							</button>&nbsp;
+							<input type='file' id="PDFInpdd" #hiddenfileinput (change)="onSelectFile_PDF($event)" style="display: none;">
+							<!-- </div> -->
+						  </div>
+                        <!-- <a href="javascript:void(0)" class="btn btn-danger btn-round">Chọn Ảnh</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+

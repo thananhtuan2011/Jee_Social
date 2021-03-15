@@ -1,0 +1,91 @@
+<div class="kt-grid kt-grid--desktop kt-grid--ver kt-grid--ver-desktop kt-app tab-tuychinh" style="margin-bottom: -80px;">
+    <!--Begin:: App Aside-->
+    <div class="kt-grid__item kt-app__toggle kt-app__aside position-relative" style="width:250px;">
+        <div class="kt-portlet tab-tuychinh--menu">
+            <div class="kt-portlet__body kt-portlet__body--fit-y" style="height:800px">
+                <!--begin::Widget -->
+                <div class="kt-widget kt-widget--user-profile-1" >
+                    <div class="kt-widget__body"  >
+                        <div class="kt-widget__items pt-15" >
+							     <!-- <i class="fa fa-comment"></i> -->
+                            <h5 style="color:rgb(64, 131, 218);text-align: center;
+							margin-top: 25px; margin-left: 30px;" class="fa fa-comment">My Messenger</h5>
+						<div  class="messages">
+
+						
+						<div *ngFor="let item of list_userchat" >
+
+						
+							<div *ngFor="let user of item.TT_user" >
+
+								
+                            <a [routerLink]="['./chat',item.id_user_nhan]" [routerLinkActiveOptions]="{exact:true}" class="kt-widget__item " routerLinkActive="kt-widget__item--active">
+                                <span class="kt-widget__section">
+									<span class="kt-widget__icon">
+										<span *ngIf="user.hinhanh===null;then e1; else e2"></span>
+                    <ng-template #e2>
+                      <img class="avatar" src="{{user.avatar}}">
+
+                    </ng-template>
+
+                    <ng-template #e1>
+
+                      <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+
+                    </ng-template>
+									
+									</span>
+                                <span class="kt-widget__desc">
+									{{user.Username}}
+									<p style="margin-left: 50px;
+									font-size: 10px;
+								
+									margin-top: -15px;">	{{item.Mess.message}}</p>
+									
+						
+									</span>
+                                </span>
+							</a>
+						</div>
+					</div>
+                           
+				</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--end::Widget -->
+            </div>
+        </div>
+        <!--end:: Widgets/Applications/User/Profile1-->
+    </div>
+    <!--End:: App Aside-->
+    <div class="kt-grid__item kt-grid__item--fluid kt-app__content tab-tuychinh--item">
+      
+            <div class="kt-portlet__body kt-portlet__body--fit-y">
+				
+				<router-outlet>
+
+				
+				</router-outlet>
+				
+			</div>
+			<div *ngFor="let u of listTT_user">
+				<img  style="height: 400px;
+				width: 1030px;"  src="../../assets/media/bg/bg_chat.jpg">
+				<span  style="margin: -100px;
+				    font-weight: bold;
+					color: darkcyan;
+				margin-left: -600px; font-size:25px" >Welcome Chat <br> <p  style="text-align: center;
+
+
+    margin: -100px;
+    margin-left: -200px;
+    margin-top: -180px;">{{u.Username}}</p>  </span> 
+				
+			</div>
+			
+        
+	</div>
+	
+</div>

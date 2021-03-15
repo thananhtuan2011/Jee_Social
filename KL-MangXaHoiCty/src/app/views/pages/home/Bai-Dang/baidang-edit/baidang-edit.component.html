@@ -1,0 +1,105 @@
+<style>
+    .post {
+        text-align: center;
+        width:480px;
+        height: 35px;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        border-radius: 20px;
+            /* background-color:lightgreen;
+            color:#FFf; */
+            background-color:rgb(19, 173, 58);
+           color:white;
+        border:none;
+       
+
+    }
+
+    .angular-editor-textarea{
+    min-height: 150px;
+    overflow: auto;
+    margin-top: 5px;
+    resize: vertical;
+    outline: none;
+}
+.post:hover{
+    background-color:rgb(7, 11, 207);
+}
+</style>
+<div class="__dialogwrapper" style="left: 433px;top: 131.5px;" [perfectScrollbar]="{wheelPropagation: false}" >
+    <div class="__dialogwrapper-inner">
+        <div class="__dialogmain">
+            <div class="__dialogtitle ap-xdot">
+               
+            </div>
+            <div class="__dialogcontent simple-form">
+                <div id="post-status" class="__apdialog" title="" style="width: 500px;">
+                    <div class="title">
+                        <div class="icon_">
+                            <button mat-icon-button style="float: right;padding-bottom: 15px;" (click)="CloseDia()">
+
+                       
+                                <mat-icon class="close icon_" style="float: right; padding: 0px;" (click)="closeDilog()">close</mat-icon>
+                            </button>
+                        </div>
+                      
+                       <span style="font-size:20px;text-align:center;">Tạo Tin Tức </span>
+                        <div class="-close -wrap inside-popup-form__button inside-popup-form__button--close"
+                            onclick="AP.closeDialog(this);"></div>
+                    </div>
+                    <div>
+                        <form action="api/update/create" id="post-create-fly"> <input type="hidden" name="channel"
+                               ><input type="hidden" >
+                            <div class="textarea " style=" position: relative;height: 80px; margin-bottom: -10px;">
+                                 <!-- <img
+                                src="{{items.Avatar}}"
+                                    alt=" CEO" class="icon"> 
+                                     -->
+                                     <span>{{htmlContent}}</span>
+                                    
+                                    <mat-form-field style="width:420px;height:40px ;">
+                                        <!-- <textarea matInput placeholder="Leave a comment"></textarea>
+                                     -->
+                                    <textarea name="content"
+                                    [(ngModel)]="tieude"
+                                   
+                                    matInput placeholder="Bạn muốn chia sẻ điều gì?"
+                                    #emailInput="ngModel"
+                                    id="content" class="__autoresized __autoc" data-role="editor" autocomplete="off"
+                                    style="overflow: hidden; overflow-wrap: break-word; height: 46px;margin-top: 12px;"></textarea>
+                                </mat-form-field>
+                                </div>
+
+                                <!-- <div class="col-md-12 m--margin-bottom-10-mobile">
+                                    <editor   [formControl]="dulieu" [(ngModel)]="htmlContent"  ></editor>
+                                </div> -->
+                                <span>{{t}}</span>
+                                <div style=" margin:15px">
+                                 
+                                    <ckeditor    [editor]="editor" [data]="dl" [formControl]="dulieu" ></ckeditor>
+
+                                    <!-- <textarea  [formControl]="dulieu" placeholder="Nhập nội dung !" style="outline: none;" rows="5" cols="70"
+                                        name="comment" form="usrform">
+                                       </textarea> -->
+                                </div>
+                            
+                            <div class="is-disabled">
+
+                           
+                              <button (click)="submit()" class="post">
+                                <!-- <meta charset="utf-8"> -->
+                                <!-- <span> {{htmlContent}}</span>  -->
+                                <mat-icon style="font-size: 15px;" aria-hidden="false" aria-label="Example home icon">screen_share</mat-icon>
+                                  <span style="font-size:18px;" >Cập Nhật</span>
+                              </button> 
+                            </div>
+                         
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

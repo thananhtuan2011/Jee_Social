@@ -1,0 +1,62 @@
+<style>
+    
+     .avatar {
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      width: 42px;
+      height: 40px;
+      background-size: cover;
+    }
+  </style>
+
+<div class="kt-portlet" [ngClass]="{ 'kt-portlet--body-progress kt-portlet--body-progress-overlay' : viewLoading }">
+	<div class="kt-portlet__head kt-portlet__head__custom">
+		<div class="col-md-12 kt-margin-bottom-10-mobile" style="margin-top: 20px;">
+			<h3 class="kt-portlet__head-title">Edit Group</h3>
+        </div>
+
+        
+
+	</div>
+	<div class="kt-portlet__body">
+		<div class="form-group kt-form__group row">
+
+            
+        <div class="kt-login__form">
+            <div class="kt-login__title"*ngFor="let item of listTT_user " style="display:flex">
+               
+				<span *ngIf="item.hinhanh_user===null;then e1; else e2"></span>
+				<ng-template #e2>
+				  <img style="width: 42px; height: 42px;border:2px solid rgb(57, 45, 230);margin-left: 20px;" alt="avatar" class="avatar"
+				  src="{{item.Avatar}}">
+				</ng-template>
+		
+				<ng-template #e1>
+				  <img style="width: 42px; height: 42px;border:2px solid rgb(57, 45, 230);margin-left: 20px;" alt="avatar" class="avatar"
+				  src="../../assets/media/users/avatar_macdinh.jpg">
+				</ng-template>
+                <!-- <img style="margin-left: 15px;" class="avatar" src="{{item.Avatar}}"> -->
+                <div style="display:flex;flex-direction: column;margin-left: 15px;">
+                  <span style="font-weight: bold;">  {{item.Username}}</span>
+
+                    <p>Quản trị viên</p>
+                </div>
+
+              </div>   
+            </div>
+			<div class="col-md-12 kt--margin-bottom-10-mobile">
+				<mat-form-field class="mat-form-field-fluid " style="margin-left: 10px">
+					<textarea matInput placeholder="Tên Group" class="require" required
+						[(ngModel)]="group.Ten_Group"></textarea>
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="form-group kt-form__group row">
+			<div class="col-md-12 kt--margin-bottom-10-mobile text-center">
+				<button mat-raised-button (click)="closeDia()">Cancel</button>&nbsp;
+				<button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>

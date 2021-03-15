@@ -1,0 +1,105 @@
+textarea {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    // -webkit-box-sizing: border-box;
+    // -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+}
+.textarea {
+    padding-left: 60px;
+    max-height: 570px;
+    border: unset;
+    font-size: 14px;
+    // color: #222;
+    // border: 1px solid #dedede;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    // overflow-y: scroll !important;
+    border-bottom: 1px solid #eee;
+}
+.praises {
+    margin-left: 40px;
+    padding-left: 15px;
+    padding-top: 15px;
+    overflow: hidden;
+    background-color: #f3f3f3;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.chose{
+    font-family: LineAwesome;
+    content: "\f17b";
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    // width: 111px;
+    // margin-right: 15px;
+    // margin-bottom: 15px;
+    // border: 1px solid #ddd;
+    // -moz-border-radius: 3px;
+    // -webkit-border-radius: 3px;
+    // border-radius: 3px;
+    // float: left;
+    // text-align: center;
+    // cursor: pointer;
+    // position: relative;
+    // height: 180px;
+   
+  
+
+}
+.inner:hover{
+    background-color: #42b814;
+}
+.praises > .praise.active, .praisebox> .praises > .praise.active:hover {
+    background-color: #42b814;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #3fb012;
+}
+.praises > .praise {
+    width: 111px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    height: 180px;
+    background-color: #fff;
+}
+.praises > .praise > .inner {
+    padding: 15px;
+    overflow: hidden;
+
+ .praises > .praise > .inner .icon {
+        width: 80px;
+        height: 80px;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+}
+
+.praises > .praise.active:before {
+    font-family: LineAwesome;
+    content: "\f17b";
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+    top: 5px;
+    right: 5px;
+}
+

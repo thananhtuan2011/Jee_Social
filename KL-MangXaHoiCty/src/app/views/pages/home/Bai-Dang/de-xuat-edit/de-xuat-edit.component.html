@@ -1,0 +1,87 @@
+
+<style>
+    .div {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .title {
+        background-color: #f6f6f6;
+        text-align: center;
+        height: 50px;
+        padding-top: 12px;
+    }
+
+    .mat-icon:hover {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+    }
+
+    span {
+        font-size: 15px;
+        font-weight: bold
+    }
+
+    .post {
+        text-align: center;
+        width: 200px;
+        margin-top: 32px;
+        background-color: rgb(243, 232, 232);
+        color: white;
+        margin-bottom: 10px;
+
+
+    }
+
+    .post:hover {
+        background-color: rgb(66, 26, 212);
+        color: white;
+    }
+</style>
+<div  [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '70vh', 'position': 'relative'}" >
+
+
+<div style="left: 400px; top:30px" >
+    <div class="title">
+       <button mat-icon-button style="float: right;padding-bottom: 12px; margin-right: 10px;">
+
+                        <mat-icon class="close" style="float: right; padding: 3px;" (click)="closeDia()">close</mat-icon>
+                    </button>
+        <span>Đề Xuất Ý Tưởng</span>
+    </div>
+    <div style="display:flex;flex-direction: column; margin:15px">
+        <mat-form-field class="example-full-width">
+            <textarea matInput required placeholder="Tiêu Đề"
+                [(ngModel)]="dexuat.title"
+            >
+
+            </textarea>
+          </mat-form-field>
+    </div>
+
+
+
+    <div style=" margin:15px;">
+        <span>Nhập nội dung</span>
+        <textarea placeholder="Nhập nội dung !" style="border:1px solid lightcoral;outline: none;" rows="5" cols="70"
+            name="comment" form="usrform" [(ngModel)]="dexuat.NoiDung">
+           </textarea>
+    </div>
+
+  
+
+
+
+
+
+    <div style="text-align: center;">
+        <button class="post"(click)="onSubmit()">
+
+            <span style="font-size:14px; color:black">Cập Nhật</span>
+        </button>
+    </div>
+
+</div>
+</div>

@@ -1,0 +1,153 @@
+<!-- <nav mat-tab-nav-bar>
+    <a *ngFor="let link of navLinks" mat-tab-link
+      #rla="routerLinkActive"
+      [active]="isViewInitialized && isLinkActive(rla)"
+      [routerLink]="link.path"
+      routerLinkActive>
+      {{link.label}}
+    </a>
+  </nav>
+   -->
+
+  <style>
+ 
+	@media screen and (max-width: 1000px) and (min-width: 600px) {
+	.mat-card {
+		width: 45%;
+	  
+	   
+	  }
+	}
+	@media screen and (max-width: 499px) and (min-width: 300px) {
+	.mat-card{
+		width: 300px;
+	   
+	   
+	  }
+	}
+  
+	@media screen and (max-width: 1500px) and (min-width: 1001px) {
+	.mat-card{
+		width: 100%;
+	   
+	   
+	  }
+  }
+  
+  @media screen and (max-width: 840px) and (min-width: 600px) {
+		.mat-card{
+		width: 100% !important;
+	   
+	   
+	  }
+	}
+  
+	.login-page {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* background-color: #303F9F; */
+    background-image: url("/assets/media/bg/background_1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  mat-card {
+    width: 100%;
+    /* margin: 10% auto; */
+    border-radius: 8px;
+  }
+  mat-form-field, mat-checkbox {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+  mat-card-content {
+    margin-top: 20px;
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid bisque;
+    font-weight: bold;
+	padding-bottom:  20px;
+ 
+
+  }
+ 
+  .mat-tab-body.mat-tab-body-active {
+    position: relative;
+    overflow-x: hidden;
+     overflow-y: hidden !important; 
+    z-index: 1;
+    flex-grow: 1;
+}
+.login-gg{
+	padding-top: 20px;
+	
+}
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #366cf3;
+    margin-bottom: 20px;
+
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+  
+
+  @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+
+  
+   
+	</style>
+	
+  <div class="body-content" style="max-width:100%;height:auto;">
+  <div class="login-page ">
+	  <mat-card class="mat-elevation-z12 " style="width:380px">
+		<mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span style="  display: inline-block;
+        text-align: center;
+        width: 100%;"  class="toolbar">Welcome To Social Network </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+		<!-- <mat-card-title  style="text-align:center; color:aqua;background-color: dodgerblue;">Hufi Page</mat-card-title> -->
+        <!--  -->
+        <nav mat-tab-nav-bar >
+            <a *ngFor="let link of navLinks" mat-tab-link
+              #rla="routerLinkActive"
+              [active]="isViewInitialized && isLinkActive(rla)"
+              [routerLink]="link.path"
+              style="width:340px"
+              routerLinkActive>
+              {{link.label}}
+            </a>
+          </nav>
+          <router-outlet></router-outlet>
+	  </mat-card>
+	</div>
+	</div>
+   
+	
+

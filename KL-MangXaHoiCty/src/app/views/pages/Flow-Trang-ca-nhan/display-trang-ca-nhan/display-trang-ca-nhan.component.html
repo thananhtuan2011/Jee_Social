@@ -1,0 +1,357 @@
+<style>
+
+.avatar_chat.-online {
+        position: relative;
+        overflow: visible;
+    }
+
+    .avatar_chat.avatar-32 {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .avatar_chat.-online:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border: 1px solid #fff;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        position: absolute;
+        right: -6px;
+        top: 28px;
+        background-color: #63b814;
+        z-index: 100;
+    }
+
+    .avatar_chat.-ofline:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border: 1px solid #fff;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        position: absolute;
+        right: -6px;
+        top: 28px;
+        /* background-color: #63b814; */
+        z-index: 100;
+    }
+
+    .avatar_chat.avatar-32.-circled,
+    .avatar_chat.avatar-32.-circled>.more,
+    .avatar_chat.avatar-32.-circled>.image {
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+        span{
+          display:flex;flex-direction:column;
+          
+        }
+        .user{
+          position: fixed;
+        }
+      
+          .mat-card{
+              width: 100%;
+            }
+           
+          @media screen and (max-width: 1030px) and (min-width: 900px) {
+          .khung{
+              width: 30%;
+             
+             
+            }
+          }
+        .center{
+            margin-left: auto;
+        margin-right: auto;
+        display: block;
+        }
+          
+      .avatar {
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+        border:3px solid #FFF
+      }
+      .Centerer
+{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.Centered
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 400px;
+}
+      .example-card{
+          margin-top:15px
+      }
+     .hv
+     {
+      margin-top: -10px;
+      color:rgb(50, 28, 247)
+     }
+    
+      </style>
+      <div style="width:100%;text-align:center;margin-left: 200px;" *ngFor="let canhan of listTrangCaNhan;let vi=index;">
+    
+      
+      <mat-card style="padding: 0px;margin:0px; width: 70%;
+      ">
+      
+      <!-- *ngFor="let item of list_user_group;let gr=index;" -->
+        <div class="channel-cover-wrap" id="js-channel-cover" >
+          <div class="channel-cover">
+            <div class="cover">
+              <div class="image">
+                <span *ngIf="canhan.hinhanhbia==null||canhan.hinhanhbia=='';then s1;else s2"></span>
+                <ng-template #s1>
+                  <span *ngIf="image;then v1 ;else v2"></span>
+                  <ng-template #v1>
+                    <div class="img"><img style="height: 350px;width:100%" alt="photo-cover"
+                      [src]="image">
+                  </div>
+                  </ng-template>
+                  <ng-template #v2>
+                    <div class="img "><img style="height: 350px;width:100%" alt="photo-cover"
+                      src="./assets/media/bg/bganh.jpg">
+                
+                  </div>
+                  </ng-template>
+              
+                </ng-template>
+    
+                <ng-template #s2>
+    
+                  <span *ngIf="image;then v1 ;else v2"></span>
+                  <ng-template #v1>
+                    <div class="img"><img style="height: 350px;width:100%" alt="photo-cover"
+                      [src]="image">
+                  </div>
+                  </ng-template>
+                  <ng-template #v2>
+                    <div class="img"><img style="height: 350px;width:100%" alt="photo-cover"
+                      src="{{canhan.anhbia}}">
+                  
+                  </div>
+                  </ng-template>
+                 
+                </ng-template>
+               
+              </div>
+      
+              <div class="main">
+      
+               <!-- <div class="name " *ngFor="let us of listTT_user"> -->
+                  <span *ngIf="canhan.hinhanh===null;then e1; else e2"></span>
+                  <ng-template #e1>
+                    <span style="margin-top:-140px; ;
+                  " class="url" data-xurl="home">
+                      <img alt="" mat-card-avatar class="avatar Centered" src="../../assets/media/users/avatar_macdinh.jpg">
+                  </span>
+                  </ng-template>
+                  <ng-template #e2>
+                    <span style="margin-top:-140px ; 
+                    " class="url" data-xurl="home">
+                      <img alt="" mat-card-avatar class="avatar Centered" src="{{canhan.Avatar}}">
+                  </span>
+                  </ng-template>
+                
+               
+         
+                
+                
+              <span *ngIf="checkflow===true;then ck1;else ck2"></span>
+
+              <ng-template #ck1>
+                <button [matMenuTriggerFor]="menu" matTooltip="Delete Follow"   style="float: right; margin-right:15px;background:rgb(235, 233, 233) ;margin-top: -50px;" mat-raised-button ><mat-icon style="margin-right: 5px; font-size: 25px;">check</mat-icon>Đang Theo Dõi</button>
+              
+          <mat-menu #menu="matMenu">
+            <button (click)="XoaFlow()" mat-menu-item> 	<mat-icon style="font-size: 25px;">block</mat-icon>Hủy Theo Dõi</button>
+         
+          </mat-menu>
+              
+              </ng-template>
+
+              <ng-template #ck2>
+                <button (click)="addFlow()" matTooltip="Follow"   style="float: right; margin-right:15px;background:rgb(235, 233, 233) ;margin-top: -50px;" mat-raised-button >Theo Dõi</button>
+              </ng-template>
+                  
+                 
+               
+              
+         
+                <span style="font-size:20px;font-weight:bold;">{{canhan.user_name}}
+                  
+                </span>
+                <!--  -->
+                <p >  {{canhan.tieusu}}</p>
+                
+    
+    
+                  
+                   
+                  
+            <!-- </div> -->
+            
+              </div>
+             
+    
+      
+            </div>
+      
+      
+         
+      
+          </div>
+        </div>
+      </mat-card>
+    
+        
+    
+         
+        <div  style="position:fixed;margin-left:-150px">
+    
+    
+    
+    
+          <ng-template #popContent>
+          
+            <div>
+              <form>
+                <!--begin: Head -->
+              
+                 
+                    <div style="width:250px" [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '40vh', 'position': 'relative'}">
+            
+                   
+                  <div  *ngFor="let item of list_userchat "  class="kt-notification kt-margin-t-10 kt-margin-b-10 ">
+                    
+                    
+            
+                    
+                    <a [routerLink]="['/mymessenger/chat',item.id_user_nhan]"  href="javascript:;" class="kt-notification__item " *ngFor="let user of item.TT_user">
+                    
+                    <div style="margin-right: 20px;" class="kt-notification__item-icon" >
+                      <!-- icon mũi tên -->
+                      <span *ngIf="user.TinhTrang===false;then offline; else online"></span>
+                      <ng-template #offline>
+                      <div class="avatar_chat avatar-32 -circled -offline "> 
+                        <div class="image"> 
+                          <span *ngIf="user.hinhanh===null;then e1; else e2"></span>
+                    <ng-template #e2>
+                      <img class="avatar_chat avatar-32 -circled -offline" src="{{user.avatar}}">
+            
+                    </ng-template>
+            
+                    <ng-template #e1>
+            
+                      <img class="avatar_chat avatar-32 -circled -offline" src="../../assets/media/users/avatar_macdinh.jpg">
+            
+                    </ng-template>
+                        
+                        </div>
+                      
+                  
+                        <!-- <img src="./assets/media/users/avatar_tuan.jpg"  > -->
+                      </div>
+                      </ng-template>
+                      <ng-template #online>
+                      <div class="avatar_chat avatar-32 -circled -online"> 
+                        <div class="image"> 
+                          <span *ngIf="user.hinhanh===null;then e1; else e2"></span>
+                    <ng-template #e2>
+                      <img class="avatar_chat avatar-32 -circled -online" src="{{user.avatar}}">
+            
+                    </ng-template>
+            
+                    <ng-template #e1>
+            
+                      <img class="avatar_chat avatar-32 -circled -online" src="../../assets/media/users/avatar_macdinh.jpg">
+            
+                    </ng-template>
+                        
+                        </div>
+                      
+                  
+                        <!-- <img src="./assets/media/users/avatar_tuan.jpg"  > -->
+                      </div>
+                      </ng-template>
+                      
+                    </div>
+                    
+                    <div class="kt-notification__item-details">
+                      <div class="kt-notification__item-title">
+                      {{user.Username}}
+                      </div>
+                      <div class="kt-notification__item-time">
+                      {{item.Mess.message}}
+                      </div>
+                    </div>
+                 
+                    </a>
+                
+                 
+                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                    <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                    </div>
+                    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                    <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                    </div>
+                  </div>
+                 
+                </div>
+            
+                <!--end: Head -->
+                <!--begin: Grid Nav -->
+              
+              </form>
+            </div>
+                
+          </ng-template>
+          
+    
+          <!-- <button mat-icon-button  > -->
+            <div class='c-interaction__menu'>
+              <ul>
+                <li style="list-style-type: none;"><button 
+                  [ngbPopover]="popContent" [autoClose]="true" #popover="ngbPopover" 
+                aria-label="Record a Video." class='c-interaction__button'>
+                  <svg  xmlns="http://www.w3.org/2000/svg" width="35" height="35"  viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                
+                
+                </button></li>
+              
+              </ul>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div  class="col-lg-4">
+         <kt-flow-gioithieu-canhan></kt-flow-gioithieu-canhan>
+       
+        </div>
+        <div class="col-lg-8">
+              <kt-flow-baidang-canhan></kt-flow-baidang-canhan>
+      
+        </div>
+      </div>
+      
+      
+      
+      
+      

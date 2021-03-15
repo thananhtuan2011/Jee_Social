@@ -1,0 +1,147 @@
+
+<style>
+  .mat-form-field
+   {
+    width: 100%;
+   }
+   .avatar {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    width: 42px;
+    height: 40px;
+    background-size: cover;
+  }
+</style>
+<div class="row" style="margin: 0px;">
+    <div class="col-5">
+<mat-card style="height: 400px;
+width: 100%;">
+
+      
+            <div class="kt-login__body">
+                <!--begin::Signin-->
+                <div class="kt-login__form">
+                    <div class="kt-login__title"*ngFor="let item of user " style="display:flex">
+                        <kt-auth-notice></kt-auth-notice>
+                         
+                        <div class="kt-login__form">
+                            <div class="kt-login__title"*ngFor="let item of listTT_user " style="display:flex">
+                               
+                                <span *ngIf="item.hinhanh_user===null;then e1; else e2"></span>
+                                <ng-template #e2>
+                                  <img style="width: 42px; height: 42px;border:2px solid rgb(57, 45, 230);margin-left: 20px;" alt="avatar" class="avatar"
+                                  src="{{item.Avatar}}">
+                                </ng-template>
+                        
+                                <ng-template #e1>
+                                  <img style="width: 42px; height: 42px;border:2px solid rgb(57, 45, 230);margin-left: 20px;" alt="avatar" class="avatar"
+                                  src="../../assets/media/users/avatar_macdinh.jpg">
+                                </ng-template>
+                                <!-- <img style="margin-left: 15px;" class="avatar" src="{{item.Avatar}}"> -->
+                                <div style="display:flex;flex-direction: column;margin-left: 15px;">
+                                  <span style="font-weight: bold;">  {{item.Username}}</span>
+                
+                                    <p>Quản trị viên</p>
+                                </div>
+                
+                              </div>   
+                            </div>
+
+                      
+                    </div>
+                    
+
+
+
+                    <form class="kt-login__form kt-form" [formGroup]="registerForm" autocomplete="off">
+                        <div class="form-group">
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Tên Group</mat-label>
+                                <input matInput type="text" formControlName="tengroup"
+                                        [(ngModel)]="namegroup"
+                                        required
+                                
+                                />
+                                <!-- icon của user -->
+                                <mat-icon matSuffix>group</mat-icon>
+                                <mat-error *ngIf="registerForm.hasError('required','tengroup')">
+                                    <!-- <strong>{{ 'AUTH.VALIDATION.REQUIRED_FIELD' | translate }}</strong> -->
+                                    
+                                    Tên Group <strong> is required</strong>
+                                </mat-error>
+                                
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 kt--margin-bottom-10-mobile">
+            
+            
+            
+                                <!-- @@ để gán thẻ -->
+            
+                       
+            
+                            </div>
+                        </div>
+
+                       
+                        <div class="form-group">
+                            <mat-checkbox name="agree" formControlName="agree">
+                                I agree the <a href="javascript:;">terms & conditions</a>
+                            </mat-checkbox>
+                        </div>
+
+                        <!--begin::Action-->
+                        <div style="text-align: center;" class="kt-login__actions">
+                            <button  style="text-align: center;"(click)="submit()" (onclick)="Test()"   id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}">Register</button>
+                          
+                        </div>
+                        <!--end::Action-->
+                    </form>
+                </div>
+            </div>
+
+
+        </mat-card>
+              
+       
+    </div>
+
+    <div class="col-7">
+
+        <div class="channel-cover-wrap" id="js-channel-cover">
+            <div class="channel-cover">
+                <div class="cover">
+                    <div class="image">
+                        <div class="img"><img style="height: 400px;" alt="photo-cover"
+                                src="https://static-devgcs.basecdn.net/inside/image/update/cover.svg">
+                            <div class="cta--icon url" data-xurl="action/channel/update.cover.photo"><i
+                                    class="ficon-pencil icon"></i></div>
+                        </div>
+                    </div>
+        
+                    <div class="main">
+                        <div class="name"><span class="url" data-xurl="home">{{namegroup}}</span></div>
+                        <div class="info"><em id="js-number-peoples">1</em> Thành viên</div>
+                    </div>
+        
+                </div>
+        
+        
+              
+        
+            </div>
+        </div>
+        </div>
+
+</div>
+
+<div >
+            <img style="width: 100%;height: 150px;" src="../../assets/media/bg/footer.png">
+</div>

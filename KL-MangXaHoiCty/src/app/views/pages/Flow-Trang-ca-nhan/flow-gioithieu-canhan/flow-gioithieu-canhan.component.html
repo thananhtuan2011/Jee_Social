@@ -1,0 +1,117 @@
+
+<style>
+    .khung{
+   
+      
+      margin-left: 10px;
+    width: 100% !important;
+    margin-top: -1px;
+ 
+   } 
+</style>
+
+<div *ngFor="let rd of list_randomanh">
+
+<mat-card  class="khung" *ngFor="let item of listGioiThieu">
+             
+   <!-- <div></div> -->
+   <mat-card-title >Giới Thiệu</mat-card-title>
+   <mat-card-subtitle>
+       
+       <div style=" display:flex;">
+           <mat-icon>perm_contact_calendar</mat-icon> <span>{{item.hoten}}</span>
+       </div>
+
+
+   </mat-card-subtitle>
+   <mat-card-subtitle>
+       <div style=" display:flex;">
+           <mat-icon> local_mall</mat-icon><span>Chức Vụ <span style="font-weight: bold;">{{item.chucvu}}</span></span>
+       </div>
+
+   </mat-card-subtitle>
+   <mat-card-subtitle>
+       <div style=" display:flex;">
+           <mat-icon style="margin-bottom:-5px"> pin_drop</mat-icon> <span>Đến từ <span style="font-weight: bold;">{{item.diachi}}</span></span>
+       </div>
+     
+       
+   </mat-card-subtitle>
+
+ <img mat-card-image src="{{rd.hinhanh}}" alt="Photo of a Shiba Inu">
+ <mat-card-content>
+  <div *ngFor="let fl of list_Flow">
+
+  
+    <span style="font-size:25px">
+      Follow
+    </span>
+    <br>
+    <span>
+    {{fl.tong}} Người theo dõi
+    </span>
+
+
+    <div style="display:flex">
+
+   
+    <div *ngFor="let tam of fl.Flow" style="margin-right: 10px;">
+      <div *ngFor="let fl_user of tam.TT_User_Flow" >
+     
+        <span *ngIf="fl_user.TinhTrang===false;then offline; else online"></span>
+        <ng-template #offline>
+        <div class="avatar_chat avatar-32 -circled -offline "> 
+          <div class="image"> 
+            <span *ngIf="fl_user.hinhanh===null;then e1; else e2"></span>
+      <ng-template #e2>
+        <img class="avatar_chat avatar-32 -circled -offline" src="{{fl_user.Avatar}}">
+
+      </ng-template>
+
+      <ng-template #e1>
+
+        <img class="avatar_chat avatar-32 -circled -offline" src="../../assets/media/users/avatar_macdinh.jpg">
+
+      </ng-template>
+          
+          </div>
+        
+    
+          <!-- <img src="./assets/media/users/avatar_tuan.jpg"  > -->
+        </div>
+        </ng-template>
+        <ng-template #online>
+        <div class="avatar_chat avatar-32 -circled -online"> 
+          <div class="image"> 
+            <span *ngIf="fl_user.hinhanh===null;then e1; else e2"></span>
+      <ng-template #e2>
+        <img class="avatar_chat avatar-32 -circled -online" src="{{fl_user.Avatar}}">
+
+      </ng-template>
+
+      <ng-template #e1>
+
+        <img class="avatar_chat avatar-32 -circled -online" src="../../assets/media/users/avatar_macdinh.jpg">
+
+      </ng-template>
+          
+          </div>
+        
+    
+          <!-- <img src="./assets/media/users/avatar_tuan.jpg"  > -->
+        </div>
+        </ng-template>
+        
+      </div>
+    
+    </div>
+  </div>
+  </div >
+ </mat-card-content>
+ <mat-card-actions>
+   <!-- <button mat-button>LIKE</button>
+   <button mat-button>SHARE</button> -->
+ </mat-card-actions>
+</mat-card>
+
+</div>

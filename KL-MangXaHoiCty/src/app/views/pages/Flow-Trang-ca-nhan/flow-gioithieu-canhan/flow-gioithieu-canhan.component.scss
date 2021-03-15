@@ -1,0 +1,48 @@
+.avatar_chat.-online {
+    position: relative;
+    overflow: visible;
+}
+
+.avatar_chat.avatar-32 {
+    width: 45px;
+    height: 45px;
+}
+
+
+.avatar_chat.-online:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    position: absolute;
+    right: -6px;
+    top: 28px;
+    background-color: #63b814;
+    z-index: 100;
+}
+
+.avatar_chat.-ofline:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    position: absolute;
+    right: -6px;
+    top: 28px;
+    /* background-color: #63b814; */
+    z-index: 100;
+}
+
+.avatar_chat.avatar-32.-circled,
+.avatar_chat.avatar-32.-circled>.more,
+.avatar_chat.avatar-32.-circled>.image {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}

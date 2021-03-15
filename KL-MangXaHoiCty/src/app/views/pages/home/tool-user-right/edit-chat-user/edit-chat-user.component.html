@@ -1,0 +1,42 @@
+<div class="card-body">
+   
+   
+    <div class="attachment">
+        <!-- up load file -->
+        <div class="kt-login__title" style="display:flex">
+
+            <!-- <div >
+                <img style="width:250px;height: 250px;" [src]="image" *ngIf="image">
+        </div> -->
+     
+
+            
+    
+            <div style="display:flex;flex-direction: column;margin-left: 15px;">
+
+              <span style="font-weight: bold;">Edit messenger</span>
+
+                <p>
+                    <mat-form-field class="example-full-width" style="width:300px">
+                        <input matInput placeholder="Nội Dung" [(ngModel)]="chat.message">
+                      </mat-form-field>
+                </p>
+            </div>
+
+          </div>   
+          <div style="text-align:center">
+
+         
+          <button style="float: left;" mat-button (click)="closeDia()">Cancel</button>
+       
+          
+        <button  (click)="UpdateMess()" class="btn btn-primary btn-round"  type="button"
+          matTooltip=" Gỡ ở phía bạn">
+         Update
+        </button>
+       
+    </div>
+   
+</div>
+    <!-- <a href="javascript:void(0)" class="btn btn-danger btn-round">Chọn Ảnh</a> -->
+</div>

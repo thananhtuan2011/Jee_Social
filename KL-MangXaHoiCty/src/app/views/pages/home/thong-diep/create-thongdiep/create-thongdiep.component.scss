@@ -1,0 +1,163 @@
+textarea {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    // -webkit-box-sizing: border-box;
+    // -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+}
+.textarea {
+    padding-left: 60px;
+    max-height: 570px;
+    border: unset;
+    font-size: 14px;
+    // color: #222;
+    // border: 1px solid #dedede;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    // overflow-y: scroll !important;
+    border-bottom: 1px solid #eee;
+}
+.praises {
+    margin-left: 40px;
+    padding-left: 15px;
+    padding-top: 15px;
+    overflow: hidden;
+    background-color: #f3f3f3;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.chose{
+    font-family: LineAwesome;
+    content: "\f17b";
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    // width: 111px;
+    // margin-right: 15px;
+    // margin-bottom: 15px;
+    // border: 1px solid #ddd;
+    // -moz-border-radius: 3px;
+    // -webkit-border-radius: 3px;
+    // border-radius: 3px;
+    // float: left;
+    // text-align: center;
+    // cursor: pointer;
+    // position: relative;
+    // height: 180px;
+   
+  
+
+}
+.inner:hover{
+    background-color: #42b814;
+}
+.praises > .praise.active, .praisebox> .praises > .praise.active:hover {
+    background-color: #42b814;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #3fb012;
+}
+.praises > .praise {
+    width: 111px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    height: 180px;
+    background-color: #fff;
+}
+.praises > .praise > .inner {
+    padding: 15px;
+    overflow: hidden;
+
+ .praises > .praise > .inner .icon {
+        width: 80px;
+        height: 80px;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+}
+
+.praises > .praise.active:before {
+    font-family: LineAwesome;
+    content: "\f17b";
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+    top: 5px;
+    right: 5px;
+}
+.c-interaction {
+    // background-color:$primary;
+    // background: #ECEFF1;
+    width: 800px;
+    height:40px;
+    border-radius:50rem;
+    display:flex;
+    align-items:center;
+    // padding:1rem;
+    overflow:hidden;
+    position:relative;
+    transform-origin: 0 0;
+    box-shadow: 1px 6px 20px 3px rgba(187, 153, 255, 0.4);
+    
+    
+    &__button {
+      border-radius:50rem;
+      border:0;
+      background:rgb(235, 77, 137);
+      min-width:40px;
+      min-height:40px;
+      display:inline-block;
+      margin:0;
+      cursor:pointer;
+      position:relative;
+     
+      
+      &:after{
+        content:'';
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        transform:scale(0);
+        background:rgba(100, 75, 198,0.5);
+        transition:.15s ease;
+        position:absolute;
+        border-radius:inherit;
+      }
+      &:hover {
+        svg {
+          transform:scale(0.9);
+        }
+        &:after {
+           transform:scale(1);
+        } 
+      }
+      
+      svg {
+        color:#FFF;
+        z-index:2;
+        position:relative;
+        transform:scale(1);
+        transition:.4s ease;
+      }
+    }
+}
+    
+    

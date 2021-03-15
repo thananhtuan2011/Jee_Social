@@ -1,0 +1,58 @@
+
+    div.input {
+      position: relative;
+      width: fit-content;
+     
+
+      input {
+        outline: none;
+        border: 1px solid lightgray;
+        background-color: #F0F2F5;
+      //   padding: 10px 40px;
+        border-radius: 20px;    
+        // font-size:22px;
+         padding: 8px 55px;
+      
+        // width:60px;
+        // height: 20px;
+        // margin-top:-10px;
+        margin-bottom:5px;
+      
+
+        &::placeholder {
+          // padding-left: 5px;
+          // font-size: 13px;
+          padding-bottom: -3px;
+        }
+      }
+
+      .search-icon {
+      //   position: absolute;
+        top: 6px;
+        font-size: 25px;
+        left: 10px;
+        color: #828890;
+    
+      }
+
+    }
+    .user{
+      width: 100%;
+      margin-top: 0px;
+       
+      }
+
+      .mat-card {
+        transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+        display: block;
+        position: relative;
+        padding: 16px;
+        border-radius: 4px;
+        width: 100%;
+        margin-top:1px;
+    }
+    .messages {
+     
+      max-height:300px;
+      overflow-y:scroll;
+    }

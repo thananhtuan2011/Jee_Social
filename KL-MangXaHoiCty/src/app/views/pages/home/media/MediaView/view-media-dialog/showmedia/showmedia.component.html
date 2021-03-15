@@ -1,0 +1,71 @@
+<div class="home__body__contentMiddle" style="height:600px;">
+
+    <div class="home__body__contentMiddle__top">
+
+        <!--IMAGE CARDS-->
+
+        <!-- class="backgr {{i.template}}" -->
+
+        <mat-card style="    width: 250px;
+      height: 400px;margin-top: 20px;" *ngFor="let i of list_media" class="image-card {{i.template}}">
+            <!-- <img alt="bg" class="bg" src="./assets/media/users/avatar_tuan.jpg"> -->
+            <span *ngIf="i.img_media===''||i.img_media===null;then vanban; else hinh"></span>
+
+            <ng-template #hinh>
+                <img alt="bg" class="bg" src="{{i.hinhanh}}">
+            </ng-template>
+            <mat-card-content>
+
+
+                <span style="margin-bottom: 150px;
+            margin-left: 50px;" class="card-name">{{i.title}}
+                    <br>
+
+                      
+                </span>
+
+
+
+            </mat-card-content>
+            <ng-template #vanban>
+
+
+
+                <mat-card-content>
+
+
+                    <span style="margin-bottom: 150px;
+            margin-left: 50px;" class="card-name">{{i.title}}
+                        <br>
+
+                    
+                    </span>
+
+
+
+                </mat-card-content>
+
+            </ng-template>
+
+
+
+            <mat-card-content>
+                <!-- hình ảnh user chỗ  bản tin -->
+                <span *ngIf="i.hinhanh_user===null;then e1; else e2"></span>
+                <ng-template #e2>
+                    <img style="width: 30px; height: 30px;border:2px solid rgb(57, 45, 230);" alt="avatar"
+                        class="avatar" src="{{i.Avatar}}">
+                </ng-template>
+
+                <ng-template #e1>
+                    <img style="width: 30px; height: 30px;border:2px solid rgb(57, 45, 230);" alt="avatar"
+                        class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+                </ng-template>
+
+
+                <span style="font-size: 12px;" class="card-name">{{i.username}}</span>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</div>

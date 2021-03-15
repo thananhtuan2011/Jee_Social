@@ -1,0 +1,174 @@
+<div ngbDropdown placement="bottom" autoClose="outside" class="kt-header__topbar-item">
+	<div ngbDropdownToggle class="kt-header__topbar-wrapper">
+	
+		<span class="kt-header__topbar-icon" matBadge="{{count}}" matBadgeColor="warn" [ngClass]="{'kt-pulse kt-pulse--brand': pulse, 'kt-pulse--light' : pulseLight, 'kt-header__topbar-icon--success' : iconType === 'success'	}">
+			<i *ngIf="!useSVG" [ngClass]="icon"></i>
+			<span *ngIf="useSVG" class="kt-svg-icon" [ngClass]="{'kt-svg-icon--success' : iconType === 'success'}" [inlineSVG]="icon"></span>
+			<span class="kt-pulse__ring" [hidden]="!pulse"></span>
+		</span>
+		<span class="kt-badge kt-badge--dot kt-badge--notify kt-badge--sm kt-badge--brand" [hidden]="!dot"></span>
+	</div>
+
+	<div ngbDropdownMenu  style="height:450px"class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-lg">
+		<form>
+			<!--begin: Head -->
+			<div class="kt-head kt-head--skin-{{skin}} kt-head--fit-x kt-head--fit-b" [ngStyle]="{'background-image': backGroundStyle() }">
+				<h3 class="kt-head__title">
+					<!-- Thông Báo &nbsp; -->
+					<span class="btn btn-{{ type }} btn-sm btn-bold btn-font-md">{{count}} thông báo</span>
+				</h3>
+				<button style="float: right;" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+					<mat-icon>more_vert</mat-icon>
+				  </button>
+				  <mat-menu #menu="matMenu">
+					<button (click)="UpdateReadAllThongBao()" mat-menu-item>
+						<span >Đánh dấu đã đọc tất cả thông báo</span> &nbsp;
+					  <mat-icon style="color:rgb(238, 26, 192)">done</mat-icon>
+					</button>
+					
+					<button mat-menu-item>
+						<span>Xóa tất cả thông báo</span>  &nbsp;
+					 
+					  <mat-icon style="color:rgb(238, 26, 192)">delete</mat-icon>
+					</button>
+				  </mat-menu>
+				<ul ktTabClickEvent class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-{{ type }} kt-notification-item-padding-x" role="tablist">
+					
+					<li class="nav-item">
+						<a  class="nav-link active show" data-toggle="tab" href="javascript:;" role="tab" aria-selected="true">Thông Báo</a>
+					
+					</li>
+				
+				
+				
+					
+				</ul>
+			</div>
+			<!--end: Head -->
+
+			<ngb-tabset #tab="ngbTabset">
+				
+				<ngb-tab id="tab-id-1">
+				
+					<ng-template ngbTabContent>
+						
+						<div [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '40vh', 'position': 'relative'}" class="kt-notification kt-margin-t-10 kt-margin-b-10">
+							
+							<div *ngFor="let notification of listthongbao || []">
+
+							
+							<a href="javascript:;" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<!-- <i class="flaticon-security kt-font-warning"></i> -->
+									<i class="">
+										
+										<!-- <img style="width:20px;height: 20px;" src="{{}}">  -->
+
+										<div   class="avatar avatar-32 -circled "> 
+                               
+											<span *ngIf="notification.hinhanh===null||notification.hinhanh==='';then e1; else e2"></span>
+											<ng-template #e2>
+											  <div class="image"> 
+												<img    style="width:35px; height:35px;border-radius:50%; margin-right:10px" src="{{notification.avatar}}"> 
+											
+											</div>
+											</ng-template>
+										   
+											<ng-template #e1>
+											  <div class="image"> 
+												<img style="width:35px; height:35px;border-radius:50%; margin-right:10px" src="../../assets/media/users/avatar_macdinh.jpg"> 
+											
+											</div>
+											</ng-template>
+										 
+									  </div>
+									
+									</i>
+
+									
+								</div>
+
+								<span *ngIf="notification.id_cmt;then s1;else s2"></span>
+								<ng-template #s1>
+<!-- begin detal comment -->
+								
+<div *ngIf="notification.id_cmt" (click)="UpdateTinhTrangThongBao(notification.id_tb)" class="kt-notification__item-details paddingDiv" style="margin-left: 15px;border:none;"[routerLink]="['/home/comment',notification.id_cmt]">
+	<div class="kt-notification__item-title">
+		<div >
+			<span style="font-size:12px;font-weight:bold">
+				{{notification.user_name}}
+			</span>
+		
+		{{notification.title}}
+	</div>	
+
+
+		
+
+	</div>
+	<div class="kt-notification__item-time">
+
+	 {{notification.timetb | date : 'yyyy/M/dd h:mm'| timeAgo}}
+	
+	
+		<!-- {{notification.timetb | timeAgo}} -->
+	
+	
+	</div>
+</div>
+								</ng-template>
+
+								<ng-template #s2>
+
+							
+							
+								<div  (click)="UpdateTinhTrangThongBao(notification.id_tb)" class="kt-notification__item-details paddingDiv" style="margin-left: 15px;border:none;"[routerLink]="['/home/detail',notification.id_baidang]">
+									<div class="kt-notification__item-title">
+										<div >
+											<span style="font-size:12px;font-weight:bold">
+												{{notification.user_name}}
+											</span>
+										
+										{{notification.title}}
+									</div>	
+
+								
+										
+								
+									</div>
+									<div class="kt-notification__item-time">
+	
+									 {{notification.timetb | date : 'yyyy/M/dd h:mm'| timeAgo}}
+									
+									
+										<!-- {{notification.timetb | timeAgo}} -->
+									
+									
+									</div>
+								</div>
+									
+							</ng-template>
+							<button *ngIf="notification.tinhtrang===false"mat-icon-button  color="primary" aria-label="Example icon-button with a heart icon">
+								<mat-icon>notifications</mat-icon>
+							  </button>
+								<!-- end detal comment -->
+								<button style="float:right" mat-icon-button>
+									<mat-icon (click)="DeleteTB(notification.id_tb)">clear</mat-icon >
+								  </button>
+								 
+							</a>
+						</div>
+							<div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+								<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+							</div>
+							<div class="ps__rail-y" style="top: 0px; right: 0px;">
+								<div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+							</div>
+						</div>
+					</ng-template>
+				</ngb-tab>
+				
+			</ngb-tabset>
+		</form>
+	</div>
+</div>

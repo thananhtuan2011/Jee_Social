@@ -1,0 +1,3455 @@
+<style>
+    .binhluan{
+    padding-left: 7px;
+    font-size: 15px !important;
+    width:23px !important;
+  }
+  .routtrangcanhan
+ {
+  color: #312f2f;
+    font-weight: bold;
+ }
+    .avatar.-online {
+      position: relative;
+      overflow: visible;
+    }
+  
+    .a {
+      border-radius: 20px;
+    }
+  
+    /* .mat-icon{
+      color:red;
+    } */
+  
+    .mat-card-avatar {
+      margin-right: 30px;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      object-fit: cover;
+      margin-left: -30px;
+      padding-right: 30p;
+    }
+  
+    .example-card {
+      max-width: 500px;
+      margin-top: 15px;
+      margin-left: 20px;
+      width: 500px;
+  
+  
+    }
+  
+    .example-header-image {
+      /* background-image: url('http://192.168.3.49/image/User/1.jpg'); */
+      background-size: cover;
+    }
+  
+    hr {
+      margin-top: 1rem;
+      margin-bottom: 0;
+      border: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  
+    .icon {
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+    }
+  
+    .avatar {
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      width: 42px;
+      height: 40px;
+      background-size: cover;
+    }
+  
+    .avatar_cmt {
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      width: 32px;
+      height: 30px;
+      background-size: cover;
+    }
+  
+    .body_cmt {
+      background-color: red;
+      border-radius: 30px;
+      width: 450px;
+      background-color: gainsboro;
+      margin-left: 10p;
+      margin-left: 20px;
+    }
+  
+    .btn.btn-icon i {
+      padding: 0;
+      margin: 0;
+    }
+  
+    .btn-group-sm>.btn i,
+    .btn.btn-sm i {
+      font-size: 1.3rem;
+      padding-right: .35rem;
+    }
+  
+    .btn i {
+      font-size: 1.3rem;
+      padding-right: .35rem;
+      vertical-align: middle;
+      line-height: 1;
+      display: inline-flex;
+    }
+  
+    .ki-bold-more-hor:before {
+      content: "\f134";
+    }
+  
+    .ki:before {
+      font-family: Ki;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      line-height: 1;
+      text-decoration: inherit;
+      text-rendering: optimizeLegibility;
+      text-transform: none;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+  
+    }
+  
+    .btn.btn-icon {
+      display: inline-flex;
+  
+      justify-content: center;
+      padding: 0;
+      height: calc(1.5em + 1.3rem + 2px);
+      width: calc(1.5em + 1.3rem + 2px);
+    }
+  
+    .btn {
+      outline: none !important;
+      vertical-align: middle;
+    }
+  
+    .dropdown-toggle {
+      white-space: nowrap;
+    }
+  
+    .btn-group-sm>.btn,
+    .btn-sm {
+      padding: .55rem .75rem;
+      font-size: .925rem;
+      line-height: 1.35;
+      border-radius: .42rem;
+    }
+  
+    .btn {
+      display: inline-block;
+      font-weight: 400;
+      color: #3f4254;
+      text-align: center;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      background-color: transparent;
+      border: 1px solid transparent;
+  
+    }
+  
+    .mat-icon-button {
+      font-size: 18px;
+    }
+  
+    .khung_cmt_child {
+      background-color: lightgoldenrodyellow;
+      border-radius: 20px;
+      margin-top: 5px;
+    }
+  
+    /* a {
+      color: #5867dd;
+      color: gray;
+      text-decoration: none;
+      background-color: transparent;
+  } */
+  </style>
+  <div class="home__body__contentMiddle">
+  
+    <div class="home__body__contentMiddle__top">
+      <!--IMAGE CARDS-->
+      <mat-card  class="image-card" *ngFor="let it of listTT_user">
+
+      
+     
+        <span *ngIf="it.hinhanh===null;then e1; else e2"></span>
+      <ng-template #e2>
+        <img (click)="TaoTin()" alt="bg" class="bg" src="{{it.Avatar}}">
+      
+      </ng-template>
+
+      <ng-template #e1>
+
+        <img (click)="TaoTin()" alt="bg" class="bg" src="./assets/media/bg/bganh.jpg">
+
+      </ng-template>
+
+<mat-card-content >
+<!-- hình ảnh user chỗ  bản tin -->
+
+<span style="margin-bottom: 45px; margin-left:10px"  class="card-name">Tạo Tin
+<br>
+<p style="font-size: 18px;">+</p>
+
+</span>
+
+
+</mat-card-content>
+</mat-card>
+
+
+<mat-card   *ngFor="let i of ListMedia;let vi=index;" class="image-card {{i.template}}" (click)="ViewDetail(i,vi)" >
+  <!-- <img alt="bg" class="bg" src="./assets/media/users/avatar_tuan.jpg"> -->
+  <span *ngIf="i.img_media===''||i.img_media===null;then vanban; else hinh"></span>
+
+  <ng-template #hinh>
+    <img alt="bg" class="bg" src="{{i.hinhanh}}" >
+    <mat-card-content >
+     
+       
+      <span  style="margin-bottom: 50px;"  class="card-name">{{i.title}}
+        <br>
+       
+    
+      </span>
+    
+     
+    </mat-card-content> 
+  </ng-template>
+
+  <ng-template #vanban>
+ 
+ 
+    <mat-card-content >
+   
+     
+      <span  style="margin-bottom: 50px;"  class="card-name">{{i.title}}
+        <br>
+       
+    
+      </span>
+    
+    
+     
+    </mat-card-content> 
+  
+  </ng-template>
+
+
+
+  <mat-card-content>
+    <!-- hình ảnh user chỗ  bản tin -->
+    <span *ngIf="i.hinhanh_user===null;then e1; else e2"></span>
+    <ng-template #e2>
+      <img style="width: 30px; height: 30px;border:2px solid rgb(57, 45, 230);" alt="avatar" class="avatar"
+      src="{{i.Avatar}}">
+    </ng-template>
+
+    <ng-template #e1>
+      <img style="width: 30px; height: 30px;border:2px solid rgb(57, 45, 230);" alt="avatar" class="avatar"
+      src="../../assets/media/users/avatar_macdinh.jpg">
+    </ng-template>
+ 
+
+    <span style="font-size: 12px;"  class="card-name">{{i.username}}</span>
+  </mat-card-content>
+</mat-card>
+  
+    </div>
+  
+    <div class="home__body__contentMiddle__center" *ngFor="let items of listTT_user">
+      <mat-card class="post-message">
+  
+        <mat-card-header class="post-message-header" style="padding-bottom: 20px; border-bottom: 1px solid lightgray;">
+          <!-- hinh  ảnh user   nơi post bài -->
+  
+          <span *ngIf="items.hinhanh==null||items.hinhanh==='';then e1; else e2"></span>
+          <ng-template #e2>
+            <img alt="" mat-card-avatar class="avatar" src="{{items.Avatar}}">
+          </ng-template>
+  
+          <ng-template #e1>
+            <img alt="" mat-card-avatar class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+          </ng-template>
+  
+          <form>
+            <span>
+  
+              <mat-icon class="btn-icon" (click)="addLeave()" style="float: right; padding-top: 10px; font-size: 15px;">
+                perm_media</mat-icon>
+            </span>
+  
+            <input (click)="addLeave()" style="margin-left: -30px;" class="on-your-mind" name="message" ngModel
+              placeholder="{{items.Username}} Bạn đang nghĩ gì ?" type="text">
+  
+  
+          </form>
+  
+        </mat-card-header>
+  
+      </mat-card>
+  
+  
+  
+    </div>
+    <!-- load ds bài đăng  -->
+  
+    <!-- <kt-bai-dang-view [ID_QuyTrinh]="ID" style="margin-top:10px"></kt-bai-dang-view>
+  
+     -->
+    <div *ngFor="let item of data, let bd=index" style="text-align: center;">
+      <!-- Sau này dung để chia template cho các loại  bài đăng -->
+      <ng-container [ngSwitch]="item.Id_LoaiBaiDang">
+        <div *ngSwitchCase="1">
+  
+          <!-- First -->
+  
+  
+          <mat-card class="example-card ">
+            <!-- menu để xóa bài đăng -->
+  
+  
+            <ng-container *ngIf="item.AllowEdit===id_user">
+              <button style="float: right;" mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+  
+  
+  
+              </button>
+              <mat-menu #menu="matMenu">
+                <button (click)="creaFormDelete(item.Id_BaiDang)" mat-menu-item matTooltip="Xóa bài đăng">
+                  <mat-icon style="color: red">clear</mat-icon>
+                  <span>Xóa</span>
+                </button>
+                <button (click)="UpdateBaiDang_CKeditor(item.Id_BaiDang)" mat-menu-item matTooltip="Chỉnh sửa bài đăng">
+                  <mat-icon style="color: rgb(50, 50, 240);">create</mat-icon>
+                  <span>Chỉnh Sửa</span>
+                </button>
+                <!-- <button mat-menu-item>
+                   <mat-icon>notifications_off</mat-icon>
+                   <span>Disable alerts</span>
+                 </button> -->
+              </mat-menu>
+            </ng-container>
+            <mat-card-header style="display: flex;
+       flex-direction: column;">
+  
+              <!-- lấy hình user  đăng bài  -->
+  
+              <mat-card-title>
+                <div *ngFor="let user of item.User_DangBai ">
+  
+                  <div style="display:inline">
+  
+  
+                    <div style="text-align: start;
+                 display: flex ;margin-left: -20px;">
+                      <span *ngIf="user.hinhanh===null||user.hinhanh==='';then e1; else e2"></span>
+                      <ng-template #e2>
+                        <img class="avatar" src="{{user.avatar}}">
+  
+                      </ng-template>
+  
+                      <ng-template #e1>
+  
+                        <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                      </ng-template>
+  
+                      <!-- <img class="avatar" src="{{user.avatar}}"> -->
+                      <div style="margin-left:15px;display: flex;
+                       flex-direction: column;">
+                        <span style="font-size: 15px;font-weight: bold;"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user.ID_user]"> {{user.Username}}</a>
+                            <span *ngFor="let gr of item.Group">
+                                <i class=" ficon-caret-right"></i> <a  [routerLink]="['/home/group',gr.id_group]">{{gr.ten_group}}</a>
+                              </span></span>
+                        <span style="font-size: 12px;">
+                          {{item.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                          {{ item.CreatedDate | date : 'a' | lowercase }}
+                        </span>
+                      </div>
+  
+  
+                    </div>
+                  </div>
+  
+                  <div>
+                    <span> {{item.title}}</span>
+                  </div>
+  
+                </div>
+  
+  
+  
+  
+  
+              </mat-card-title>
+              <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+            </mat-card-header>
+  
+            <mat-card-content style="text-align: start; ">
+  
+              <p>{{item.NoiDung}}</p>
+              <div *ngIf="item.hinhanh!=''||item.hinhanh===null">
+
+                <img style=" width: 470px;
+                height: 250px;" src="{{item.image}}"> 
+                </div>  
+  
+            </mat-card-content>
+            <hr />
+            <mat-card-actions>
+              <div class="row">
+                <div class="col-md-12 comment-like" style="text-align: start;">
+  
+                  <span style="margin-left: 10px;" [popover]="myPopover" [popoverOnHover]="true"
+                    [popoverCloseOnMouseOutside]="true">
+                    <a *ngIf="item.Like" href="javascript:;" class="{{item.Like.title}}"
+                      (click)="like(item.Id_BaiDang,0,id_user)">
+                      <img src="{{item.Like.icon}}" />
+                      <span> {{item.Like.title}}</span>
+                    </a>
+  
+                    <a *ngIf="!item.Like" href="javascript:;" (click)="like(item.Id_BaiDang,1,id_user)">
+                      <mat-icon class="thumb_up">thumb_up</mat-icon>
+                      Like
+                    </a>
+                  </span> &nbsp;&middot;&nbsp; &nbsp;&nbsp;
+                  <a href="javascript:;" class="kt-font-bolder">
+                    Bình Luận <span class="comment-num">{{item.Coment.length}}</span>
+                  </a>
+                  <a  *ngIf="item.CreatedBy!=id_user" (click)="Share(item.Id_BaiDang)" style=" margin-left: 25px;" href="javascript:;" class="kt-font-bolder">
+                    <!-- <mat-icon  class="binhluan">reply</mat-icon> -->
+                    <img style="width:23px;height: 16px;"  class="binhluan"  src="./assets/media/bg/share.png">
+                    Chia Sẻ<span class="comment-num"></span>
+                    </a>
+  
+                  <div>
+                    <popover-content #myPopover class="reaction-box-container" [closeOnMouseOutside]="true">
+                      <div class="reaction-box">
+                        <div class="reaction-icon" *ngFor="let icon of list_icon"
+                          (click)="like(item.Id_BaiDang,icon.ID_like,id_user)">
+                          <label>{{icon.title_like}}</label>
+                          <div class="reaction-img">
+                            <img src="{{icon.link_icon_like}}">
+                          </div>
+                        </div>
+                      </div>
+                    </popover-content>
+  
+                  </div>
+                  <span class="total-like" style="text-align: right; margin-right: 10px;">
+                    <ng-container *ngFor="let like of item.Like_BaiDang">
+                      <span *ngIf="like.tong>0">
+                        <img class="icon" src="{{like.icon}}" />
+                        {{like.tong}}
+                      </span>
+                    </ng-container>
+                  </span>
+                </div>
+              </div>
+              <!-- Lỗi -->
+  
+              <div class="kt-form__group" *ngFor="let quyen of item.Coment;let vi=index;  ">
+                <div class="form-group kt-form__group row">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile comment-input">
+                    <div class="user-info-container">
+                      <div class="user-info">
+                        <!-- <div class="kt-user-card__avatar">
+                     <img alt="" src="{{UserData.Image}}">
+                   </div>
+                   <div class="kt-user-card__name">
+                     <span class="m-card-user__name">{{UserData.HoTen}}</span>
+                     <br>
+                     <span class="m-card-user__username">
+                       {{UserData.ChucVu}} &#x2022;
+                       @{{UserData.Username}}
+                     </span>
+                   </div> -->
+                      </div>
+  
+                    </div>
+                    <!-- <hr /> -->
+  
+  
+                  </div>
+                  <div class="col-md-12 kt-margin-bottom-10-mobile" *ngIf="AttachFileComment.length>0">
+                    <p style="font-weight:bold">{{AttachFileComment.length}} tệp đính kèm</p>
+                    <div class="row">
+                      <div class="col-md-4" *ngFor="let att of AttachFileComment;let ind2 = index">
+                        <div class="attach-item">
+                          <div class="attach-item-icon">
+                            <img src="{{att.icon}}" />
+                          </div>
+                          <div class="attach-item-name">
+                            <p>{{att.filename}}</p>
+                            <span>
+                              <a href="javascript:;">Preview</a>&nbsp;&middot;&nbsp;<a href="javascript:;">Download</a>
+                            </span>
+                          </div>
+                          <div class="attach-item-del">
+                            <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(-1,ind2)"
+                              matTooltip="Xóa File">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- phần  comment bên dưới -->
+                <div class="form-group kt-form__group row" style="text-align: start;">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile">
+                  
+                    <hr />
+  
+                    <!-- Nơi hiển thị ảnh người comment -->
+                    <div class="comment-container" *ngFor="let user_cmt of quyen.User_comment">
+                      <div class="user-info">
+                        <div class="kt-user-card__avatar" style="margin-top: 15px;">
+                          <span *ngIf="user_cmt.hinhanh===null;then e1; else e2"></span>
+                          <ng-template #e2>
+                            <img class="avatar_cmt" src="{{user_cmt.avatar}}">
+  
+                          </ng-template>
+  
+                          <ng-template #e1>
+  
+                            <img class="avatar_cmt" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                          </ng-template>
+  
+                          <!-- <img class="avatar_cmt" src="{{user_cmt.avatar}}"> -->
+                          <span style="margin-left: 5px;font-weight: bold;"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user_cmt.ID_user]"> {{user_cmt.Username}}</a></span>
+                        </div>
+                        <div class="kt-user-card__name">
+                          <!-- <p class="m-card-user__name mg-0">{{quyen.NguoiTao.hoten}}</p> -->
+  
+                        </div>
+                      </div>
+                      <div class="content body_cmt">
+                        <div class="comment">
+                          <div class="comment-string">
+  
+                            <!--  đây là nơi hiển thị comment -->
+  
+                            <span style="margin-left: 35px" [innerHtml]="parseHtml(quyen.NoiDung_cmt)"></span>
+  
+  
+                            <!-- <span [innerHtml]="example"></span> -->
+  
+                          </div>
+                          <div style="min-width: 50px; min-height: 10px;text-align: end;height: 40px;">
+                            <ng-container *ngIf="quyen.AllowEdit==id_user">
+                              <button mat-icon-button (click)="Update_Comment(quyen, vi)"
+                                matTooltip="Sửa nội dung bình luận">
+                                <mat-icon class="action">create</mat-icon>
+                              </button>
+                              <button mat-icon-button (click)="deleteComment(quyen.id_cmt)" matTooltip="Xóa bình luận">
+                                <mat-icon class="action">delete</mat-icon>
+                              </button>
+                            </ng-container>
+                          </div>
+                        </div>
+                        <div class="row" *ngIf="quyen.Attachment?quyen.Attachment.length>0:false">
+                          <div class="col-md-12 kt-margin-bottom-10-mobile" *ngFor="let att2 of quyen.Attachment;">
+                            <div class="attach-item show-action">
+                              <div class="attach-item-icon">
+                                <img src="{{att2.icon}}" />
+                              </div>
+                              <div class="attach-item-name">
+                                <p>{{att2.filename}}</p>
+                              </div>
+                              <div class="attach-item-del">
+                                <button mat-icon-button class="text-success" (click)="preview(att2.path)" type="button"
+                                  matTooltip="Preview">
+                                  <mat-icon>remove_red_eye</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" (click)="DownloadFile(att2.path)" type="button"
+                                  matTooltip="Download">
+                                  <mat-icon>cloud_download</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" type="button" matTooltip="Xóa File">
+  
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--  nơi hiển thi số like  like  comment -->
+                        <div class="row" style="margin-top: -10px;margin-left: 15px;">
+                          <div class="col-md-12 comment-like" style="display: flex;
+                     flex-direction: row;margin-left: 20px;">
+  
+                            <span style="margin-left: 10px;" [popover]="myPopover_cmt" [popoverOnHover]="true"
+                              [popoverCloseOnMouseOutside]="true">
+                              <a *ngIf="quyen.Like" href="javascript:;" class="{{quyen.Like.title}}"
+                                (click)="like_cmt(quyen.id_cmt,0,id_user)">
+                                <img src="{{quyen.Like.icon}}" />
+                                {{quyen.Like.title}}
+                              </a>
+  
+  
+  
+                              <a *ngIf="!quyen.Like" href="javascript:;" (click)="like_cmt(quyen.id_cmt,1,id_user)">
+                                <mat-icon style="font-size:12px;" class="thumb_up">thumb_up</mat-icon>
+                                <span style="font-size: 12px;"> Like</span>
+                              </a>
+                              &nbsp;&nbsp;
+  
+                            </span>
+                            <a href="javascript:void(0)" (click)="ShowOrHideComment(vi,bd)" class="kt-font-bolder">
+                              <span style="font-size: 12px;">Phản hồi </span><span
+                                class="comment-num">{{quyen.Comment_child.length}}</span>
+                            </a>
+  
+                            <a>
+                              <p style="font-size: 10px;margin-left: 10px;
+                           padding-top: 2px;">
+                                {{quyen.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                                {{ quyen.CreatedDate | date : 'a' | lowercase }}
+  
+                              </p>
+                            </a>
+  
+  
+                            <div>
+                              <popover-content #myPopover_cmt class="reaction-box-container" [closeOnMouseOutside]="true">
+                                <div class="reaction-box">
+                                  <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                    (click)="like_cmt(quyen.id_cmt,icon.ID_like,id_user)">
+                                    <label>{{icon.title_like}}</label>
+                                    <div class="reaction-img">
+                                      <img src="{{icon.link_icon_like}}">
+                                    </div>
+                                  </div>
+                                </div>
+                              </popover-content>
+  
+                            </div>
+                            <!-- Hiển thị và đếm số like -->
+                            <span class="total-like" style="float: right; margin-left: 10px">
+                              <ng-container *ngFor="let likecmt of quyen.Like_Comment">
+                                <span *ngIf="likecmt.tong>0">
+                                  <img class="icon" src="{{likecmt.icon}}" />
+                                  {{likecmt.tong}}
+                                </span>
+                              </ng-container>
+                            </span>
+                          </div>
+                        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+                        <!-- ww  nơi hiển thị rep comment-->
+                        <div id="ykchild{{vi}}{{bd}}" class="child" style="display: none;float: right;">
+                          <div class="comment-inline" style="margin-left: 60px;"
+                            *ngFor="let child of quyen.Comment_child; let vic=index">
+                            <div class="user-info" *ngFor="let user of child.User_comment_child">
+                              <div class="kt-user-card__avatar" style="float: left;
+                     margin-right: 10px;">
+                                <img class="avatar_cmt" src="{{user.avatar}}">
+                                <span
+                                  style="font-size: 12px;color: darkmagenta;font-weight: bold;">{{user.Username}}</span>
+                              </div>
+                              <div class="kt-user-card__name khung_cmt_child">
+                                <div style="display:flex;    line-height: 27px; height: 30px;">
+                                  <div class="comment">
+                                    <div class="comment-string" style="display:flex;">
+                                      <!-- <span class="m-card-user__name">{{child.NguoiTao.hoten}}</span> -->
+                                      <span [innerHtml]="parseHtml(child.NoiDung_cmt)"></span>
+                                      <p style="font-size: 10px;margin-left: 10px;
+                                      padding-top: 2px;">
+                                        {{child.CreatedDate_cmt  | date : 'd/M/yyyy h:mm'}}
+                                        {{ child.CreatedDate_cmt | date : 'a' | lowercase }}
+  
+                                      </p>
+                                    </div>
+                                    <div style="min-width: 50px; min-height: 45px;">
+                                      <ng-container *ngIf="child.AllowEdit">
+                                        <button mat-icon-button (click)="Update_Comment_Child(child, vic)"
+                                          matTooltip="Sửa nội dung bình luận">
+                                          <mat-icon class="action">create</mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="deleteComment(child.id_cmt)"
+                                          matTooltip="Xóa bình luận">
+                                          <mat-icon class="action">delete</mat-icon>
+                                        </button>
+                                      </ng-container>
+                                    </div>
+                                  </div>
+                                </div>
+  
+                                <div class="row">
+                                  <div class="col-md-12 comment-like" style="margin-left: 85px;">
+                                    <span [popover]="myPopover" [popoverOnHover]="true"
+                                      [popoverCloseOnMouseOutside]="true">
+                                      <a href="javascript:;" *ngIf="child.Like_child" class="{{child.Like_child.title}}"
+                                        (click)="like_cmt(child.id_cmt,0,id_user)">
+                                        <img src="{{child.Like_child.icon}}" />
+                                        {{child.Like_child.title}}
+                                      </a>
+                                      <a *ngIf="!child.Like_child" href="javascript:;"
+                                        (click)="like_cmt(child.id_cmt,1,id_user)">
+                                        <mat-icon class="thumb_up">thumb_up</mat-icon>
+                                        <span style="font-size: 11px;"> Like </span>
+                                      </a>
+                                    </span>
+                                    <div>
+                                      <!-- (click)="like(item.Id_BaiDang,icon.ID_like,id_user)" -->
+                                      <popover-content #myPopover class="reaction-box-container"
+                                        [closeOnMouseOutside]="true">
+                                        <div class="reaction-box">
+                                          <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                            (click)="like_cmt(child.id_cmt,icon.ID_like,id_user)">
+                                            <label>{{icon.title_like}}</label>
+                                            <div class="reaction-img">
+                                              <img src="{{icon.link_icon_like}}">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </popover-content>
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <a *ngIf="child.CreatedBy_cmt!=id_user" style="font-size: 11px; margin-top: 2px;" href="javascript:void(0)" (click)="reply(child.CreatedBy_cmt, vi)">
+                                      Trả lời
+                                    </a> &nbsp;&nbsp; {{child.CreatedDate}}
+                                    <span class="total-like">
+                                      <ng-container *ngFor="let like of child.Like_Comment_child">
+                                        <span *ngIf="like.tong>0">
+                                          <img src="{{like.icon}}" />
+                                          {{like.tong}}
+                                        </span>
+                                      </ng-container>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--  noi add_cmt_child -->
+                          <div class="row">
+                            <div id="inputtext{{vi}}" class="col-md-12 kt-margin-bottom-10-mobile">
+                              <mat-form-field style="display: inline-flex;
+                     align-items: baseline;
+                     box-sizing: border-box;
+                     width: 380px;
+                     border-radius: 10px;
+                       background-color: snow;
+                       margin-left: 50px;
+                       margin-bottom: 15px;" class="mat-form-field-fluid">
+                                <input matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                                  id="CommentRep{{vi}}" (keydown.enter)="CommentInsert_chill(quyen.id_cmt)" type="text"
+                                  [(ngModel)]="dulieu_cmt_child">
+                                <button matSuffix mat-icon-button color="primary" type="button"
+                                  (click)="selectFile_PDF(vi)" matTooltip="Upload File">
+                                  <mat-icon>attach_file</mat-icon>
+                                </button>
+                              
+  
+  
+                              </mat-form-field>
+                              <!-- CommentInsert($event.target.value,quyen.id_row,i,2) -->
+  
+                            </div>
+  
+                            <!--<div id="btnattach{{vi}}"
+                        class="col-md-1 kt-margin-bottom-10-mobile">
+                       <button mat-icon-button color="primary" type="button" (click)="selectFile_PDF(vi)"
+                           matTooltip="Upload File">
+                         <mat-icon>attach_file</mat-icon>
+                       </button>&nbsp;-->
+  
+                            <input type='file' id="PDFInpdd{{vi}}" (change)="onSelectFile_PDF($event,vi)"
+                              style="display: none;">
+                            <!--</div>-->
+                            <div class="row">
+                              <div class="col-md-12 kt-margin-bottom-10-mobile"
+                                *ngFor="let att3 of GetListAttach(vi);let ind1 = index">
+                                {{att3.filename}}
+                                <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(vi,ind1)"
+                                  matTooltip="Xóa File">
+                                  <mat-icon>delete</mat-icon>
+                                </button>&nbsp;
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- add_cmt -->
+              <mat-form-field class="mat-form-field-fluid" style="width:100%" (click)="layIDBaiDang(item.Id_BaiDang)">
+                <textarea #matInput matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                  [formControl]="dulieu_cmt" (keydown.enter)="CommentInsert()" rows="2" [popover]="myPopoverC">
+           </textarea>
+              </mat-form-field>
+            
+  
+  
+            </mat-card-actions>
+          </mat-card>
+  
+        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <!-- Loại bài đăng 2 -->
+        <div *ngSwitchCase="2">
+  
+  
+          <mat-card class="example-card ">
+            <!-- menu để xóa bài đăng -->
+  
+        
+  
+  
+              <div  style="float: right; margin-right: 10px;" class="ann"><span class="r"><span class="-in"></span></span><span
+                class="icon -ap icon-star" title="This is an announcement"></span> </div>
+              <ng-container *ngIf="item.AllowEdit===id_user">
+                <button style="float: right;" mat-icon-button [matMenuTriggerFor]="menu"
+                  aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+  
+  
+  
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button (click)="creaFormDelete(item.Id_BaiDang)" mat-menu-item matTooltip="Xóa bài đăng">
+                    <mat-icon style="color: red">clear</mat-icon>
+                    <span>Xóa</span>
+                  </button>
+                  <button (click)="UpdateBaiDang_2(item.Id_BaiDang)" mat-menu-item matTooltip="Chỉnh sửa bài đăng">
+                    <mat-icon style="color: rgb(50, 50, 240);">create</mat-icon>
+                    <span>Chỉnh Sửa</span>
+                  </button>
+                  <!-- <button mat-menu-item>
+                   <mat-icon>notifications_off</mat-icon>
+                   <span>Disable alerts</span>
+                 </button> -->
+                </mat-menu>
+              </ng-container>
+              <mat-card-header style="display: flex;
+       flex-direction: column;">
+  
+                <!-- lấy hình user  đăng bài  -->
+  
+                <mat-card-title>
+                  <div *ngFor="let user of item.User_DangBai ">
+  
+                    <div style="display:inline">
+  
+  
+                      <div style="text-align: start;
+                 display: flex ;margin-left: -20px;">
+                        <span *ngIf="user.hinhanh===null||user.hinhanh==='';then e1; else e2"></span>
+                        <ng-template #e2>
+                          <img class="avatar" src="{{user.avatar}}">
+  
+  
+                        </ng-template>
+  
+                        <ng-template #e1>
+  
+                          <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                        </ng-template>
+  
+                        <!-- <img class="avatar" src="{{user.avatar}}"> -->
+                        <div style="margin-left:15px;display: flex;
+                       flex-direction: column;">
+                          <span style="font-size: 15px;font-weight: bold;display:flex"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user.ID_user]"> {{user.Username}}</a> <p style="font-size:10px;margin-top: 5px;
+                          margin-left: 5px;color: brown;">Đã ban hành một khen thưởng</p>
+                           <span *ngFor="let gr of item.Group">
+                            <i class=" ficon-caret-right"></i> <a [routerLink]="['/home/group',gr.id_group]">{{gr.ten_group}}</a>
+                          </span>
+  
+  
+                          </span>
+  
+                          <span style="font-size: 12px; margin-top: -10px;">
+                            {{item.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                            {{ item.CreatedDate | date : 'a' | lowercase }}
+                          </span>
+                        </div>
+                        <hr>
+  
+  
+                      </div>
+                    </div>
+                    <!-- <p style="color:chocolate">{{kt.hoten}}</p> -->
+                    <div style="display: flex;" *ngFor="let kt of item.KhenThuong">
+                      <img style="border-radius:none; 
+                      -moz-border-radius: none;
+                       -webkit-border-radius: none;" src="{{kt.icon}}">
+                      <span style="text-align: start;"> {{kt.tieude_kt}} <p style="color:chocolate">{{item.title}}</p></span>
+                     
+                    </div>
+  
+                  </div>
+  
+  
+  
+  
+  
+                </mat-card-title>
+                <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+              </mat-card-header>
+  
+              <mat-card-content style="text-align: start; ">
+  
+                <p>{{item.NoiDung}}</p>
+                <div *ngIf="item.hinhanh!=''||item.hinhanh===null">
+
+                  <img style=" width: 470px;
+                  height: 250px;" src="{{item.image}}"> 
+                  </div>  
+  
+              </mat-card-content>
+              <hr />
+              <mat-card-actions>
+                <div class="row">
+                  <div class="col-md-12 comment-like" style="text-align: start;">
+  
+                    <span style="margin-left: 10px;" [popover]="myPopover" [popoverOnHover]="true"
+                      [popoverCloseOnMouseOutside]="true">
+                      <a *ngIf="item.Like" href="javascript:;" class="{{item.Like.title}}"
+                        (click)="like(item.Id_BaiDang,0,id_user)">
+                        <img src="{{item.Like.icon}}" />
+                        <span> {{item.Like.title}}</span>
+                      </a>
+  
+                      <a *ngIf="!item.Like" href="javascript:;" (click)="like(item.Id_BaiDang,1,id_user)">
+                        <mat-icon class="thumb_up">thumb_up</mat-icon>
+                        Like
+                      </a>
+                    </span> &nbsp;&middot;&nbsp; &nbsp;&nbsp;
+                    <a href="javascript:;" class="kt-font-bolder">
+                      Bình Luận <span class="comment-num">{{item.Coment.length}}</span>
+                    </a>
+                    <a  *ngIf="item.CreatedBy!=id_user" (click)="Share(item.Id_BaiDang)" style=" margin-left: 25px;" href="javascript:;" class="kt-font-bolder">
+                      <!-- <mat-icon  class="binhluan">reply</mat-icon> -->
+                      <img style="width:23px;height: 16px;"  class="binhluan"  src="./assets/media/bg/share.png">
+                      Chia Sẻ<span class="comment-num"></span>
+                      </a>
+                    <div>
+                      <popover-content #myPopover class="reaction-box-container" [closeOnMouseOutside]="true">
+                        <div class="reaction-box">
+                          <div class="reaction-icon" *ngFor="let icon of list_icon"
+                            (click)="like(item.Id_BaiDang,icon.ID_like,id_user)">
+                            <label>{{icon.title_like}}</label>
+                            <div class="reaction-img">
+                              <img src="{{icon.link_icon_like}}">
+                            </div>
+                          </div>
+                        </div>
+                      </popover-content>
+  
+                    </div>
+                    <span class="total-like" style="text-align: right; margin-right: 10px;">
+                      <ng-container *ngFor="let like of item.Like_BaiDang">
+                        <span *ngIf="like.tong>0">
+                          <img class="icon" src="{{like.icon}}" />
+                          {{like.tong}}
+                        </span>
+                      </ng-container>
+                    </span>
+                  </div>
+                </div>
+                <!-- Lỗi -->
+  
+                <div class="kt-form__group" *ngFor="let quyen of item.Coment;let vi=index;  ">
+                  <div class="form-group kt-form__group row">
+                    <div class="col-md-12 kt-margin-bottom-10-mobile comment-input">
+                      <div class="user-info-container">
+                        <div class="user-info">
+                          <!-- <div class="kt-user-card__avatar">
+                     <img alt="" src="{{UserData.Image}}">
+                   </div>
+                   <div class="kt-user-card__name">
+                     <span class="m-card-user__name">{{UserData.HoTen}}</span>
+                     <br>
+                     <span class="m-card-user__username">
+                       {{UserData.ChucVu}} &#x2022;
+                       @{{UserData.Username}}
+                     </span>
+                   </div> -->
+                        </div>
+  
+                      </div>
+                      <!-- <hr /> -->
+  
+  
+                    </div>
+                    <div class="col-md-12 kt-margin-bottom-10-mobile" *ngIf="AttachFileComment.length>0">
+                      <p style="font-weight:bold">{{AttachFileComment.length}} tệp đính kèm</p>
+                      <div class="row">
+                        <div class="col-md-4" *ngFor="let att of AttachFileComment;let ind2 = index">
+                          <div class="attach-item">
+                            <div class="attach-item-icon">
+                              <img src="{{att.icon}}" />
+                            </div>
+                            <div class="attach-item-name">
+                              <p>{{att.filename}}</p>
+                              <span>
+                                <a href="javascript:;">Preview</a>&nbsp;&middot;&nbsp;<a href="javascript:;">Download</a>
+                              </span>
+                            </div>
+                            <div class="attach-item-del">
+                              <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(-1,ind2)"
+                                matTooltip="Xóa File">
+                                <mat-icon>delete</mat-icon>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- phần  comment bên dưới -->
+                  <div class="form-group kt-form__group row" style="text-align: start;">
+                    <div class="col-md-12 kt-margin-bottom-10-mobile">
+                    
+                      <hr />
+  
+                      <!-- Nơi hiển thị ảnh người comment -->
+                      <div class="comment-container" *ngFor="let user_cmt of quyen.User_comment">
+                        <div class="user-info">
+                          <div class="kt-user-card__avatar" style="margin-top: 15px;">
+                            <span *ngIf="user_cmt.hinhanh===null||user_cmt.hinhanh==='';then e1; else e2"></span>
+                            <ng-template #e2>
+                              <img class="avatar_cmt" src="{{user_cmt.avatar}}">
+  
+                            </ng-template>
+  
+                            <ng-template #e1>
+  
+                              <img class="avatar_cmt" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                            </ng-template>
+  
+                            <!-- <img class="avatar_cmt" src="{{user_cmt.avatar}}"> -->
+                            <span style="margin-left: 5px;font-weight: bold;"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user_cmt.ID_user]"> {{user_cmt.Username}}</a></span>
+                          </div>
+                          <div class="kt-user-card__name">
+                            <!-- <p class="m-card-user__name mg-0">{{quyen.NguoiTao.hoten}}</p> -->
+  
+                          </div>
+                        </div>
+                        <div class="content body_cmt">
+                          <div class="comment">
+                            <div class="comment-string">
+  
+                              <!--  đây là nơi hiển thị comment -->
+  
+                              <span style="margin-left: 35px" [innerHtml]="parseHtml(quyen.NoiDung_cmt)"></span>
+  
+  
+                              <!-- <span [innerHtml]="example"></span> -->
+  
+                            </div>
+                            <div style="min-width: 50px; min-height: 10px;text-align: end;height: 40px;">
+                              <ng-container *ngIf="quyen.AllowEdit==id_user">
+                                <button mat-icon-button (click)="Update_Comment(quyen, vi)"
+                                  matTooltip="Sửa nội dung bình luận">
+                                  <mat-icon class="action">create</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="deleteComment(quyen.id_cmt)" matTooltip="Xóa bình luận">
+                                  <mat-icon class="action">delete</mat-icon>
+                                </button>
+                              </ng-container>
+                            </div>
+                          </div>
+                          <div class="row" *ngIf="quyen.Attachment?quyen.Attachment.length>0:false">
+                            <div class="col-md-12 kt-margin-bottom-10-mobile" *ngFor="let att2 of quyen.Attachment;">
+                              <div class="attach-item show-action">
+                                <div class="attach-item-icon">
+                                  <img src="{{att2.icon}}" />
+                                </div>
+                                <div class="attach-item-name">
+                                  <p>{{att2.filename}}</p>
+                                </div>
+                                <div class="attach-item-del">
+                                  <button mat-icon-button class="text-success" (click)="preview(att2.path)" type="button"
+                                    matTooltip="Preview">
+                                    <mat-icon>remove_red_eye</mat-icon>
+                                  </button>
+                                  <button mat-icon-button color="primary" (click)="DownloadFile(att2.path)" type="button"
+                                    matTooltip="Download">
+                                    <mat-icon>cloud_download</mat-icon>
+                                  </button>
+                                  <button mat-icon-button color="warn" type="button" matTooltip="Xóa File">
+  
+                                    <mat-icon>delete</mat-icon>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--  nơi hiển thi số like  like  comment -->
+                          <div class="row" style="margin-top: -10px;margin-left: 15px;">
+                            <div class="col-md-12 comment-like" style="display: flex;
+                     flex-direction: row;margin-left: 20px;">
+  
+                              <span style="margin-left: 10px;" [popover]="myPopover_cmt" [popoverOnHover]="true"
+                                [popoverCloseOnMouseOutside]="true">
+                                <a *ngIf="quyen.Like" href="javascript:;" class="{{quyen.Like.title}}"
+                                  (click)="like_cmt(quyen.id_cmt,0,id_user)">
+                                  <img src="{{quyen.Like.icon}}" />
+                                  {{quyen.Like.title}}
+                                </a>
+  
+  
+  
+                                <a *ngIf="!quyen.Like" href="javascript:;" (click)="like_cmt(quyen.id_cmt,1,id_user)">
+                                  <mat-icon style="font-size:12px;" class="thumb_up">thumb_up</mat-icon>
+                                  <span style="font-size: 12px;"> Like</span>
+                                </a>
+                                &nbsp;&nbsp;
+  
+                              </span>
+                              <a href="javascript:void(0)" (click)="ShowOrHideComment(vi,bd)" class="kt-font-bolder">
+                                <span style="font-size: 12px;">Phản hồi </span><span
+                                  class="comment-num">{{quyen.Comment_child.length}}</span>
+                              </a>
+  
+                              <a>
+                                <p style="font-size: 10px;margin-left: 10px;
+                           padding-top: 2px;">
+                                  {{quyen.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                                  {{ quyen.CreatedDate | date : 'a' | lowercase }}
+  
+                                </p>
+                              </a>
+  
+  
+                              <div>
+                                <popover-content #myPopover_cmt class="reaction-box-container"
+                                  [closeOnMouseOutside]="true">
+                                  <div class="reaction-box">
+                                    <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                      (click)="like_cmt(quyen.id_cmt,icon.ID_like,id_user)">
+                                      <label>{{icon.title_like}}</label>
+                                      <div class="reaction-img">
+                                        <img src="{{icon.link_icon_like}}">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </popover-content>
+  
+                              </div>
+                              <!-- Hiển thị và đếm số like -->
+                              <span class="total-like" style="float: right; margin-left: 10px">
+                                <ng-container *ngFor="let likecmt of quyen.Like_Comment">
+                                  <span *ngIf="likecmt.tong>0">
+                                    <img class="icon" src="{{likecmt.icon}}" />
+                                    {{likecmt.tong}}
+                                  </span>
+                                </ng-container>
+                              </span>
+                            </div>
+                          </div>
+  
+  
+  
+  
+  
+  
+  
+  
+                          <!-- ww  nơi hiển thị rep comment-->
+                          <div id="ykchild{{vi}}{{bd}}" class="child" style="display: none;float: right;">
+                            <div class="comment-inline" style="margin-left: 60px;"
+                              *ngFor="let child of quyen.Comment_child; let vic=index">
+                              <div class="user-info" *ngFor="let user of child.User_comment_child">
+                                <div class="kt-user-card__avatar" style="float: left;
+                     margin-right: 10px;">
+                                  <img class="avatar_cmt" src="{{user.avatar}}">
+                                  <span
+                                    style="font-size: 12px;color: darkmagenta;font-weight: bold;">{{user.Username}}</span>
+                                </div>
+                                <div class="kt-user-card__name khung_cmt_child">
+                                  <div style="display:flex;    line-height: 27px; height: 30px;">
+                                    <div class="comment">
+                                      <div class="comment-string">
+                                        <!-- <span class="m-card-user__name">{{child.NguoiTao.hoten}}</span> -->
+                                        <span [innerHtml]="parseHtml(child.NoiDung_cmt)"></span>
+                                      </div>
+                                      <div style="min-width: 50px; min-height: 45px;">
+                                        <ng-container *ngIf="child.AllowEdit">
+                                          <button mat-icon-button (click)="Update_Comment_Child(child, vic)"
+                                            matTooltip="Sửa nội dung bình luận">
+                                            <mat-icon class="action">create</mat-icon>
+                                          </button>
+                                          <button mat-icon-button (click)="deleteComment(child.id_cmt)"
+                                            matTooltip="Xóa bình luận">
+                                            <mat-icon class="action">delete</mat-icon>
+                                          </button>
+                                        </ng-container>
+                                      </div>
+                                    </div>
+                                  </div>
+  
+                                  <div class="row">
+                                    <div class="col-md-12 comment-like" style="margin-left: 85px;">
+                                      <span [popover]="myPopover" [popoverOnHover]="true"
+                                        [popoverCloseOnMouseOutside]="true">
+                                        <a href="javascript:;" *ngIf="child.Like_child" class="{{child.Like_child.title}}"
+                                          (click)="like_cmt(child.id_cmt,0,id_user)">
+                                          <img src="{{child.Like_child.icon}}" />
+                                          {{child.Like_child.title}}
+                                        </a>
+                                        <a *ngIf="!child.Like_child" href="javascript:;"
+                                          (click)="like_cmt(child.id_cmt,1,id_user)">
+                                          <mat-icon class="thumb_up">thumb_up</mat-icon>
+                                          <span style="font-size: 11px;"> Like </span>
+                                        </a>
+                                      </span>
+                                      <div>
+                                        <!-- (click)="like(item.Id_BaiDang,icon.ID_like,id_user)" -->
+                                        <popover-content #myPopover class="reaction-box-container"
+                                          [closeOnMouseOutside]="true">
+                                          <div class="reaction-box">
+                                            <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                              (click)="like_cmt(child.id_cmt,icon.ID_like,id_user)">
+                                              <label>{{icon.title_like}}</label>
+                                              <div class="reaction-img">
+                                                <img src="{{icon.link_icon_like}}">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </popover-content>
+                                      </div>
+                                      &nbsp;&nbsp;
+                                      <a *ngIf="child.CreatedBy_cmt!=id_user" style="font-size: 11px; margin-top: 2px;" href="javascript:void(0)" (click)="reply(child.CreatedBy_cmt, vi)">
+                                        Trả lời
+                                      </a> &nbsp;&nbsp; {{child.CreatedDate}}
+                                      <span class="total-like">
+                                        <ng-container *ngFor="let like of child.Like_Comment_child">
+                                          <span *ngIf="like.tong>0">
+                                            <img src="{{like.icon}}" />
+                                            {{like.tong}}
+                                          </span>
+                                        </ng-container>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!--  noi add_cmt_child -->
+                            <div class="row">
+                              <div id="inputtext{{vi}}" class="col-md-12 kt-margin-bottom-10-mobile">
+                                <mat-form-field style="display: inline-flex;
+                     align-items: baseline;
+                     box-sizing: border-box;
+                     width: 380px;
+                     border-radius: 10px;
+                       background-color: snow;
+                       margin-left: 50px;
+                       margin-bottom: 15px;" class="mat-form-field-fluid">
+                                  <input matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                                    id="CommentRep{{vi}}" (keydown.enter)="CommentInsert_chill(quyen.id_cmt)" type="text"
+                                    [(ngModel)]="dulieu_cmt_child">
+                                  <button matSuffix mat-icon-button color="primary" type="button"
+                                    (click)="selectFile_PDF(vi)" matTooltip="Upload File">
+                                    <mat-icon>attach_file</mat-icon>
+                                  </button>
+                                 
+  
+  
+                                </mat-form-field>
+                                <!-- CommentInsert($event.target.value,quyen.id_row,i,2) -->
+  
+                              </div>
+  
+                              <!--<div id="btnattach{{vi}}"
+                        class="col-md-1 kt-margin-bottom-10-mobile">
+                       <button mat-icon-button color="primary" type="button" (click)="selectFile_PDF(vi)"
+                           matTooltip="Upload File">
+                         <mat-icon>attach_file</mat-icon>
+                       </button>&nbsp;-->
+  
+                              <input type='file' id="PDFInpdd{{vi}}" (change)="onSelectFile_PDF($event,vi)"
+                                style="display: none;">
+                              <!--</div>-->
+                              <div class="row">
+                                <div class="col-md-12 kt-margin-bottom-10-mobile"
+                                  *ngFor="let att3 of GetListAttach(vi);let ind1 = index">
+                                  {{att3.filename}}
+                                  <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(vi,ind1)"
+                                    matTooltip="Xóa File">
+                                    <mat-icon>delete</mat-icon>
+                                  </button>&nbsp;
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+                <!-- add_cmt -->
+                <mat-form-field class="mat-form-field-fluid" style="width:100%" (click)="layIDBaiDang(item.Id_BaiDang)">
+                  <textarea #matInput matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                    [formControl]="dulieu_cmt" (keydown.enter)="CommentInsert()" rows="2" [popover]="myPopoverC">
+           </textarea>
+                </mat-form-field>
+               
+  
+  
+              </mat-card-actions>
+           
+          </mat-card>
+  
+  
+        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <!-- Loại bài đăng 3 -->
+        <div *ngSwitchCase="3">
+  
+          <mat-card class="example-card ">
+            <!-- menu để xóa bài đăng -->
+  
+            <div  style="float: right; margin-right: 10px;" class="ann"><span class="r"><span class="-in"></span></span><span
+              class="icon -ap icon-star" title="This is an announcement"></span> </div>
+            <ng-container *ngIf="item.AllowEdit===id_user">
+              <button style="float: right;" mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+  
+  
+  
+              </button>
+              <mat-menu #menu="matMenu">
+                <button (click)="creaFormDelete(item.Id_BaiDang)" mat-menu-item matTooltip="Xóa bài đăng">
+                  <mat-icon style="color: red">clear</mat-icon>
+                  <span>Xóa</span>
+                </button>
+                <button (click)="UpdateBaiDang_CKeditor(item.Id_BaiDang)" mat-menu-item matTooltip="Chỉnh sửa bài đăng">
+                  <mat-icon style="color: rgb(50, 50, 240);">create</mat-icon>
+                  <span>Chỉnh Sửa</span>
+                </button>
+                <!-- <button mat-menu-item>
+                   <mat-icon>notifications_off</mat-icon>
+                   <span>Disable alerts</span>
+                 </button> -->
+              </mat-menu>
+            </ng-container>
+            <mat-card-header style="display: flex;
+       flex-direction: column;">
+  
+              <!-- lấy hình user  đăng bài  -->
+  
+              <mat-card-title>
+                <div *ngFor="let user of item.User_DangBai ">
+  
+                  <div style="display:inline">
+  
+  
+                    <div style="text-align: start;
+                 display: flex ;margin-left: -20px;">
+                      <span *ngIf="user.hinhanh===null||user.hinhanh==='';then e1; else e2"></span>
+                      <ng-template #e2>
+                        <img class="avatar" src="{{user.avatar}}">
+  
+                      </ng-template>
+  
+                      <ng-template #e1>
+  
+                        <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                      </ng-template>
+  
+                      <!-- <img class="avatar" src="{{user.avatar}}"> -->
+                      <div style="margin-left:15px;display: flex;
+                       flex-direction: column;">
+                        <span style="font-size: 15px;font-weight: bold; display: flex"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user.ID_user]"> {{user.Username}}</a>
+                          <p style="font-size:10px;margin-top: 5px;
+                          margin-left: 5px;color: crimson;">Đã tạo một thông báo</p>
+                           <span *ngFor="let gr of item.Group">
+                            <i class=" ficon-caret-right"></i> <a [routerLink]="['/home/group',gr.id_group]">{{gr.ten_group}}</a>
+                          </span>
+                        
+                        </span>
+                        <span style="font-size: 12px; margin-top: -10px;">
+                          {{item.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                          {{ item.CreatedDate | date : 'a' | lowercase }}
+                        </span>
+                      </div>
+  
+  
+                    </div>
+                  </div>
+  
+                  <div>
+                    <span> {{item.title}}</span>
+                  </div>
+  
+                </div>
+  
+  
+  
+  
+  
+              </mat-card-title>
+              <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+              <!-- <div>
+                <img src="https://static-devgcs.basecdn.net/inside/image/update/ann.svg">
+              </div> -->
+            </mat-card-header>
+  
+            <mat-card-content style="text-align: start;">
+  
+              <p>{{item.NoiDung}}</p>
+              <div *ngIf="item.hinhanh!=''||item.hinhanh===null">
+
+                <img style=" width: 470px;
+                height: 250px;" src="{{item.image}}"> 
+                </div>  
+  
+            </mat-card-content>
+            <hr />
+            <mat-card-actions>
+              <div class="row">
+                <div class="col-md-12 comment-like" style="text-align: start;">
+  
+                  <span style="margin-left: 10px;" [popover]="myPopover" [popoverOnHover]="true"
+                    [popoverCloseOnMouseOutside]="true">
+                    <a *ngIf="item.Like" href="javascript:;" class="{{item.Like.title}}"
+                      (click)="like(item.Id_BaiDang,0,id_user)">
+                      <img src="{{item.Like.icon}}" />
+                      <span> {{item.Like.title}}</span>
+                    </a>
+  
+                    <a *ngIf="!item.Like" href="javascript:;" (click)="like(item.Id_BaiDang,1,id_user)">
+                      <mat-icon class="thumb_up">thumb_up</mat-icon>
+                      Like
+                    </a>
+                  </span> &nbsp;&middot;&nbsp; &nbsp;&nbsp;
+                  <a href="javascript:;" class="kt-font-bolder">
+                    Bình Luận <span class="comment-num">{{item.Coment.length}}</span>
+                  </a>
+                  <a  *ngIf="item.CreatedBy!=id_user" (click)="Share(item.Id_BaiDang)" style=" margin-left: 25px;" href="javascript:;" class="kt-font-bolder">
+                    <!-- <mat-icon  class="binhluan">reply</mat-icon> -->
+                    <img style="width:23px;height: 16px;"  class="binhluan"  src="./assets/media/bg/share.png">
+                    Chia Sẻ<span class="comment-num"></span>
+                    </a>
+                  <div>
+                    <popover-content #myPopover class="reaction-box-container" [closeOnMouseOutside]="true">
+                      <div class="reaction-box">
+                        <div class="reaction-icon" *ngFor="let icon of list_icon"
+                          (click)="like(item.Id_BaiDang,icon.ID_like,id_user)">
+                          <label>{{icon.title_like}}</label>
+                          <div class="reaction-img">
+                            <img src="{{icon.link_icon_like}}">
+                          </div>
+                        </div>
+                      </div>
+                    </popover-content>
+  
+                  </div>
+                  <span class="total-like" style="text-align: right; margin-right: 10px;">
+                    <ng-container *ngFor="let like of item.Like_BaiDang">
+                      <span *ngIf="like.tong>0">
+                        <img class="icon" src="{{like.icon}}" />
+                        {{like.tong}}
+                      </span>
+                    </ng-container>
+                  </span>
+                </div>
+              </div>
+              <!-- Lỗi -->
+  
+              <div class="kt-form__group" *ngFor="let quyen of item.Coment;let vi=index;  ">
+                <div class="form-group kt-form__group row">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile comment-input">
+                    <div class="user-info-container">
+                      <div class="user-info">
+                        <!-- <div class="kt-user-card__avatar">
+                     <img alt="" src="{{UserData.Image}}">
+                   </div>
+                   <div class="kt-user-card__name">
+                     <span class="m-card-user__name">{{UserData.HoTen}}</span>
+                     <br>
+                     <span class="m-card-user__username">
+                       {{UserData.ChucVu}} &#x2022;
+                       @{{UserData.Username}}
+                     </span>
+                   </div> -->
+                      </div>
+  
+                    </div>
+                    <!-- <hr /> -->
+  
+  
+                  </div>
+                  <div class="col-md-12 kt-margin-bottom-10-mobile" *ngIf="AttachFileComment.length>0">
+                    <p style="font-weight:bold">{{AttachFileComment.length}} tệp đính kèm</p>
+                    <div class="row">
+                      <div class="col-md-4" *ngFor="let att of AttachFileComment;let ind2 = index">
+                        <div class="attach-item">
+                          <div class="attach-item-icon">
+                            <img src="{{att.icon}}" />
+                          </div>
+                          <div class="attach-item-name">
+                            <p>{{att.filename}}</p>
+                            <span>
+                              <a href="javascript:;">Preview</a>&nbsp;&middot;&nbsp;<a href="javascript:;">Download</a>
+                            </span>
+                          </div>
+                          <div class="attach-item-del">
+                            <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(-1,ind2)"
+                              matTooltip="Xóa File">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- phần  comment bên dưới -->
+                <div class="form-group kt-form__group row" style="text-align: start;">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile">
+                 
+                    <hr />
+  
+                    <!-- Nơi hiển thị ảnh người comment -->
+                    <div class="comment-container" *ngFor="let user_cmt of quyen.User_comment">
+                      <div class="user-info">
+                        <div class="kt-user-card__avatar" style="margin-top: 15px;">
+                          <span *ngIf="user_cmt.hinhanh===null||user_cmt.hinhanh==='';then e1; else e2"></span>
+                          <ng-template #e2>
+                            <img class="avatar_cmt" src="{{user_cmt.avatar}}">
+  
+                          </ng-template>
+  
+                          <ng-template #e1>
+  
+                            <img class="avatar_cmt" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                          </ng-template>
+  
+                          <!-- <img class="avatar_cmt" src="{{user_cmt.avatar}}"> -->
+                          <span style="margin-left: 5px;font-weight: bold;"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user_cmt.ID_user]"> {{user_cmt.Username}}</a></span>
+                        </div>
+                        <div class="kt-user-card__name">
+                          <!-- <p class="m-card-user__name mg-0">{{quyen.NguoiTao.hoten}}</p> -->
+  
+                        </div>
+                      </div>
+                      <div class="content body_cmt">
+                        <div class="comment">
+                          <div class="comment-string">
+  
+                            <!--  đây là nơi hiển thị comment -->
+  
+                            <span style="margin-left: 35px" [innerHtml]="parseHtml(quyen.NoiDung_cmt)"></span>
+  
+  
+                            <!-- <span [innerHtml]="example"></span> -->
+  
+                          </div>
+                          <div style="min-width: 50px; min-height: 10px;text-align: end;height: 40px;">
+                            <ng-container *ngIf="quyen.AllowEdit==id_user">
+                              <button mat-icon-button (click)="Update_Comment(quyen, vi)"
+                                matTooltip="Sửa nội dung bình luận">
+                                <mat-icon class="action">create</mat-icon>
+                              </button>
+                              <button mat-icon-button (click)="deleteComment(quyen.id_cmt)" matTooltip="Xóa bình luận">
+                                <mat-icon class="action">delete</mat-icon>
+                              </button>
+                            </ng-container>
+                          </div>
+                        </div>
+                        <div class="row" *ngIf="quyen.Attachment?quyen.Attachment.length>0:false">
+                          <div class="col-md-12 kt-margin-bottom-10-mobile" *ngFor="let att2 of quyen.Attachment;">
+                            <div class="attach-item show-action">
+                              <div class="attach-item-icon">
+                                <img src="{{att2.icon}}" />
+                              </div>
+                              <div class="attach-item-name">
+                                <p>{{att2.filename}}</p>
+                              </div>
+                              <div class="attach-item-del">
+                                <button mat-icon-button class="text-success" (click)="preview(att2.path)" type="button"
+                                  matTooltip="Preview">
+                                  <mat-icon>remove_red_eye</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" (click)="DownloadFile(att2.path)" type="button"
+                                  matTooltip="Download">
+                                  <mat-icon>cloud_download</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" type="button" matTooltip="Xóa File">
+  
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--  nơi hiển thi số like  like  comment -->
+                        <div class="row" style="margin-top: -10px;margin-left: 15px;">
+                          <div class="col-md-12 comment-like" style="display: flex;
+                     flex-direction: row;margin-left: 20px;">
+  
+                            <span style="margin-left: 10px;" [popover]="myPopover_cmt" [popoverOnHover]="true"
+                              [popoverCloseOnMouseOutside]="true">
+                              <a *ngIf="quyen.Like" href="javascript:;" class="{{quyen.Like.title}}"
+                                (click)="like_cmt(quyen.id_cmt,0,id_user)">
+                                <img src="{{quyen.Like.icon}}" />
+                                {{quyen.Like.title}}
+                              </a>
+  
+  
+  
+                              <a *ngIf="!quyen.Like" href="javascript:;" (click)="like_cmt(quyen.id_cmt,1,id_user)">
+                                <mat-icon style="font-size:12px;" class="thumb_up">thumb_up</mat-icon>
+                                <span style="font-size: 12px;"> Like</span>
+                              </a>
+                              &nbsp;&nbsp;
+  
+                            </span>
+                            <a href="javascript:void(0)" (click)="ShowOrHideComment(vi,bd)" class="kt-font-bolder">
+                              <span style="font-size: 12px;">Phản hồi </span><span
+                                class="comment-num">{{quyen.Comment_child.length}}</span>
+                            </a>
+  
+                            <a>
+                              <p style="font-size: 10px;margin-left: 10px;
+                           padding-top: 2px;">
+                                {{quyen.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                                {{ quyen.CreatedDate | date : 'a' | lowercase }}
+  
+                              </p>
+                            </a>
+  
+  
+                            <div>
+                              <popover-content #myPopover_cmt class="reaction-box-container" [closeOnMouseOutside]="true">
+                                <div class="reaction-box">
+                                  <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                    (click)="like_cmt(quyen.id_cmt,icon.ID_like,id_user)">
+                                    <label>{{icon.title_like}}</label>
+                                    <div class="reaction-img">
+                                      <img src="{{icon.link_icon_like}}">
+                                    </div>
+                                  </div>
+                                </div>
+                              </popover-content>
+  
+                            </div>
+                            <!-- Hiển thị và đếm số like -->
+                            <span class="total-like" style="float: right; margin-left: 10px">
+                              <ng-container *ngFor="let likecmt of quyen.Like_Comment">
+                                <span *ngIf="likecmt.tong>0">
+                                  <img class="icon" src="{{likecmt.icon}}" />
+                                  {{likecmt.tong}}
+                                </span>
+                              </ng-container>
+                            </span>
+                          </div>
+                        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+                        <!-- ww  nơi hiển thị rep comment-->
+                        <div id="ykchild{{vi}}{{bd}}" class="child" style="display: none;float: right;">
+                          <div class="comment-inline" style="margin-left: 60px;"
+                            *ngFor="let child of quyen.Comment_child; let vic=index">
+                            <div class="user-info" *ngFor="let user of child.User_comment_child">
+                              <div class="kt-user-card__avatar" style="float: left;
+                     margin-right: 10px;">
+                                <img class="avatar_cmt" src="{{user.avatar}}">
+                                <span
+                                  style="font-size: 12px;color: darkmagenta;font-weight: bold;">{{user.Username}}</span>
+                              </div>
+                              <div class="kt-user-card__name khung_cmt_child">
+                                <div style="display:flex;    line-height: 27px; height: 30px;">
+                                  <div class="comment">
+                                    <div class="comment-string">
+                                      <!-- <span class="m-card-user__name">{{child.NguoiTao.hoten}}</span> -->
+                                      <span [innerHtml]="parseHtml(child.NoiDung_cmt)"></span>
+                                    </div>
+                                    <div style="min-width: 50px; min-height: 45px;">
+                                      <ng-container *ngIf="child.AllowEdit">
+                                        <button mat-icon-button (click)="Update_Comment_Child(child, vic)"
+                                          matTooltip="Sửa nội dung bình luận">
+                                          <mat-icon class="action">create</mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="deleteComment(child.id_cmt)"
+                                          matTooltip="Xóa bình luận">
+                                          <mat-icon class="action">delete</mat-icon>
+                                        </button>
+                                      </ng-container>
+                                    </div>
+                                  </div>
+                                </div>
+  
+                        
+                                <div class="row">
+                                  <div class="col-md-12 comment-like" style="margin-left: 85px;">
+                                    <span [popover]="myPopover" [popoverOnHover]="true"
+                                      [popoverCloseOnMouseOutside]="true">
+                                      <a href="javascript:;" *ngIf="child.Like_child" class="{{child.Like_child.title}}"
+                                        (click)="like_cmt(child.id_cmt,0,id_user)">
+                                        <img src="{{child.Like_child.icon}}" />
+                                        {{child.Like_child.title}}
+                                      </a>
+                                      <a *ngIf="!child.Like_child" href="javascript:;"
+                                        (click)="like_cmt(child.id_cmt,1,id_user)">
+                                        <mat-icon class="thumb_up">thumb_up</mat-icon>
+                                        <span style="font-size: 11px;"> Like </span>
+                                      </a>
+                                    </span>
+                                    <div>
+                                      <!-- (click)="like(item.Id_BaiDang,icon.ID_like,id_user)" -->
+                                      <popover-content #myPopover class="reaction-box-container"
+                                        [closeOnMouseOutside]="true">
+                                        <div class="reaction-box">
+                                          <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                            (click)="like_cmt(child.id_cmt,icon.ID_like,id_user)">
+                                            <label>{{icon.title_like}}</label>
+                                            <div class="reaction-img">
+                                              <img src="{{icon.link_icon_like}}">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </popover-content>
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <a *ngIf="child.CreatedBy_cmt!=id_user" style="font-size: 11px; margin-top: 2px;" href="javascript:void(0)" (click)="reply(child.CreatedBy_cmt, vi)">
+                                      Trả lời
+                                    </a> &nbsp;&nbsp; {{child.CreatedDate}}
+                                    <span class="total-like">
+                                      <ng-container *ngFor="let like of child.Like_Comment_child">
+                                        <span *ngIf="like.tong>0">
+                                          <img src="{{like.icon}}" />
+                                          {{like.tong}}
+                                        </span>
+                                      </ng-container>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--  noi add_cmt_child -->
+                          <div class="row">
+                            <div id="inputtext{{vi}}" class="col-md-12 kt-margin-bottom-10-mobile">
+                              <mat-form-field style="display: inline-flex;
+                     align-items: baseline;
+                     box-sizing: border-box;
+                     width: 380px;
+                     border-radius: 10px;
+                       background-color: snow;
+                       margin-left: 50px;
+                       margin-bottom: 15px;" class="mat-form-field-fluid">
+                                <input matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                                  id="CommentRep{{vi}}" (keydown.enter)="CommentInsert_chill(quyen.id_cmt)" type="text"
+                                  [(ngModel)]="dulieu_cmt_child">
+                                <button matSuffix mat-icon-button color="primary" type="button"
+                                  (click)="selectFile_PDF(vi)" matTooltip="Upload File">
+                                  <mat-icon>attach_file</mat-icon>
+                                </button>
+                              
+  
+  
+                              </mat-form-field>
+                              <!-- CommentInsert($event.target.value,quyen.id_row,i,2) -->
+  
+                            </div>
+  
+                            <!--<div id="btnattach{{vi}}"
+                        class="col-md-1 kt-margin-bottom-10-mobile">
+                       <button mat-icon-button color="primary" type="button" (click)="selectFile_PDF(vi)"
+                           matTooltip="Upload File">
+                         <mat-icon>attach_file</mat-icon>
+                       </button>&nbsp;-->
+  
+                            <input type='file' id="PDFInpdd{{vi}}" (change)="onSelectFile_PDF($event,vi)"
+                              style="display: none;">
+                            <!--</div>-->
+                            <div class="row">
+                              <div class="col-md-12 kt-margin-bottom-10-mobile"
+                                *ngFor="let att3 of GetListAttach(vi);let ind1 = index">
+                                {{att3.filename}}
+                                <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(vi,ind1)"
+                                  matTooltip="Xóa File">
+                                  <mat-icon>delete</mat-icon>
+                                </button>&nbsp;
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- add_cmt -->
+              <mat-form-field class="mat-form-field-fluid" style="width:100%" (click)="layIDBaiDang(item.Id_BaiDang)">
+                <textarea #matInput matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                  [formControl]="dulieu_cmt" (keydown.enter)="CommentInsert()" rows="2" [popover]="myPopoverC">
+           </textarea>
+              </mat-form-field>
+            
+  
+  
+            </mat-card-actions>
+          </mat-card>
+  
+  
+  
+        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <!-- Loại bài đăng 4 -->
+        <div *ngSwitchCase="4">
+  
+  
+  
+          <mat-card class="example-card ">
+            <!-- menu để xóa bài đăng -->
+  
+  
+            <ng-container *ngIf="item.AllowEdit===id_user">
+              <button style="float: right;" mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+  
+  
+  
+              </button>
+              <mat-menu #menu="matMenu">
+                <button (click)="creaFormDelete(item.Id_BaiDang)" mat-menu-item matTooltip="Xóa bài đăng">
+                  <mat-icon style="color: red">clear</mat-icon>
+                  <span>Xóa</span>
+                </button>
+                <button (click)="Update_BAIDANG_4(item.Id_BaiDang)" mat-menu-item matTooltip="Chỉnh sửa bài đăng">
+                  <mat-icon style="color: rgb(50, 50, 240);">create</mat-icon>
+                  <span>Chỉnh Sửa</span>
+                </button>
+                <!-- <button mat-menu-item>
+                   <mat-icon>notifications_off</mat-icon>
+                   <span>Disable alerts</span>
+                 </button> -->
+              </mat-menu>
+            </ng-container>
+            <mat-card-header style="display: flex;
+       flex-direction: column;">
+  
+              <!-- lấy hình user  đăng bài  -->
+  
+              <mat-card-title>
+                <div *ngFor="let user of item.User_DangBai ">
+  
+                  <div style="display:inline">
+  
+  
+                    <div style="text-align: start;
+                 display: flex ;margin-left: -20px;">
+                      <span *ngIf="user.hinhanh===null||user.hinhanh==='';then e1; else e2"></span>
+                      <ng-template #e2>
+                        <img class="avatar" src="{{user.avatar}}">
+  
+                      </ng-template>
+  
+                      <ng-template #e1>
+  
+                        <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                      </ng-template>
+  
+                      <!-- <img class="avatar" src="{{user.avatar}}"> -->
+                      <div style="margin-left:15px;display: flex;
+                       flex-direction: column;">
+                        <span style="font-size: 15px;font-weight: bold;"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user.ID_user]"> {{user.Username}}</a>
+                            <span *ngFor="let gr of item.Group">
+                                <i class=" ficon-caret-right"></i> <a [routerLink]="['/home/group',gr.id_group]">{{gr.ten_group}}</a>
+                              </span>
+                        </span>
+                        <span style="font-size: 12px;">
+                          {{item.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                          {{ item.CreatedDate | date : 'a' | lowercase }}
+                        </span>
+                      </div>
+  
+  
+                    </div>
+                  </div>
+  
+                  <div>
+                    <!-- <span> {{item.title}}</span> -->
+                  </div>
+  
+                </div>
+  
+  
+  
+  
+  
+              </mat-card-title>
+              <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+            </mat-card-header>
+  
+            <mat-card-content style="text-align: start; ">
+  
+  
+              <div class="custom-full" style="display:flex;flex-direction:column;">
+                <div class="custom-welcome -bg-alt1" style="text-align: center">
+                  <div class="bg-fill"></div>
+                  <div class="bg">
+                    <div class="custom-frame">
+                      <div class="circle">
+                        <div class="avatar"><img style="width: 80px"
+                            src="https://data-devgcs.basecdn.net/avatar/sys2253/5e/f6/f5/5e/80/3be8f80c6bfd082a6e657a8d8ab450fa/1.tuyenche_2253.jpg">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="welcome-text inside-read-more inside-read-more-80">
+                    <!-- <div class="welcome-title"><b>Thân Anh Tuấn</b></div> -->
+                    <div class="welcome-title"><span> {{item.title}}</span> </div>
+                    <!-- <div class="welcome-note">Chào Mừng Đến Với Công Ty DPS</div> -->
+                    <div class="welcome-note">
+                      <p>{{item.NoiDung}}</p>
+                      <div *ngIf="item.hinhanh!=''||item.hinhanh===null">
+
+                        <img style=" width: 470px;
+                        height: 250px;" src="{{item.image}}"> 
+                        </div>  
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <p>{{item.NoiDung}}</p> -->
+  
+  
+            </mat-card-content>
+            <hr />
+            <mat-card-actions>
+              <div class="row">
+                <div class="col-md-12 comment-like" style="text-align: start;">
+  
+                  <span style="margin-left: 10px;" [popover]="myPopover" [popoverOnHover]="true"
+                    [popoverCloseOnMouseOutside]="true">
+                    <a *ngIf="item.Like" href="javascript:;" class="{{item.Like.title}}"
+                      (click)="like(item.Id_BaiDang,0,id_user)">
+                      <img src="{{item.Like.icon}}" />
+                      <span> {{item.Like.title}}</span>
+                    </a>
+  
+                    <a *ngIf="!item.Like" href="javascript:;" (click)="like(item.Id_BaiDang,1,id_user)">
+                      <mat-icon class="thumb_up">thumb_up</mat-icon>
+                      Like
+                    </a>
+                  </span> &nbsp;&middot;&nbsp; &nbsp;&nbsp;
+                  <a href="javascript:;" class="kt-font-bolder">
+                    Bình Luận <span class="comment-num">{{item.Coment.length}}</span>
+                  </a>
+                  <a  *ngIf="item.CreatedBy!=id_user" (click)="Share(item.Id_BaiDang)" style=" margin-left: 25px;" href="javascript:;" class="kt-font-bolder">
+                    <!-- <mat-icon  class="binhluan">reply</mat-icon> -->
+                    <img style="width:23px;height: 16px;"  class="binhluan"  src="./assets/media/bg/share.png">
+                    Chia Sẻ<span class="comment-num"></span>
+                    </a>
+                  <div>
+                    <popover-content #myPopover class="reaction-box-container" [closeOnMouseOutside]="true">
+                      <div class="reaction-box">
+                        <div class="reaction-icon" *ngFor="let icon of list_icon"
+                          (click)="like(item.Id_BaiDang,icon.ID_like,id_user)">
+                          <label>{{icon.title_like}}</label>
+                          <div class="reaction-img">
+                            <img src="{{icon.link_icon_like}}">
+                          </div>
+                        </div>
+                      </div>
+                    </popover-content>
+  
+                  </div>
+                  <span class="total-like" style="text-align: right; margin-right: 10px;">
+                    <ng-container *ngFor="let like of item.Like_BaiDang">
+                      <span *ngIf="like.tong>0">
+                        <img class="icon" src="{{like.icon}}" />
+                        {{like.tong}}
+                      </span>
+                    </ng-container>
+                  </span>
+                </div>
+              </div>
+              <!-- Lỗi -->
+  
+              <div class="kt-form__group" *ngFor="let quyen of item.Coment;let vi=index;  ">
+                <div class="form-group kt-form__group row">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile comment-input">
+                    <div class="user-info-container">
+                      <div class="user-info">
+                        <!-- <div class="kt-user-card__avatar">
+                     <img alt="" src="{{UserData.Image}}">
+                   </div>
+                   <div class="kt-user-card__name">
+                     <span class="m-card-user__name">{{UserData.HoTen}}</span>
+                     <br>
+                     <span class="m-card-user__username">
+                       {{UserData.ChucVu}} &#x2022;
+                       @{{UserData.Username}}
+                     </span>
+                   </div> -->
+                      </div>
+  
+                    </div>
+                    <!-- <hr /> -->
+  
+  
+                  </div>
+                  <div class="col-md-12 kt-margin-bottom-10-mobile" *ngIf="AttachFileComment.length>0">
+                    <p style="font-weight:bold">{{AttachFileComment.length}} tệp đính kèm</p>
+                    <div class="row">
+                      <div class="col-md-4" *ngFor="let att of AttachFileComment;let ind2 = index">
+                        <div class="attach-item">
+                          <div class="attach-item-icon">
+                            <img src="{{att.icon}}" />
+                          </div>
+                          <div class="attach-item-name">
+                            <p>{{att.filename}}</p>
+                            <span>
+                              <a href="javascript:;">Preview</a>&nbsp;&middot;&nbsp;<a href="javascript:;">Download</a>
+                            </span>
+                          </div>
+                          <div class="attach-item-del">
+                            <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(-1,ind2)"
+                              matTooltip="Xóa File">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- phần  comment bên dưới -->
+                <div class="form-group kt-form__group row" style="text-align: start;">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile">
+                   
+                    <hr />
+  
+                    <!-- Nơi hiển thị ảnh người comment -->
+                    <div class="comment-container" *ngFor="let user_cmt of quyen.User_comment">
+                      <div class="user-info">
+                        <div class="kt-user-card__avatar" style="margin-top: 15px;">
+                          <span *ngIf="user_cmt.hinhanh===null||user_cmt.hinhanh==='';then e1; else e2"></span>
+                          <ng-template #e2>
+                            <img class="avatar_cmt" src="{{user_cmt.avatar}}">
+  
+                          </ng-template>
+  
+                          <ng-template #e1>
+  
+                            <img class="avatar_cmt" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                          </ng-template>
+  
+                          <!-- <img class="avatar_cmt" src="{{user_cmt.avatar}}"> -->
+                          <span style="margin-left: 5px;font-weight: bold;"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user_cmt.ID_user]"> {{user_cmt.Username}}</a></span>
+                        </div>
+                        <div class="kt-user-card__name">
+                          <!-- <p class="m-card-user__name mg-0">{{quyen.NguoiTao.hoten}}</p> -->
+  
+                        </div>
+                      </div>
+                      <div class="content body_cmt">
+                        <div class="comment">
+                          <div class="comment-string">
+  
+                            <!--  đây là nơi hiển thị comment -->
+  
+                            <span style="margin-left: 35px" [innerHtml]="parseHtml(quyen.NoiDung_cmt)"></span>
+  
+  
+                            <!-- <span [innerHtml]="example"></span> -->
+  
+                          </div>
+                          <div style="min-width: 50px; min-height: 10px;text-align: end;height: 40px;">
+                            <ng-container *ngIf="quyen.AllowEdit==id_user">
+                              <button mat-icon-button (click)="Update_Comment(quyen, vi)"
+                                matTooltip="Sửa nội dung bình luận">
+                                <mat-icon class="action">create</mat-icon>
+                              </button>
+                              <button mat-icon-button (click)="deleteComment(quyen.id_cmt)" matTooltip="Xóa bình luận">
+                                <mat-icon class="action">delete</mat-icon>
+                              </button>
+                            </ng-container>
+                          </div>
+                        </div>
+                        <div class="row" *ngIf="quyen.Attachment?quyen.Attachment.length>0:false">
+                          <div class="col-md-12 kt-margin-bottom-10-mobile" *ngFor="let att2 of quyen.Attachment;">
+                            <div class="attach-item show-action">
+                              <div class="attach-item-icon">
+                                <img src="{{att2.icon}}" />
+                              </div>
+                              <div class="attach-item-name">
+                                <p>{{att2.filename}}</p>
+                              </div>
+                              <div class="attach-item-del">
+                                <button mat-icon-button class="text-success" (click)="preview(att2.path)" type="button"
+                                  matTooltip="Preview">
+                                  <mat-icon>remove_red_eye</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" (click)="DownloadFile(att2.path)" type="button"
+                                  matTooltip="Download">
+                                  <mat-icon>cloud_download</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" type="button" matTooltip="Xóa File">
+  
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--  nơi hiển thi số like  like  comment -->
+                        <div class="row" style="margin-top: -10px;margin-left: 15px;">
+                          <div class="col-md-12 comment-like" style="display: flex;
+                     flex-direction: row;margin-left: 20px;">
+  
+                            <span style="margin-left: 10px;" [popover]="myPopover_cmt" [popoverOnHover]="true"
+                              [popoverCloseOnMouseOutside]="true">
+                              <a *ngIf="quyen.Like" href="javascript:;" class="{{quyen.Like.title}}"
+                                (click)="like_cmt(quyen.id_cmt,0,id_user)">
+                                <img src="{{quyen.Like.icon}}" />
+                                {{quyen.Like.title}}
+                              </a>
+  
+  
+  
+                              <a *ngIf="!quyen.Like" href="javascript:;" (click)="like_cmt(quyen.id_cmt,1,id_user)">
+                                <mat-icon style="font-size:12px;" class="thumb_up">thumb_up</mat-icon>
+                                <span style="font-size: 12px;"> Like</span>
+                              </a>
+                              &nbsp;&nbsp;
+  
+                            </span>
+                            <a href="javascript:void(0)" (click)="ShowOrHideComment(vi,bd)" class="kt-font-bolder">
+                              <span style="font-size: 12px;">Phản hồi </span><span
+                                class="comment-num">{{quyen.Comment_child.length}}</span>
+                            </a>
+  
+                            <a>
+                              <p style="font-size: 10px;margin-left: 10px;
+                           padding-top: 2px;">
+                                {{quyen.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                                {{ quyen.CreatedDate | date : 'a' | lowercase }}
+  
+                              </p>
+                            </a>
+  
+  
+                            <div>
+                              <popover-content #myPopover_cmt class="reaction-box-container" [closeOnMouseOutside]="true">
+                                <div class="reaction-box">
+                                  <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                    (click)="like_cmt(quyen.id_cmt,icon.ID_like,id_user)">
+                                    <label>{{icon.title_like}}</label>
+                                    <div class="reaction-img">
+                                      <img src="{{icon.link_icon_like}}">
+                                    </div>
+                                  </div>
+                                </div>
+                              </popover-content>
+  
+                            </div>
+                            <!-- Hiển thị và đếm số like -->
+                            <span class="total-like" style="float: right; margin-left: 10px">
+                              <ng-container *ngFor="let likecmt of quyen.Like_Comment">
+                                <span *ngIf="likecmt.tong>0">
+                                  <img class="icon" src="{{likecmt.icon}}" />
+                                  {{likecmt.tong}}
+                                </span>
+                              </ng-container>
+                            </span>
+                          </div>
+                        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+                        <!-- ww  nơi hiển thị rep comment-->
+                        <div id="ykchild{{vi}}{{bd}}" class="child" style="display: none;float: right;">
+                          <div class="comment-inline" style="margin-left: 60px;"
+                            *ngFor="let child of quyen.Comment_child; let vic=index">
+                            <div class="user-info" *ngFor="let user of child.User_comment_child">
+                              <div class="kt-user-card__avatar" style="float: left;
+                     margin-right: 10px;">
+                                <img class="avatar_cmt" src="{{user.avatar}}">
+                                <span
+                                  style="font-size: 12px;color: darkmagenta;font-weight: bold;">{{user.Username}}</span>
+                              </div>
+                              <div class="kt-user-card__name khung_cmt_child">
+                                <div style="display:flex;    line-height: 27px; height: 30px;">
+                                  <div class="comment">
+                                    <div class="comment-string">
+                                      <!-- <span class="m-card-user__name">{{child.NguoiTao.hoten}}</span> -->
+                                      <span [innerHtml]="parseHtml(child.NoiDung_cmt)"></span>
+                                    </div>
+                                    <div style="min-width: 50px; min-height: 45px;">
+                                      <ng-container *ngIf="child.AllowEdit">
+                                        <button mat-icon-button (click)="Update_Comment_Child(child, vic)"
+                                          matTooltip="Sửa nội dung bình luận">
+                                          <mat-icon class="action">create</mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="deleteComment(child.id_cmt)"
+                                          matTooltip="Xóa bình luận">
+                                          <mat-icon class="action">delete</mat-icon>
+                                        </button>
+                                      </ng-container>
+                                    </div>
+                                  </div>
+                                </div>
+  
+                      
+                                <div class="row">
+                                  <div class="col-md-12 comment-like" style="margin-left: 85px;">
+                                    <span [popover]="myPopover" [popoverOnHover]="true"
+                                      [popoverCloseOnMouseOutside]="true">
+                                      <a href="javascript:;" *ngIf="child.Like_child" class="{{child.Like_child.title}}"
+                                        (click)="like_cmt(child.id_cmt,0,id_user)">
+                                        <img src="{{child.Like_child.icon}}" />
+                                        {{child.Like_child.title}}
+                                      </a>
+                                      <a *ngIf="!child.Like_child" href="javascript:;"
+                                        (click)="like_cmt(child.id_cmt,1,id_user)">
+                                        <mat-icon class="thumb_up">thumb_up</mat-icon>
+                                        <span style="font-size: 11px;"> Like </span>
+                                      </a>
+                                    </span>
+                                    <div>
+                                      <!-- (click)="like(item.Id_BaiDang,icon.ID_like,id_user)" -->
+                                      <popover-content #myPopover class="reaction-box-container"
+                                        [closeOnMouseOutside]="true">
+                                        <div class="reaction-box">
+                                          <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                            (click)="like_cmt(child.id_cmt,icon.ID_like,id_user)">
+                                            <label>{{icon.title_like}}</label>
+                                            <div class="reaction-img">
+                                              <img src="{{icon.link_icon_like}}">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </popover-content>
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <a *ngIf="child.CreatedBy_cmt!=id_user" style="font-size: 11px; margin-top: 2px;" href="javascript:void(0)" (click)="reply(child.CreatedBy_cmt, vi)">
+                                      Trả lời
+                                    </a> &nbsp;&nbsp; {{child.CreatedDate}}
+                                    <span class="total-like">
+                                      <ng-container *ngFor="let like of child.Like_Comment_child">
+                                        <span *ngIf="like.tong>0">
+                                          <img src="{{like.icon}}" />
+                                          {{like.tong}}
+                                        </span>
+                                      </ng-container>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--  noi add_cmt_child -->
+                          <div class="row">
+                            <div id="inputtext{{vi}}" class="col-md-12 kt-margin-bottom-10-mobile">
+                              <mat-form-field style="display: inline-flex;
+                     align-items: baseline;
+                     box-sizing: border-box;
+                     width: 380px;
+                     border-radius: 10px;
+                       background-color: snow;
+                       margin-left: 50px;
+                       margin-bottom: 15px;" class="mat-form-field-fluid">
+                                <input matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                                  id="CommentRep{{vi}}" (keydown.enter)="CommentInsert_chill(quyen.id_cmt)" type="text"
+                                  [(ngModel)]="dulieu_cmt_child">
+                                <button matSuffix mat-icon-button color="primary" type="button"
+                                  (click)="selectFile_PDF(vi)" matTooltip="Upload File">
+                                  <mat-icon>attach_file</mat-icon>
+                                </button>
+                                
+  
+  
+                              </mat-form-field>
+                              <!-- CommentInsert($event.target.value,quyen.id_row,i,2) -->
+  
+                            </div>
+  
+                            <!--<div id="btnattach{{vi}}"
+                        class="col-md-1 kt-margin-bottom-10-mobile">
+                       <button mat-icon-button color="primary" type="button" (click)="selectFile_PDF(vi)"
+                           matTooltip="Upload File">
+                         <mat-icon>attach_file</mat-icon>
+                       </button>&nbsp;-->
+  
+                            <input type='file' id="PDFInpdd{{vi}}" (change)="onSelectFile_PDF($event,vi)"
+                              style="display: none;">
+                            <!--</div>-->
+                            <div class="row">
+                              <div class="col-md-12 kt-margin-bottom-10-mobile"
+                                *ngFor="let att3 of GetListAttach(vi);let ind1 = index">
+                                {{att3.filename}}
+                                <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(vi,ind1)"
+                                  matTooltip="Xóa File">
+                                  <mat-icon>delete</mat-icon>
+                                </button>&nbsp;
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- add_cmt -->
+              <mat-form-field class="mat-form-field-fluid" style="width:100%" (click)="layIDBaiDang(item.Id_BaiDang)">
+                <textarea #matInput matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                  [formControl]="dulieu_cmt" (keydown.enter)="CommentInsert()" rows="2" [popover]="myPopoverC">
+           </textarea>
+              </mat-form-field>
+            
+  
+            </mat-card-actions>
+          </mat-card>
+  
+  
+        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <!-- Loại bài đăng 7 -->
+        <div *ngSwitchCase="7">
+  
+  
+          <mat-card class="example-card ">
+            <!-- menu để xóa bài đăng -->
+  
+  
+            <ng-container *ngIf="item.AllowEdit===id_user">
+              <button style="float: right;" mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+  
+  
+  
+              </button>
+              <mat-menu #menu="matMenu">
+                <button (click)="creaFormDelete(item.Id_BaiDang)" mat-menu-item matTooltip="Xóa bài đăng">
+                  <mat-icon style="color: red">clear</mat-icon>
+                  <span>Xóa</span>
+                </button>
+                <button (click)="Update_BAIDANG_7(item,bd)" mat-menu-item matTooltip="Chỉnh sửa bài đăng">
+                  <mat-icon style="color: rgb(50, 50, 240);">create</mat-icon>
+                  <span>Chỉnh Sửa</span>
+                </button>
+                <!-- <button mat-menu-item>
+                   <mat-icon>notifications_off</mat-icon>
+                   <span>Disable alerts</span>
+                 </button> -->
+              </mat-menu>
+            </ng-container>
+            <mat-card-header style="display: flex;
+       flex-direction: column;">
+  
+              <!-- lấy hình user  đăng bài  -->
+  
+              <mat-card-title>
+                <div *ngFor="let user of item.User_DangBai ">
+  
+                  <div style="display:inline">
+  
+  
+                    <div style="text-align: start;
+                 display: flex ;margin-left: -20px;">
+                      <span *ngIf="user.hinhanh===null||user.hinhanh==='';then e1; else e2"></span>
+                      <ng-template #e2>
+                        <img class="avatar" src="{{user.avatar}}">
+  
+                      </ng-template>
+  
+                      <ng-template #e1>
+  
+                        <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                      </ng-template>
+  
+                      <!-- <img class="avatar" src="{{user.avatar}}"> -->
+                      <div style="margin-left:15px;display: flex;
+                       flex-direction: column;">
+                        <span style="font-size: 15px;font-weight: bold;display: flex"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user.ID_user]"> {{user.Username}}</a>
+                          <p style="font-size: 10px;margin-top: 5px;margin-left: 5px;">Đã tạo một đề xuất</p>
+                          <span *ngFor="let gr of item.Group">
+                            <i class=" ficon-caret-right"></i> <a [routerLink]="['/home/group',gr.id_group]">{{gr.ten_group}}</a>
+                          </span>
+                        </span>
+                        <span style="font-size: 12px;margin-top: -10px;">
+                          {{item.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                          {{ item.CreatedDate | date : 'a' | lowercase }}
+                        </span>
+                      </div>
+  
+  
+                    </div>
+                  </div>
+  
+                  <div>
+                  <img style="float:left" src="https://static-devgcs.basecdn.net/inside/image/update/idea.png">
+                   
+                    <mat-card-content style="text-align: start; ">
+  
+                      <span style="font-size: 25px; font-weight: bold;"> {{item.title}}</span>
+                    <br>
+                      <p>{{item.NoiDung}}</p>
+                      <div *ngIf="item.hinhanh!=''||item.hinhanh===null">
+
+                        <img style=" width: 470px;
+                        height: 250px;" src="{{item.image}}"> 
+                        </div>  
+          
+                    </mat-card-content>
+                  </div>
+  
+                </div>
+  
+  
+  
+  
+  
+              </mat-card-title>
+              <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+            </mat-card-header>
+  
+            <!-- <mat-card-content style="text-align: start; ">
+  
+              <p>{{item.NoiDung}}</p>
+  
+  
+            </mat-card-content> -->
+            <hr />
+            <mat-card-actions>
+              <div class="row">
+                <div class="col-md-12 comment-like" style="text-align: start;">
+  
+                  <span style="margin-left: 10px;" [popover]="myPopover" [popoverOnHover]="true"
+                    [popoverCloseOnMouseOutside]="true">
+                    <a *ngIf="item.Like" href="javascript:;" class="{{item.Like.title}}"
+                      (click)="like(item.Id_BaiDang,0,id_user)">
+                      <img src="{{item.Like.icon}}" />
+                      <span> {{item.Like.title}}</span>
+                    </a>
+  
+                    <a *ngIf="!item.Like" href="javascript:;" (click)="like(item.Id_BaiDang,1,id_user)">
+                      <mat-icon class="thumb_up">thumb_up</mat-icon>
+                      Like
+                    </a>
+                  </span> &nbsp;&middot;&nbsp; &nbsp;&nbsp;
+                  <a href="javascript:;" class="kt-font-bolder">
+                    Bình Luận <span class="comment-num">{{item.Coment.length}}</span>
+                  </a>
+                  <a  *ngIf="item.CreatedBy!=id_user" (click)="Share(item.Id_BaiDang)" style=" margin-left: 25px;" href="javascript:;" class="kt-font-bolder">
+                    <!-- <mat-icon  class="binhluan">reply</mat-icon> -->
+                    <img style="width:23px;height: 16px;"  class="binhluan"  src="./assets/media/bg/share.png">
+                    Chia Sẻ<span class="comment-num"></span>
+                    </a>
+                  <div>
+                    <popover-content #myPopover class="reaction-box-container" [closeOnMouseOutside]="true">
+                      <div class="reaction-box">
+                        <div class="reaction-icon" *ngFor="let icon of list_icon"
+                          (click)="like(item.Id_BaiDang,icon.ID_like,id_user)">
+                          <label>{{icon.title_like}}</label>
+                          <div class="reaction-img">
+                            <img src="{{icon.link_icon_like}}">
+                          </div>
+                        </div>
+                      </div>
+                    </popover-content>
+  
+                  </div>
+                  <span class="total-like" style="text-align: right; margin-right: 10px;">
+                    <ng-container *ngFor="let like of item.Like_BaiDang">
+                      <span *ngIf="like.tong>0">
+                        <img class="icon" src="{{like.icon}}" />
+                        {{like.tong}}
+                      </span>
+                    </ng-container>
+                  </span>
+                </div>
+              </div>
+              <!-- Lỗi -->
+  
+              <div class="kt-form__group" *ngFor="let quyen of item.Coment;let vi=index;  ">
+                <div class="form-group kt-form__group row">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile comment-input">
+                    <div class="user-info-container">
+                      <div class="user-info">
+                        <!-- <div class="kt-user-card__avatar">
+                     <img alt="" src="{{UserData.Image}}">
+                   </div>
+                   <div class="kt-user-card__name">
+                     <span class="m-card-user__name">{{UserData.HoTen}}</span>
+                     <br>
+                     <span class="m-card-user__username">
+                       {{UserData.ChucVu}} &#x2022;
+                       @{{UserData.Username}}
+                     </span>
+                   </div> -->
+                      </div>
+  
+                    </div>
+                    <!-- <hr /> -->
+  
+  
+                  </div>
+                  <div class="col-md-12 kt-margin-bottom-10-mobile" *ngIf="AttachFileComment.length>0">
+                    <p style="font-weight:bold">{{AttachFileComment.length}} tệp đính kèm</p>
+                    <div class="row">
+                      <div class="col-md-4" *ngFor="let att of AttachFileComment;let ind2 = index">
+                        <div class="attach-item">
+                          <div class="attach-item-icon">
+                            <img src="{{att.icon}}" />
+                          </div>
+                          <div class="attach-item-name">
+                            <p>{{att.filename}}</p>
+                            <span>
+                              <a href="javascript:;">Preview</a>&nbsp;&middot;&nbsp;<a href="javascript:;">Download</a>
+                            </span>
+                          </div>
+                          <div class="attach-item-del">
+                            <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(-1,ind2)"
+                              matTooltip="Xóa File">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- phần  comment bên dưới -->
+                <div class="form-group kt-form__group row" style="text-align: start;">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile">
+                 
+               
+                    <hr />
+  
+                    <!-- Nơi hiển thị ảnh người comment -->
+                    <div class="comment-container" *ngFor="let user_cmt of quyen.User_comment">
+                      <div class="user-info">
+                        <div class="kt-user-card__avatar" style="margin-top: 15px;">
+                          <span *ngIf="user_cmt.hinhanh===null||user_cmt.hinhanh==='';then e1; else e2"></span>
+                          <ng-template #e2>
+                            <img class="avatar_cmt" src="{{user_cmt.avatar}}">
+  
+                          </ng-template>
+  
+                          <ng-template #e1>
+  
+                            <img class="avatar_cmt" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                          </ng-template>
+  
+                          <!-- <img class="avatar_cmt" src="{{user_cmt.avatar}}"> -->
+                          <span style="margin-left: 5px;font-weight: bold;"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user_cmt.ID_user]"> {{user_cmt.Username}}</a></span>
+                        </div>
+                        <div class="kt-user-card__name">
+                          <!-- <p class="m-card-user__name mg-0">{{quyen.NguoiTao.hoten}}</p> -->
+  
+                        </div>
+                      </div>
+                      <div class="content body_cmt">
+                        <div class="comment">
+                          <div class="comment-string">
+  
+                            <!--  đây là nơi hiển thị comment -->
+  
+                            <span style="margin-left: 35px" [innerHtml]="parseHtml(quyen.NoiDung_cmt)"></span>
+  
+  
+                            <!-- <span [innerHtml]="example"></span> -->
+  
+                          </div>
+                          <div style="min-width: 50px; min-height: 10px;text-align: end;height: 40px;">
+                            <ng-container *ngIf="quyen.AllowEdit==id_user">
+                              <button mat-icon-button (click)="Update_Comment(quyen, vi)"
+                                matTooltip="Sửa nội dung bình luận">
+                                <mat-icon class="action">create</mat-icon>
+                              </button>
+                              <button mat-icon-button (click)="deleteComment(quyen.id_cmt)" matTooltip="Xóa bình luận">
+                                <mat-icon class="action">delete</mat-icon>
+                              </button>
+                            </ng-container>
+                          </div>
+                        </div>
+                        <div class="row" *ngIf="quyen.Attachment?quyen.Attachment.length>0:false">
+                          <div class="col-md-12 kt-margin-bottom-10-mobile" *ngFor="let att2 of quyen.Attachment;">
+                            <div class="attach-item show-action">
+                              <div class="attach-item-icon">
+                                <img src="{{att2.icon}}" />
+                              </div>
+                              <div class="attach-item-name">
+                                <p>{{att2.filename}}</p>
+                              </div>
+                              <div class="attach-item-del">
+                                <button mat-icon-button class="text-success" (click)="preview(att2.path)" type="button"
+                                  matTooltip="Preview">
+                                  <mat-icon>remove_red_eye</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" (click)="DownloadFile(att2.path)" type="button"
+                                  matTooltip="Download">
+                                  <mat-icon>cloud_download</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" type="button" matTooltip="Xóa File">
+  
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--  nơi hiển thi số like  like  comment -->
+                        <div class="row" style="margin-top: -10px;margin-left: 15px;">
+                          <div class="col-md-12 comment-like" style="display: flex;
+                     flex-direction: row;margin-left: 20px;">
+  
+                            <span style="margin-left: 10px;" [popover]="myPopover_cmt" [popoverOnHover]="true"
+                              [popoverCloseOnMouseOutside]="true">
+                              <a *ngIf="quyen.Like" href="javascript:;" class="{{quyen.Like.title}}"
+                                (click)="like_cmt(quyen.id_cmt,0,id_user)">
+                                <img src="{{quyen.Like.icon}}" />
+                                {{quyen.Like.title}}
+                              </a>
+  
+  
+  
+                              <a *ngIf="!quyen.Like" href="javascript:;" (click)="like_cmt(quyen.id_cmt,1,id_user)">
+                                <mat-icon style="font-size:12px;" class="thumb_up">thumb_up</mat-icon>
+                                <span style="font-size: 12px;"> Like</span>
+                              </a>
+                              &nbsp;&nbsp;
+  
+                            </span>
+                            <a href="javascript:void(0)" (click)="ShowOrHideComment(vi,bd)" class="kt-font-bolder">
+                              <span style="font-size: 12px;">Phản hồi </span><span
+                                class="comment-num">{{quyen.Comment_child.length}}</span>
+                            </a>
+  
+                            <a>
+                              <p style="font-size: 10px;margin-left: 10px;
+                           padding-top: 2px;">
+                                {{quyen.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                                {{ quyen.CreatedDate | date : 'a' | lowercase }}
+  
+                              </p>
+                            </a>
+  
+  
+                            <div>
+                              <popover-content #myPopover_cmt class="reaction-box-container" [closeOnMouseOutside]="true">
+                                <div class="reaction-box">
+                                  <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                    (click)="like_cmt(quyen.id_cmt,icon.ID_like,id_user)">
+                                    <label>{{icon.title_like}}</label>
+                                    <div class="reaction-img">
+                                      <img src="{{icon.link_icon_like}}">
+                                    </div>
+                                  </div>
+                                </div>
+                              </popover-content>
+  
+                            </div>
+                            <!-- Hiển thị và đếm số like -->
+                            <span class="total-like" style="float: right; margin-left: 10px">
+                              <ng-container *ngFor="let likecmt of quyen.Like_Comment">
+                                <span *ngIf="likecmt.tong>0">
+                                  <img class="icon" src="{{likecmt.icon}}" />
+                                  {{likecmt.tong}}
+                                </span>
+                              </ng-container>
+                            </span>
+                          </div>
+                        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+                        <!-- ww  nơi hiển thị rep comment-->
+                        <div id="ykchild{{vi}}{{bd}}" class="child" style="display: none;float: right;">
+                          <div class="comment-inline" style="margin-left: 60px;"
+                            *ngFor="let child of quyen.Comment_child; let vic=index">
+                            <div class="user-info" *ngFor="let user of child.User_comment_child">
+                              <div class="kt-user-card__avatar" style="float: left;
+                     margin-right: 10px;">
+                                <img class="avatar_cmt" src="{{user.avatar}}">
+                                <span
+                                  style="font-size: 12px;color: darkmagenta;font-weight: bold;">{{user.Username}}</span>
+                              </div>
+                              <div class="kt-user-card__name khung_cmt_child">
+                                <div style="display:flex;    line-height: 27px; height: 30px;">
+                                  <div class="comment">
+                                    <div class="comment-string">
+                                      <!-- <span class="m-card-user__name">{{child.NguoiTao.hoten}}</span> -->
+                                      <span [innerHtml]="parseHtml(child.NoiDung_cmt)"></span>
+                                    </div>
+                                    <div style="min-width: 50px; min-height: 45px;">
+                                      <ng-container *ngIf="child.AllowEdit">
+                                        <button mat-icon-button (click)="Update_Comment_Child(child, vic)"
+                                          matTooltip="Sửa nội dung bình luận">
+                                          <mat-icon class="action">create</mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="deleteComment(child.id_cmt)"
+                                          matTooltip="Xóa bình luận">
+                                          <mat-icon class="action">delete</mat-icon>
+                                        </button>
+                                      </ng-container>
+                                    </div>
+                                  </div>
+                                </div>
+  
+                           
+                                <div class="row">
+                                  <div class="col-md-12 comment-like" style="margin-left: 85px;">
+                                    <span [popover]="myPopover" [popoverOnHover]="true"
+                                      [popoverCloseOnMouseOutside]="true">
+                                      <a href="javascript:;" *ngIf="child.Like_child" class="{{child.Like_child.title}}"
+                                        (click)="like_cmt(child.id_cmt,0,id_user)">
+                                        <img src="{{child.Like_child.icon}}" />
+                                        {{child.Like_child.title}}
+                                      </a>
+                                      <a *ngIf="!child.Like_child" href="javascript:;"
+                                        (click)="like_cmt(child.id_cmt,1,id_user)">
+                                        <mat-icon class="thumb_up">thumb_up</mat-icon>
+                                        <span style="font-size: 11px;"> Like </span>
+                                      </a>
+                                    </span>
+                                    <div>
+                                      <!-- (click)="like(item.Id_BaiDang,icon.ID_like,id_user)" -->
+                                      <popover-content #myPopover class="reaction-box-container"
+                                        [closeOnMouseOutside]="true">
+                                        <div class="reaction-box">
+                                          <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                            (click)="like_cmt(child.id_cmt,icon.ID_like,id_user)">
+                                            <label>{{icon.title_like}}</label>
+                                            <div class="reaction-img">
+                                              <img src="{{icon.link_icon_like}}">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </popover-content>
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <a *ngIf="child.CreatedBy_cmt!=id_user" style="font-size: 11px; margin-top: 2px;" href="javascript:void(0)" (click)="reply(child.CreatedBy_cmt, vi)">
+                                      Trả lời
+                                    </a> &nbsp;&nbsp; {{child.CreatedDate}}
+                                    <span class="total-like">
+                                      <ng-container *ngFor="let like of child.Like_Comment_child">
+                                        <span *ngIf="like.tong>0">
+                                          <img src="{{like.icon}}" />
+                                          {{like.tong}}
+                                        </span>
+                                      </ng-container>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--  noi add_cmt_child -->
+                          <div class="row">
+                            <div id="inputtext{{vi}}" class="col-md-12 kt-margin-bottom-10-mobile">
+                              <mat-form-field style="display: inline-flex;
+                     align-items: baseline;
+                     box-sizing: border-box;
+                     width: 380px;
+                     border-radius: 10px;
+                       background-color: snow;
+                       margin-left: 50px;
+                       margin-bottom: 15px;" class="mat-form-field-fluid">
+                                <input matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                                  id="CommentRep{{vi}}" (keydown.enter)="CommentInsert_chill(quyen.id_cmt)" type="text"
+                                  [(ngModel)]="dulieu_cmt_child">
+                                <button matSuffix mat-icon-button color="primary" type="button"
+                                  (click)="selectFile_PDF(vi)" matTooltip="Upload File">
+                                  <mat-icon>attach_file</mat-icon>
+                                </button>
+                               
+  
+  
+                              </mat-form-field>
+                              <!-- CommentInsert($event.target.value,quyen.id_row,i,2) -->
+  
+                            </div>
+  
+                            <!--<div id="btnattach{{vi}}"
+                        class="col-md-1 kt-margin-bottom-10-mobile">
+                       <button mat-icon-button color="primary" type="button" (click)="selectFile_PDF(vi)"
+                           matTooltip="Upload File">
+                         <mat-icon>attach_file</mat-icon>
+                       </button>&nbsp;-->
+  
+                            <input type='file' id="PDFInpdd{{vi}}" (change)="onSelectFile_PDF($event,vi)"
+                              style="display: none;">
+                            <!--</div>-->
+                            <div class="row">
+                              <div class="col-md-12 kt-margin-bottom-10-mobile"
+                                *ngFor="let att3 of GetListAttach(vi);let ind1 = index">
+                                {{att3.filename}}
+                                <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(vi,ind1)"
+                                  matTooltip="Xóa File">
+                                  <mat-icon>delete</mat-icon>
+                                </button>&nbsp;
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+              <!-- add_cmt -->
+              <mat-form-field class="mat-form-field-fluid" style="width:100%" (click)="layIDBaiDang(item.Id_BaiDang)">
+                <textarea #matInput matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                  [formControl]="dulieu_cmt" (keydown.enter)="CommentInsert()" rows="2" [popover]="myPopoverC">
+           </textarea>
+              </mat-form-field>
+             
+  
+  
+            </mat-card-actions>
+          </mat-card>
+  
+        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <!-- Loại bài đăng 6 -->
+        <div *ngSwitchCase="6">
+  
+  
+          <mat-card class="example-card ">
+            <!-- menu để xóa bài đăng -->
+  
+  
+            <ng-container *ngIf="item.AllowEdit===id_user">
+              <button style="float: right;" mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+  
+  
+  
+              </button>
+              <mat-menu #menu="matMenu">
+                <button (click)="creaFormDelete(item.Id_BaiDang)" mat-menu-item matTooltip="Xóa bài đăng">
+                  <mat-icon style="color: red">clear</mat-icon>
+                  <span>Xóa</span>
+                </button>
+                <button (click)="UpdateBaiDang_CKeditor(item.Id_BaiDang)" mat-menu-item matTooltip="Chỉnh sửa bài đăng">
+                  <mat-icon style="color: rgb(50, 50, 240);">create</mat-icon>
+                  <span>Chỉnh Sửa</span>
+                </button>
+                <!-- <button mat-menu-item>
+                   <mat-icon>notifications_off</mat-icon>
+                   <span>Disable alerts</span>
+                 </button> -->
+              </mat-menu>
+            </ng-container>
+            <mat-card-header style="display: flex;
+       flex-direction: column; ">
+  
+              <!-- lấy hình user  đăng bài  -->
+  
+              <mat-card-title>
+                <div *ngFor="let user of item.User_DangBai ">
+  
+                  <div style="display:inline">
+  
+  
+                    <div style="text-align: start;
+                 display: flex ;margin-left: -20px;">
+                      <span *ngIf="user.hinhanh===null||user.hinhanh==='';then e1; else e2"></span>
+                      <ng-template #e2>
+                        <img class="avatar" src="{{user.avatar}}">
+  
+                      </ng-template>
+  
+                      <ng-template #e1>
+  
+                        <img class="avatar" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                      </ng-template>
+  
+                      <!-- <img class="avatar" src="{{user.avatar}}"> -->
+                      <div style="margin-left:15px;display: flex;
+                       flex-direction: column;">
+                        <span style="font-size: 15px;font-weight: bold; display: flex"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user.ID_user]"> {{user.Username}}</a>
+                          <p style="font-size: 10px; margin-top:5px;margin-left: 5px;">Đã tạo một tin nhanh</p>
+                          <span *ngFor="let gr of item.Group">
+                            <i class=" ficon-caret-right"></i> <a [routerLink]="['/home/group',gr.id_group]">{{gr.ten_group}}</a>
+                          </span>
+                        </span>
+                       
+                        <span style="font-size: 12px; margin-top: -10px;">
+                          {{item.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                          {{ item.CreatedDate | date : 'a' | lowercase }}
+                        </span>
+                      </div>
+  
+  
+                    </div>
+                  </div>
+  
+                  <div>
+                    <span> {{item.title}}</span>
+                  </div>
+  
+                </div>
+  
+  
+  
+  
+  
+              </mat-card-title>
+              <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+            </mat-card-header>
+  
+            <mat-card-content style="text-align: start; ">
+  
+              <p>{{item.NoiDung}}</p>
+              <div *ngIf="item.hinhanh!=''||item.hinhanh===null">
+
+                <img style=" width: 470px;
+                height: 250px;" src="{{item.image}}"> 
+                </div>  
+            </mat-card-content>
+            <hr />
+            <mat-card-actions>
+              <div class="row">
+                <div class="col-md-12 comment-like" style="text-align: start;">
+  
+                  <span style="margin-left: 10px;" [popover]="myPopover" [popoverOnHover]="true"
+                    [popoverCloseOnMouseOutside]="true">
+                    <a *ngIf="item.Like" href="javascript:;" class="{{item.Like.title}}"
+                      (click)="like(item.Id_BaiDang,0,id_user)">
+                      <img src="{{item.Like.icon}}" />
+                      <span> {{item.Like.title}}</span>
+                    </a>
+  
+                    <a *ngIf="!item.Like" href="javascript:;" (click)="like(item.Id_BaiDang,1,id_user)">
+                      <mat-icon class="thumb_up">thumb_up</mat-icon>
+                      Like
+                    </a>
+                  </span> &nbsp;&middot;&nbsp; &nbsp;&nbsp;
+                  <a href="javascript:;" class="kt-font-bolder">
+                    Bình Luận <span class="comment-num">{{item.Coment.length}}</span>
+                  </a>
+                  <a  *ngIf="item.CreatedBy!=id_user" (click)="Share(item.Id_BaiDang)" style=" margin-left: 25px;" href="javascript:;" class="kt-font-bolder">
+                    <!-- <mat-icon  class="binhluan">reply</mat-icon> -->
+                    <img style="width:23px;height: 16px;"  class="binhluan"  src="./assets/media/bg/share.png">
+                    Chia Sẻ<span class="comment-num"></span>
+                    </a>
+                  <div>
+                    <popover-content #myPopover class="reaction-box-container" [closeOnMouseOutside]="true">
+                      <div class="reaction-box">
+                        <div class="reaction-icon" *ngFor="let icon of list_icon"
+                          (click)="like(item.Id_BaiDang,icon.ID_like,id_user)">
+                          <label>{{icon.title_like}}</label>
+                          <div class="reaction-img">
+                            <img src="{{icon.link_icon_like}}">
+                          </div>
+                        </div>
+                      </div>
+                    </popover-content>
+  
+                  </div>
+                  <span class="total-like" style="text-align: right; margin-right: 10px;">
+                    <ng-container *ngFor="let like of item.Like_BaiDang">
+                      <span *ngIf="like.tong>0">
+                        <img class="icon" src="{{like.icon}}" />
+                        {{like.tong}}
+                      </span>
+                    </ng-container>
+                  </span>
+                </div>
+              </div>
+              <!-- Lỗi -->
+  
+              <div class="kt-form__group" *ngFor="let quyen of item.Coment;let vi=index;  ">
+                <div class="form-group kt-form__group row">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile comment-input">
+                    <div class="user-info-container">
+                      <div class="user-info">
+                        <!-- <div class="kt-user-card__avatar">
+                     <img alt="" src="{{UserData.Image}}">
+                   </div>
+                   <div class="kt-user-card__name">
+                     <span class="m-card-user__name">{{UserData.HoTen}}</span>
+                     <br>
+                     <span class="m-card-user__username">
+                       {{UserData.ChucVu}} &#x2022;
+                       @{{UserData.Username}}
+                     </span>
+                   </div> -->
+                      </div>
+  
+                    </div>
+                    <!-- <hr /> -->
+  
+  
+                  </div>
+                  <div class="col-md-12 kt-margin-bottom-10-mobile" *ngIf="AttachFileComment.length>0">
+                    <p style="font-weight:bold">{{AttachFileComment.length}} tệp đính kèm</p>
+                    <div class="row">
+                      <div class="col-md-4" *ngFor="let att of AttachFileComment;let ind2 = index">
+                        <div class="attach-item">
+                          <div class="attach-item-icon">
+                            <img src="{{att.icon}}" />
+                          </div>
+                          <div class="attach-item-name">
+                            <p>{{att.filename}}</p>
+                            <span>
+                              <a href="javascript:;">Preview</a>&nbsp;&middot;&nbsp;<a href="javascript:;">Download</a>
+                            </span>
+                          </div>
+                          <div class="attach-item-del">
+                            <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(-1,ind2)"
+                              matTooltip="Xóa File">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- phần  comment bên dưới -->
+                <div class="form-group kt-form__group row" style="text-align: start;">
+                  <div class="col-md-12 kt-margin-bottom-10-mobile">
+                  
+                    <hr />
+  
+                    <!-- Nơi hiển thị ảnh người comment -->
+                    <div class="comment-container" *ngFor="let user_cmt of quyen.User_comment">
+                      <div class="user-info">
+                        <div class="kt-user-card__avatar" style="margin-top: 15px;">
+                          <span *ngIf="user_cmt.hinhanh===null||user_cmt.hinhanh==='';then e1; else e2"></span>
+                          <ng-template #e2>
+                            <img class="avatar_cmt" src="{{user_cmt.avatar}}">
+  
+                          </ng-template>
+  
+                          <ng-template #e1>
+  
+                            <img class="avatar_cmt" src="../../assets/media/users/avatar_macdinh.jpg">
+  
+                          </ng-template>
+  
+                          <!-- <img class="avatar_cmt" src="{{user_cmt.avatar}}"> -->
+                          <span style="margin-left: 5px;font-weight: bold;"><a class="routtrangcanhan" [routerLink]="['/FlowCaNhan/canhan',user_cmt.ID_user]"> {{user_cmt.Username}}</a></span>
+                        </div>
+                        <div class="kt-user-card__name">
+                          <!-- <p class="m-card-user__name mg-0">{{quyen.NguoiTao.hoten}}</p> -->
+  
+                        </div>
+                      </div>
+                      <div class="content body_cmt">
+                        <div class="comment">
+                          <div class="comment-string">
+  
+                            <!--  đây là nơi hiển thị comment -->
+  
+                            <span style="margin-left: 35px" [innerHtml]="parseHtml(quyen.NoiDung_cmt)"></span>
+  
+  
+                            <!-- <span [innerHtml]="example"></span> -->
+  
+                          </div>
+                          <div style="min-width: 50px; min-height: 10px;text-align: end;height: 40px;">
+                            <ng-container *ngIf="quyen.AllowEdit==id_user">
+                              <button mat-icon-button (click)="Update_Comment(quyen, vi)"
+                                matTooltip="Sửa nội dung bình luận">
+                                <mat-icon class="action">create</mat-icon>
+                              </button>
+                              <button mat-icon-button (click)="deleteComment(quyen.id_cmt)" matTooltip="Xóa bình luận">
+                                <mat-icon class="action">delete</mat-icon>
+                              </button>
+                            </ng-container>
+                          </div>
+                        </div>
+                        <div class="row" *ngIf="quyen.Attachment?quyen.Attachment.length>0:false">
+                          <div class="col-md-12 kt-margin-bottom-10-mobile" *ngFor="let att2 of quyen.Attachment;">
+                            <div class="attach-item show-action">
+                              <div class="attach-item-icon">
+                                <img src="{{att2.icon}}" />
+                              </div>
+                              <div class="attach-item-name">
+                                <p>{{att2.filename}}</p>
+                              </div>
+                              <div class="attach-item-del">
+                                <button mat-icon-button class="text-success" (click)="preview(att2.path)" type="button"
+                                  matTooltip="Preview">
+                                  <mat-icon>remove_red_eye</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" (click)="DownloadFile(att2.path)" type="button"
+                                  matTooltip="Download">
+                                  <mat-icon>cloud_download</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" type="button" matTooltip="Xóa File">
+  
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--  nơi hiển thi số like  like  comment -->
+                        <div class="row" style="margin-top: -10px;margin-left: 15px;">
+                          <div class="col-md-12 comment-like" style="display: flex;
+                     flex-direction: row;margin-left: 20px;">
+  
+                            <span style="margin-left: 10px;" [popover]="myPopover_cmt" [popoverOnHover]="true"
+                              [popoverCloseOnMouseOutside]="true">
+                              <a *ngIf="quyen.Like" href="javascript:;" class="{{quyen.Like.title}}"
+                                (click)="like_cmt(quyen.id_cmt,0,id_user)">
+                                <img src="{{quyen.Like.icon}}" />
+                                {{quyen.Like.title}}
+                              </a>
+  
+  
+  
+                              <a *ngIf="!quyen.Like" href="javascript:;" (click)="like_cmt(quyen.id_cmt,1,id_user)">
+                                <mat-icon style="font-size:12px;" class="thumb_up">thumb_up</mat-icon>
+                                <span style="font-size: 12px;"> Like</span>
+                              </a>
+                              &nbsp;&nbsp;
+  
+                            </span>
+                            <a href="javascript:void(0)" (click)="ShowOrHideComment(vi,bd)" class="kt-font-bolder">
+                              <span style="font-size: 12px;">Phản hồi </span><span
+                                class="comment-num">{{quyen.Comment_child.length}}</span>
+                            </a>
+  
+                            <a>
+                              <p style="font-size: 10px;margin-left: 10px;
+                           padding-top: 2px;">
+                                {{quyen.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                                {{ quyen.CreatedDate | date : 'a' | lowercase }}
+  
+                              </p>
+                            </a>
+  
+  
+                            <div>
+                              <popover-content #myPopover_cmt class="reaction-box-container" [closeOnMouseOutside]="true">
+                                <div class="reaction-box">
+                                  <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                    (click)="like_cmt(quyen.id_cmt,icon.ID_like,id_user)">
+                                    <label>{{icon.title_like}}</label>
+                                    <div class="reaction-img">
+                                      <img src="{{icon.link_icon_like}}">
+                                    </div>
+                                  </div>
+                                </div>
+                              </popover-content>
+  
+                            </div>
+                            <!-- Hiển thị và đếm số like -->
+                            <span class="total-like" style="float: right; margin-left: 10px">
+                              <ng-container *ngFor="let likecmt of quyen.Like_Comment">
+                                <span *ngIf="likecmt.tong>0">
+                                  <img class="icon" src="{{likecmt.icon}}" />
+                                  {{likecmt.tong}}
+                                </span>
+                              </ng-container>
+                            </span>
+                          </div>
+                        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+                        <!-- ww  nơi hiển thị rep comment-->
+                        <div id="ykchild{{vi}}{{bd}}" class="child" style="display: none;float: right;">
+                          <div class="comment-inline" style="margin-left: 60px;"
+                            *ngFor="let child of quyen.Comment_child; let vic=index">
+                            <div class="user-info" *ngFor="let user of child.User_comment_child">
+                              <div class="kt-user-card__avatar" style="float: left;
+                     margin-right: 10px;">
+                                <img class="avatar_cmt" src="{{user.avatar}}">
+                                <span
+                                  style="font-size: 12px;color: darkmagenta;font-weight: bold;">{{user.Username}}</span>
+                              </div>
+                              <div class="kt-user-card__name khung_cmt_child">
+                                <div style="display:flex;    line-height: 27px; height: 30px;">
+                                  <div class="comment">
+                                    <div class="comment-string">
+                                      <!-- <span class="m-card-user__name">{{child.NguoiTao.hoten}}</span> -->
+                                      <span [innerHtml]="parseHtml(child.NoiDung_cmt)"></span>
+                                    </div>
+                                    <div style="min-width: 50px; min-height: 45px;">
+                                      <ng-container *ngIf="child.AllowEdit">
+                                        <button mat-icon-button (click)="Update_Comment_Child(child, vic)"
+                                          matTooltip="Sửa nội dung bình luận">
+                                          <mat-icon class="action">create</mat-icon>
+                                        </button>
+                                        <button mat-icon-button (click)="deleteComment(child.id_cmt)"
+                                          matTooltip="Xóa bình luận">
+                                          <mat-icon class="action">delete</mat-icon>
+                                        </button>
+                                      </ng-container>
+                                    </div>
+                                  </div>
+                                </div>
+  
+                                <div class="row">
+                                  <div class="col-md-12 comment-like" style="margin-left: 85px;">
+                                    <span [popover]="myPopover" [popoverOnHover]="true"
+                                      [popoverCloseOnMouseOutside]="true">
+                                      <a href="javascript:;" *ngIf="child.Like_child" class="{{child.Like_child.title}}"
+                                        (click)="like_cmt(child.id_cmt,0,id_user)">
+                                        <img src="{{child.Like_child.icon}}" />
+                                        {{child.Like_child.title}}
+                                      </a>
+                                      <a *ngIf="!child.Like_child" href="javascript:;"
+                                        (click)="like_cmt(child.id_cmt,1,id_user)">
+                                        <mat-icon class="thumb_up">thumb_up</mat-icon>
+                                        <span style="font-size: 11px;"> Like </span>
+                                      </a>
+                                    </span>
+                                    <div>
+                                      <!-- (click)="like(item.Id_BaiDang,icon.ID_like,id_user)" -->
+                                      <popover-content #myPopover class="reaction-box-container"
+                                        [closeOnMouseOutside]="true">
+                                        <div class="reaction-box">
+                                          <div class="reaction-icon" *ngFor="let icon of list_icon"
+                                            (click)="like_cmt(child.id_cmt,icon.ID_like,id_user)">
+                                            <label>{{icon.title_like}}</label>
+                                            <div class="reaction-img">
+                                              <img src="{{icon.link_icon_like}}">
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </popover-content>
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <a *ngIf="child.CreatedBy_cmt!=id_user" style="font-size: 11px; margin-top: 2px;" href="javascript:void(0)" (click)="reply(child.CreatedBy_cmt, vi)">
+                                      Trả lời
+                                    </a> &nbsp;&nbsp; {{child.CreatedDate}}
+                                    <span class="total-like">
+                                      <ng-container *ngFor="let like of child.Like_Comment_child">
+                                        <span *ngIf="like.tong>0">
+                                          <img src="{{like.icon}}" />
+                                          {{like.tong}}
+                                        </span>
+                                      </ng-container>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--  noi add_cmt_child -->
+                          <div class="row">
+                            <div id="inputtext{{vi}}" class="col-md-12 kt-margin-bottom-10-mobile">
+                              <mat-form-field style="display: inline-flex;
+                     align-items: baseline;
+                     box-sizing: border-box;
+                     width: 380px;
+                     border-radius: 10px;
+                       background-color: snow;
+                       margin-left: 50px;
+                       margin-bottom: 15px;" class="mat-form-field-fluid">
+                                <input matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                                  id="CommentRep{{vi}}" (keydown.enter)="CommentInsert_chill(quyen.id_cmt)" type="text"
+                                  [(ngModel)]="dulieu_cmt_child">
+                                <button matSuffix mat-icon-button color="primary" type="button"
+                                  (click)="selectFile_PDF(vi)" matTooltip="Upload File">
+                                  <mat-icon>attach_file</mat-icon>
+                                </button>
+                                
+  
+                              </mat-form-field>
+                              <!-- CommentInsert($event.target.value,quyen.id_row,i,2) -->
+  
+                            </div>
+  
+                            <!--<div id="btnattach{{vi}}"
+                        class="col-md-1 kt-margin-bottom-10-mobile">
+                       <button mat-icon-button color="primary" type="button" (click)="selectFile_PDF(vi)"
+                           matTooltip="Upload File">
+                         <mat-icon>attach_file</mat-icon>
+                       </button>&nbsp;-->
+  
+                            <input type='file' id="PDFInpdd{{vi}}" (change)="onSelectFile_PDF($event,vi)"
+                              style="display: none;">
+                            <!--</div>-->
+                            <div class="row">
+                              <div class="col-md-12 kt-margin-bottom-10-mobile"
+                                *ngFor="let att3 of GetListAttach(vi);let ind1 = index">
+                                {{att3.filename}}
+                                <button mat-icon-button color="warn" type="button" (click)="DeleteFile_PDF(vi,ind1)"
+                                  matTooltip="Xóa File">
+                                  <mat-icon>delete</mat-icon>
+                                </button>&nbsp;
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- add_cmt -->
+              <mat-form-field class="mat-form-field-fluid" style="width:100%" (click)="layIDBaiDang(item.Id_BaiDang)">
+                <textarea #matInput matInput placeholder="Nhập nội dung và nhấn phím Enter để gửi"
+                  [formControl]="dulieu_cmt" (keydown.enter)="CommentInsert()" rows="2" [popover]="myPopoverC">
+           </textarea>
+              </mat-form-field>
+            
+  
+  
+            </mat-card-actions>
+          </mat-card>
+  
+  
+        </div>
+      </ng-container>
+  
+    </div>
+  
+  </div>

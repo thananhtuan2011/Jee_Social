@@ -1,0 +1,68 @@
+:host {
+	::ng-deep {
+		ngb-tabset > .nav-tabs {
+			display: none;
+		}
+	}
+}
+img {
+	border-radius:50%;
+	-moz-border-radius:50%;
+-webkit-border-radius:50%;
+width:40px;
+height: 40px;
+	}
+	.avatar.-online {
+	position: relative;
+	overflow: visible;
+}
+
+.avatar.avatar-32 {
+	width: 32px;
+	height: 32px;
+}
+
+
+.avatar.-online:after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border: 1px solid #fff;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	position: absolute;
+	right: -6px;
+	top: 28px;
+	background-color: #63b814;
+	z-index: 100;
+}
+
+.avatar.-ofline:after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border: 1px solid #fff;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	position: absolute;
+	right: -6px;
+	top: 28px;
+	/* background-color: #63b814; */
+	z-index: 100;
+}
+
+.avatar.avatar-32.-circled, .avatar.avatar-32.-circled > .more, .avatar.avatar-32.-circled > .image {
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+}
+
+.paddingDiv:focus {
+	outline: 0;
+  }
+  .example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}

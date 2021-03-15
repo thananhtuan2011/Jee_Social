@@ -1,0 +1,239 @@
+<style>
+  .khung{
+    
+   
+    position: fixed;
+    height: 100%;
+ 
+ 
+
+    } 
+      
+      /* position: absolute; */
+  
+
+
+.kt-notification .kt-notification__item:after {
+border: 0;
+font-family: "LineAwesome";
+text-decoration: inherit;
+text-rendering: optimizeLegibility;
+text-transform: none;
+-moz-osx-font-smoothing: grayscale;
+-webkit-font-smoothing: antialiased;
+/* font-smoothing: antialiased; */
+content: "";
+font-size: 0.8rem;
+line-height: 0;
+position: relative;
+color: #74788d;
+}
+
+.input
+{
+margin-left: 30px;
+
+}
+img {
+border-radius:50%;
+-moz-border-radius:50%;
+-webkit-border-radius:50%;
+width:40px;
+height: 40px;
+}
+.avatar.-online {
+position: relative;
+overflow: visible;
+}
+
+.avatar.avatar-32 {
+width: 32px;
+height: 32px;
+}
+
+
+.avatar.-online:after {
+content: "";
+width: 10px;
+height: 10px;
+border: 1px solid #fff;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+border-radius: 6px;
+position: absolute;
+right: -6px;
+top: 28px;
+background-color: #63b814;
+z-index: 100;
+}
+
+.avatar.-ofline:after {
+content: "";
+width: 10px;
+height: 10px;
+border: 1px solid #fff;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+border-radius: 6px;
+position: absolute;
+right: -6px;
+top: 28px;
+/* background-color: #63b814; */
+z-index: 100;
+}
+
+.avatar.avatar-32.-circled, .avatar.avatar-32.-circled > .more, .avatar.avatar-32.-circled > .image {
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+}
+/* .mat-card{
+position: fixed;
+} */
+
+
+
+</style>
+ 
+ <div class="khung">
+   
+  <mat-card style="height:220px">
+
+    <img style="width:160px; height: 90px; border-bottom: 1px solid rgb(194, 190, 183);"
+      src="./assets/media/logos/logo-congty-1.png">
+    <mat-card-header>
+      <mat-card-title style="text-align: start; font-size:15px">Công ty TNHH TA</mat-card-title>
+      <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+
+    <mat-card-content style="font-size: 12px">
+      <!-- <mat-icon style="float: left;"> pin_drop</mat-icon> -->
+      <div class="office">
+        <div class="icon">
+          <mat-icon style="float: left;"> pin_drop</mat-icon>
+        </div>
+        <span class="js-address">140-Lê Trọng Tấn-Quận:Tân Phú-TP:HCM</span>
+      </div>
+      <div class="office">
+        <div class="icon">
+          <mat-icon style="float: left;">history</mat-icon>
+        </div>
+
+        <span class="js-founded">Ngày thành lập: Mar 22, 2010</span>
+      </div>
+    </mat-card-content>
+    <!-- <div  > 
+                    <mat-icon> pin_drop</mat-icon>
+                    <div style="display:inline;font-size:13px">140 Lê Trọng Tấn,Quận:Tân Phú,TP:HCM</div>
+                </div> -->
+
+
+
+  </mat-card>
+
+
+<mat-card>
+
+  <div style="background-color: blueviolet; color:white;height: 40px; margin:-11px;text-align: center;font-size: 18px; padding-top: 5px;">Nhóm</div>
+  <div class="list-w section -teams">
+    <div class="li-title">
+        
+      <div class="actions" id="js-channel-actions">
+        <!-- <div class="action left" onclick="Company.searchChannel();" title="Tìm kiếm phòng ban"> <span
+            class="ficon-search"></span> </div>
+        <div class="action left" onclick="Inside.channel.arrangeTeams();" title="Sắp xếp lại phòng ban"> <span
+            class="ficon-reorder"></span> </div>
+        <div id="js-create-new-channel-menu" class="action left" onclick="Worktime.channel.create();"
+          title="Thêm phòng ban"> <span class="-ap icon-squared-plus"></span> </div> -->
+      </div>
+    </div>
+    <div [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '30vh', 'position': 'relative'}" class="kt-notification kt-margin-t-10 kt-margin-b-10">
+             
+
+      <div *ngFor="let item of list_group ">
+
+     
+      <a   class="kt-notification__item" [routerLink]="['/home/group',item.ID_group]"(click)="reload()">
+        <!-- duyệt mảng -->
+        <div class="kt-notification__item-icon" >
+
+          
+          <div  class="kt-notification__item-icon">
+            
+          
+              <i class="
+              flaticon2-group kt-font-brand"></i>
+           
+          </div>
+        </div>
+        <div  class="kt-notification__item-details">
+          <div class="kt-notification__item-title">
+              <span>{{item.Ten_Group}}</span>
+          </div>
+          <!-- <div class="kt-notification__item-time">
+            3 hrs ago
+          </div> -->
+        </div>
+      </a>
+    </div>
+  
+      <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+      </div>
+      <div class="ps__rail-y" style="top: 0px; right: 0px;">
+        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+      </div>
+    </div>
+ 
+
+
+  </div>
+
+  <div style="border-top: 1px solid #74788d;margin-bottom: 10px;">
+        <span>Online</span>
+      
+        <div  style="display:flex;" >
+
+       
+        <div *ngFor="let us of list_user">
+        
+          <button mat-button [matMenuTriggerFor]="menu"(click)="getTT(us.Username)" style="    margin-left: -15px;
+          margin-right: -15px;
+      ">
+            <div   class="avatar avatar-32 -circled -online" style="margin-left: 10px;"> 
+             
+              <span *ngIf="us.hinhanh===null;then e1; else e2"></span>
+              <ng-template #e2>
+                <div class="image"> 
+                  <img src="{{us.Avatar}}"> 
+              
+              </div>
+              </ng-template>
+             
+              <ng-template #e1>
+                <div class="image"> 
+                  <img src="../../assets/media/users/avatar_macdinh.jpg"> 
+              
+              </div>
+              </ng-template>
+           
+        </div>
+          </button>
+          <mat-menu #menu="matMenu">
+          
+            <button [routerLink]="['/mymessenger/chat',us.ID_user]" mat-menu-item> 	<mat-icon style="color: lightseagreen;"> chat_bubble</mat-icon><span>Chat với {{name_user}}</span></button>
+            <button [routerLink]="['/FlowCaNhan/canhan',us.ID_user]" mat-menu-item> <mat-icon style="color: lightcoral;"> contact_mail</mat-icon> <span>Trang Cá Nhân</span></button>
+          </mat-menu>
+
+             
+          
+         
+
+         
+        </div>
+      </div>
+  </div>
+</mat-card>
+
+    
+    </div>

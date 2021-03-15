@@ -1,0 +1,177 @@
+<style>
+    .kt-portlet .kt-portlet__body {
+    display: flex;
+    flex-direction: column;
+    /* padding: 25px; */
+    border-radius: 4px;
+}
+</style>
+<kt-portlet>
+    <kt-portlet-header [sticky]="false" title="Danh Sách Bài Đăng Group" [class]="'kt-portlet__head--lg'">
+        <ng-container ktPortletTools>
+            <!-- <mat-form-field class="mat-form-field-fluid" style="margin-right:20px; margin-top: 10px; margin-bottom: 5px; width: 400px !important;">
+        <button style="background: transparent;
+                    border: none;" mat-icon-button-pad type="button" matPrefix (click)="loadDataList()">
+          <mat-icon>search</mat-icon>
+        </button>
+        <input matInput [(ngModel)]="keyword" (keyup.enter)="loadDataList()" placeholder="{{ 'wuser.timkiemnhanh' | translate }}" #tenphongban>
+      </mat-form-field> -->
+            <div class="search-box">
+                <div class="search">
+                    <div class="input">
+                        <span class="la la-search url" (click)="loadDataList()"
+                            style="position: absolute; top: 2px; left: 10px; font-size: 18px;"></span>
+                        <input type="text" [(ngModel)]="keyword" (keyup.enter)="loadDataList()"
+                            placeholder="Tìm kiếm" style="overflow: hidden;" #tenphongban>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </kt-portlet-header>
+    <kt-portlet-body class="pd-0">
+        <div class="example-container mat-table__wrapper" [ngStyle]="{'height': getHeight()}">
+            <table mat-table class="lmat-elevation-z8 lst-project" [dataSource]="dataSource"
+            matSort
+            matSortActive="username" matSortDirection="asc" matSortDisableClear
+              >
+                <ng-container matColumnDef="username">
+                    <th mat-header-cell *matHeaderCellDef >
+                        <span style="font-size:15px;font-weight: bold;">Người Tạo</span>
+                    </th>
+                    <td mat-cell *matCellDef="let item" style="justify-content: center;">
+                        <div style="display:flex">
+                            <div>
+                                <div   class="avatar avatar-32 -circled -online"> 
+                               
+                                    <span *ngIf="item.hinhanh===null;then e1; else e2"></span>
+                                    <ng-template #e2>
+                                      <div class="image"> 
+                                        <img    style="width:35px; height:35px;border-radius:50%; margin-right:10px" src="{{item.avatar}}"> 
+                                    
+                                    </div>
+                                    </ng-template>
+                                   
+                                    <ng-template #e1>
+                                      <div class="image"> 
+                                        <img style="width:35px; height:35px;border-radius:50%; margin-right:10px" src="../../assets/media/users/avatar_macdinh.jpg"> 
+                                    
+                                    </div>
+                                    </ng-template>
+                                 
+                              </div>
+                             
+                                <!-- <img src="../../assets/media/users/Noimage.jpg" alt=""
+                                    style="width:35px; height:35px;border-radius:50%; margin-right:10px"> -->
+                            </div>
+                            <div>
+                                <div>{{item.username}}</div>
+                                <!-- <span style="color: #888">{{ item.CreatedDate }}</span> -->
+                              
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="ngaytao">
+                    <th mat-header-cell *matHeaderCellDef style="justify-content: center">
+                        <span translate="ngaytao" style="font-size:15px;font-weight: bold;">Ngày Tạo</span>
+                    </th>
+                    <td mat-cell *matCellDef="let item" style="justify-content: center;">
+                      <div style="display:flex">
+                       
+                          <div>
+                              <div>
+                              <!-- <span style="color: #888">{{ item.CreatedDate }}</span> -->
+                              <span style="font-size: 12px; margin-top: -10px;color: #888">
+                                {{item.CreatedDate  | date : 'd/M/yyyy h:mm'}}
+                                {{ item.CreatedDate | date : 'a' | lowercase }}
+                              </span>
+                            </div>
+                          </div>
+                      </div>
+                  </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="title" >
+                  <th mat-header-cell *matHeaderCellDef style="justify-content: center">
+                      <span translate="Title" style="font-size:15px;font-weight: bold;">Tiêu Đề</span>
+                  </th>
+                  <td mat-cell *matCellDef="let item" style="justify-content: center;">
+                    <div style="display:flex">
+                        <div>
+           
+                            <!-- <span style="color: #888">{{ item.CreatedDate }}</span> -->
+                            <span style="font-size: 12px; margin-top: -10px;color: #888">
+                              <a [routerLink]="['/home/detail',item.Id_BaiDang]">  {{ item.title }} </a>
+                              </span>
+                        </div>
+                     
+                    </div>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="loai" >
+                <th mat-header-cell *matHeaderCellDef style="justify-content: center">
+                    <span translate="Title" style="font-size:15px;font-weight: bold;">Loại Bài Đăng</span>
+                </th>
+                <td mat-cell *matCellDef="let item" style="justify-content: center;">
+                  <div style="display:flex">
+                      <div>
+         
+                          <!-- <span style="color: #888">{{ item.CreatedDate }}</span> -->
+                          <span style="font-size: 12px; margin-top: -10px;color: #888">
+                            <a [routerLink]="['/home/detail',item.Id_BaiDang]">  {{ item.tenloaibaidang }} </a>
+                            </span>
+                      </div>
+                   
+                  </div>
+              </td>
+            </ng-container>
+                <ng-container matColumnDef="noidung">
+                    <th mat-header-cell *matHeaderCellDef style="justify-content: center">
+                        <span translate="Nội Dung" style="font-size:15px;font-weight: bold;">Nội Dung</span>
+                    </th>
+                    <td mat-cell *matCellDef="let item" style="justify-content: center">
+                        <div>
+           
+                            <!-- <span style="color: #888">{{ item.CreatedDate }}</span> -->
+                            <span style="font-size: 12px; margin-top: -10px;color: #888">
+                                {{ item.NoiDung }}
+                              </span>
+                        </div>
+                    </td>
+                </ng-container>
+  
+  
+         
+                <ng-container matColumnDef="actions" >
+                    <th mat-header-cell *matHeaderCellDef style="justify-content: center;min-width:20px">
+                      
+                    </th>
+                    <td mat-cell *matCellDef="let item;let vi = index;" style="justify-content: center" >
+                       
+                        <a matTooltip="Xóa" (click)="DeleteBaiDang(item.Id_BaiDang)">
+                            <button mat-icon-button color="primary">
+                                <mat-icon>delete_forever</mat-icon>
+                            </button>
+                        </a>
+                        
+                        
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="row.highlighted = !row.highlighted"
+                    [ngClass]="{hovered: row.hovered, highlighted: row.highlighted}" (mouseover)="row.hovered = true"
+                    (mouseout)="row.hovered = false"></tr>
+            </table>
+            <!-- *ngIf="!dataSource.hasItems" -->
+            <!-- <div class="mat-table__message">
+                <span translate="JeeHR.khongcodulieu"></span>
+            </div> -->
+        </div>
+        <div class="mat-table__bottom">
+            <mat-spinner [diameter]="20"></mat-spinner>
+            <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50, 100]"
+                [length]="dataSource.paginatorTotal$ | async" [showFirstLastButtons]="true"></mat-paginator>
+        </div>
+    </kt-portlet-body>
+  </kt-portlet>

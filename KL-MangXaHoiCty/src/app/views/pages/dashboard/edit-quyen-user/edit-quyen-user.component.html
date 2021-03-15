@@ -1,0 +1,44 @@
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    <!-- {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}} -->
+  </button>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper style=" width: 500px;">
+    <mat-step [stepControl]="firstFormGroup">
+    
+        <ng-template matStepLabel>Quyền hiện tại</ng-template>
+        
+        <div *ngFor="let item of listquyenht">
+            <mat-checkbox [(ngModel)]="item.check" (change)="getCheckboxes()">{{item.TenLoaiDang}}</mat-checkbox>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        
+            <button (click)="Deletequyen()" style="float: right;" mat-button >Delete quyền</button>
+       
+        </div>
+     
+      
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" >
+   
+        <ng-template matStepLabel>Update Quyền</ng-template>
+        <div *ngFor="let item of list_updateQuyen">
+            <mat-checkbox [(ngModel)]="item.check" (change)="getCheckboxesUpdate()">{{item.TenLoaiDang}}</mat-checkbox>
+        </div>
+      
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+         
+          <button (click)="updatequyen()" style="float: right;" mat-button >Update quyền</button>
+        </div>
+     
+    </mat-step>
+    <!-- <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step> -->
+  </mat-horizontal-stepper>
+  

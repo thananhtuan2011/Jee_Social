@@ -1,0 +1,145 @@
+<style>
+    .div{
+        display:flex;
+        flex-direction:column;
+      
+    }
+    .title{
+        background-color: #f6f6f6;
+      
+        height: 50px;
+    }
+    .mat-icon:hover{
+        background-color:red;
+        color:white;
+        border-radius:50%;
+    }
+    span{
+        font-size: 15px;
+        font-weight: bold
+    }
+    .post{
+        text-align: center;
+        width:200px;
+        margin-top: 32px;
+        background-color:indigo;
+        color:white;
+        margin-bottom: 10px;
+        
+
+    }
+    .post:hover{
+        background-color:rgb(66, 26, 212);
+        color:white;
+    }  
+    .boqua{
+        text-align: center;
+        width:200px;
+        margin-top: 32px;
+        background-color:rgb(200, 180, 214);
+        color:black;
+        margin-bottom: 10px;
+    }
+    .boqua:hover{
+        background-color:rgb(212, 138, 26);
+        color:white;
+    }
+</style>
+
+<div >
+    <div class="title">
+        <button mat-icon-button style="float: right;padding-bottom: 15px;">
+
+                       
+            <mat-icon class="close" style="float: right; padding: 3px;" (click)="closeDilog()">close</mat-icon>
+        </button>
+            <span>CHÀO MỪNG THÀNH VIÊN MỚI</span>
+    </div>
+    <div style="display:flex;flex-direction: column; margin:15px">
+           
+           
+        <mat-form-field class="mat-form-field-fluid" style="width:1005">
+            <mat-chip-list #chipList  required>
+                <mat-chip *ngFor="let dlht of user_tam" [selectable]="selectable" [removable]="removable"
+                    (removed)="remove(dlht)">
+                    {{dlht.hoten}}
+                    <mat-icon matChipRemove *ngIf="removable" >cancel
+                    </mat-icon>
+                </mat-chip>
+                <input matInput placeholder="Chọn tên thành viên" required
+                    [matAutocomplete]="auto" [formControl]="userCtrl"
+                    #userInput 
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)" >
+                <mat-option *ngFor="let itemCate of listUser  | async"
+                     >
+                     
+                    <span> {{ itemCate.hoten }}
+    
+                    </span>
+                    <!-- <span>{{ itemCate.ID_type}}</span> -->
+                </mat-option>
+            </mat-autocomplete>
+            </mat-form-field>
+    </div>
+    <div style=" margin:15px">
+        <span>Tin nhắn chào mừng !</span>
+        <mat-form-field style="width:420px;height:60px ;top:20px">
+            <!-- <textarea matInput placeholder="Leave a comment"></textarea>
+         -->
+        <textarea name="content"
+        [(ngModel)]="noidung"
+       
+        matInput placeholder="Bạn muốn chia sẻ điều gì?"
+        #emailInput="ngModel"
+        id="content" class="__autoresized __autoc" data-role="editor" autocomplete="off"
+        style="overflow: hidden; overflow-wrap: break-word; height: 46px;margin-top: 12px;"></textarea>
+    </mat-form-field>
+    </div>
+
+
+
+    <div style="text-align: center; margin-top: 10px;">
+
+        <div class="row" style="    margin-top: 70px;margin-right: 25px;">
+            <div class="col-md-11 kt--margin-bottom-10-mobile" style="margin-left: 17px;">
+                <mat-form-field class="mat-form-field-fluid" style="width:100%">
+                    <mat-select [formControl]="id_group" class="require" 
+                        placeholder="Đăng trong ?"
+                        
+                        [(ngModel)]="selectedd"
+                        [(value)]="congkhai">
+                        <mat-option>
+                            <ngx-mat-select-search [formControl]="groupFilterCtrl" [placeholderLabel]="' '"
+                            [noEntriesFoundLabel]="' '">
+                        </ngx-mat-select-search>
+                        </mat-option>
+                        <mat-option value="Công Khai">
+                            <span style="color: black;">Công Khai</span>
+                            
+                        </mat-option>
+                        <mat-option  [value]="item.ID_group" *ngFor="let item of list_group">
+                            <span style="color: black;">{{item.Ten_Group}}</span>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+               
+            </div>
+    </div>
+
+
+        <button class="post" (click)=submit()  >
+         
+              <span style="font-size:16px;">Đăng</span>
+          </button> 
+          &nbsp; &nbsp;
+          <button class="boqua"(click)="closeDilog()"  >
+         
+            <span style="font-size:16px;">Bỏ qua</span>
+        </button> 
+    </div>
+  
+</div>

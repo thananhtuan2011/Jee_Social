@@ -1,0 +1,131 @@
+<style>
+    img{
+        width:35px;
+        height: 35px;
+    }
+    span:hover
+    {
+        color:red;
+    }
+
+
+</style>
+<div id="live-side" class="pull-right">
+    <div id="live-epage">
+        <!-- CEO Letter & Quick Links -->
+        <div class="section">
+            <div  class="js-ceo-letter" *ngFor="let letter of listrd_thongdiep">
+                <div class="ceo-letter url"  [routerLink]="['/home/detail_thongdiep',letter.id_thongdiep]">
+                    <div class="icon"> <span class="ficon-star"></span> </div>
+                    <div class="title">CEO Letter</div>
+                    <div class="name ap-xdot">THÔNG ĐIỆP CEO</div>
+                    <div class="info">{{letter.title}}·  {{letter.createdate  | date : 'd/M/yyyy'}}
+                     </div>
+                </div>
+            </div>
+            <div class="implinks">
+                <div class="implink -rule url ap-xdot" style="padding-left:15px"[routerLink]="['/nguyentac/lamviec']" >
+                    <div class="icon"><span class="-ap icon-heart-outlined"></span></div>
+                    <p >  Nguyên tắc làm việc <b>Công Ty</b></p>
+                </div>
+
+                <div class="implink -news url ap-xdot paddingDiv"style="padding-left:15px" [routerLink]="['/luutru/tintucnoibo']">
+                    <div class="icon"><span class="-ap icon-newspaper"></span></div>
+                    Tin tức nội bộ
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="section">
+            <div class="box -hl js-mission">
+                <div class="hl">
+                    <div class="subtitle ap-xdot">Giá trị cốt lõi </div>
+                    <div class="rows js-core-values" style="margin-left: 10px;">
+                        <div style="outline: 0;" class="row ap-xdot url " [routerLink]="['/giatri/connguoi']">
+                            <div class="index">01</div><span>Con Người</span>
+                        </div>
+                        <div style="outline: 0;" class="row ap-xdot url paddingDiv" [routerLink]="['/giatri/uytin']" >
+                            <div class="index">02</div><span>Uy Tín</span>
+                        </div>
+                        <div style="outline: 0;" class="row ap-xdot url paddingDiv" [routerLink]="['/giatri/trachnhiem']">
+                            <div class="index">03</div><span>Trách Nhiệm</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anniversary -->
+        <div class="section">
+            <div class="box -hl js-mission">
+                <div class="hl">
+                    <div class="subtitle ap-xdot">Khen thưởng</div>
+                    <div class="rows js-awards" >
+                        <div class="subtitle section-subtitle">Nhân viên</div>
+                        <div class="inside-anniversary url" *ngFor="let item of listrd_khenthuong" >
+                            <img src="{{item.icon}}"
+                                alt="" class="inside-anniversary-image">
+                            <div class="info paddingDiv"[routerLink]="['/home/detail',item.id_baidang]" >
+                                <div class="inside-anniversary-name">{{item.tieudebaidang}}</div>
+                                <div class="inside-anniversary-info">{{item.tieudekt}}</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Saved -->
+        <div class="section">
+            <div class="box -hl">
+                <div class="hl">
+                    <div class="subtitle">Lưu trữ</div>
+                    <div class="list home-links">
+
+                        <!-- <div class="li url" data-url="archive/saved">
+                            <span class="-ap icon-pin3 text-alt6-less"></span>
+                            Đánh dấu
+                           
+                        </div> -->
+
+                        <div class="li url" [routerLink]="['/luutru/thongbao']">
+                            <span class="-ap icon-bullhorn text-alt1-less"></span>
+                            Thông báo
+                        </div>
+
+                        <div class="li url"  [routerLink]="['/luutru/tintucnoibo']">
+                            <span class="-ap icon-chat text-alt4-less"></span>
+                           Tin Tức Nội Bộ
+                        </div>
+                     
+
+                        <div class="li url "  [routerLink]="['/luutru/khenthuong']">
+                          
+                            <span class="-ap icon-gift2 text-alt5-less"></span>
+                            Khen thưởng
+                          
+                        </div>
+                        <div class="li url "  [routerLink]="['/luutru/ghim']">
+                          
+                            <span class="-ap icon-pin3 text-alt5-less"></span>
+                          Ghim
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+       
+    </div>
+    <!-- <mat-card style="position:fixed" *ngIf="check==true">
+        Khung chat
+    </mat-card> -->
+   
+
+</div>
+

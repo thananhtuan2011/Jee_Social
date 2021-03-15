@@ -1,0 +1,143 @@
+<style>
+    .div {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .title {
+        background-color: #f6f6f6;
+
+        height: 50px;
+    }
+
+    .mat-icon:hover {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+    }
+
+    span {
+        font-size: 15px;
+        font-weight: bold
+    }
+
+    .post {
+        text-align: center;
+        width: 200px;
+        margin-top: 32px;
+        background-color: rgb(243, 232, 232);
+        color: white;
+        margin-bottom: 10px;
+
+
+    }
+
+    .post:hover {
+        background-color: rgb(66, 26, 212);
+        color: white;
+    }
+</style>
+<div  [perfectScrollbar]="{wheelPropagation: false}" [ngStyle]="{'max-height': '70vh', 'position': 'relative'}" >
+
+
+<div style="left: 400px; top:30px" >
+    <div class="title">
+       <button mat-icon-button style="float: right;padding-bottom: 12px; margin-right: 10px;">
+
+                        <mat-icon class="close" style="float: right; padding: 3px;" (click)="closeDilog()">close</mat-icon>
+                    </button>
+        <span>Edit THÔNG ĐIỆP</span>
+    </div>
+    <form class="example-form">
+      
+      
+        <mat-form-field class="example-full-width" style="    width: 530px;
+        margin-left: 35px;">
+          <textarea matInput  placeholder="Tiêu Đề"
+          name="title" form="usrform" [(ngModel)]="thongdiep.title">
+        
+        </textarea>
+        </mat-form-field>
+      </form>
+<span *ngIf="image;then t1;else t2"></span>
+<ng-template #t1>
+    <div >
+        <div style="    float: right;
+        margin-bottom: -100px;
+       ">
+        <button (click)="CloseIMG()" mat-icon-button>
+            <mat-icon  class="clear">clear</mat-icon>
+        </button>
+           
+        </div>
+        <img style="width: 480px;
+        height: 150px;;margin: 10px; border-radius: 5px;" [src]="image" >
+        </div>  
+
+</ng-template>
+<ng-template #t2>
+    <span *ngIf="thongdiep.media===null||thongdiep.media===''&& !image;then s1;else s2;"></span>
+
+    <ng-template #s1>
+        <a  >
+
+            <div style="text-align: center;">
+       
+                    <img style="    height: 150px;
+                    width: 390px;  margin-left: -5px;" src="https://static-devgcs.basecdn.net/inside/image/components/default-letter.png">
+              
+            </div>
+        </a>
+    </ng-template>
+
+    <ng-template #s2>
+        <a  >
+
+            <div style="text-align: center;">
+       
+                    <img style="    height: 150px;
+                    width: 390px;  margin-left: -5px;" src="{{thongdiep.imgmedia}}">
+              
+            </div>
+        </a>
+    </ng-template>
+  
+</ng-template>
+    
+
+     
+          
+    <div style=" margin:15px;">
+        <span>Nhập nội dung</span>
+        <textarea placeholder="Nhập nội dung !" style="border:1px solid lightcoral;outline: none;" rows="5" cols="70"
+            name="noidung" form="usrform" [(ngModel)]="thongdiep.noidung">
+           </textarea>
+    </div>
+    <li style=" list-style-type: none;float: right; margin-right: 10px;">
+        <button (click)="hiddenfileinput.click()" matTooltip="Upload File"  aria-label="Upload an Image." class='c-interaction__button'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></button>
+        <input type='file' id="PDFInpdd" #hiddenfileinput (change)="onSelectFile_PDF($event)" style="display: none;">
+    </li>
+    <div class="row" style="padding-left: 10px;padding-right: 10px">
+        <div class="col-md-11 kt--margin-bottom-10-mobile" style="margin-left: 25px;">
+         
+           
+        </div>
+</div>
+
+
+
+
+
+
+
+
+    <div style="text-align: center;">
+        <button class="post"(click)="onSubmit()">
+
+            <span style="font-size:14px; color:black">Cập Nhật Thông Điệp</span>
+        </button>
+    </div>
+
+</div>
+</div>

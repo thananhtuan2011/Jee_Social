@@ -1,0 +1,216 @@
+
+    div.input {
+        position: relative;
+        width: fit-content;
+       
+  
+        input {
+          outline: none;
+          border: 1px solid lightgray;
+          background-color: #F0F2F5;
+          padding: 5px 35px;
+          border-radius: 20px;    
+          // font-size:18px;
+         
+          margin-top:-10px;
+          margin-bottom:5px;
+        
+  
+          &::placeholder {
+            padding-left: 20px;
+            font-size: 13px;
+          }
+        }
+  
+        .search-icon {
+        //   position: absolute;
+          top: 6px;
+          font-size: 25px;
+          left: 10px;
+          color: #828890;
+      
+        }
+  
+      }
+      .user{
+        width: 100%;
+        margin-top: 0px;
+         
+        }
+
+        .mat-card {
+          transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+          display: block;
+          position: relative;
+          padding: 16px;
+          border-radius: 4px;
+          width: 100%;
+          margin-top:1px;
+          height: 100%;
+      }
+      .chat-main{
+        position: fixed;
+        width: 260px;
+        bottom: 0;
+        right: 310px;
+      }
+      .header-one{
+        background: #404040;
+      }
+      .name h6{
+        display: inline-block;
+        font-size: 14px;
+      }
+      .options i,.options .arrow-up{
+        height: 25px;
+        width: 25px;
+      }
+      .options i{
+        color: #B2B2B2;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .options .hover:hover, .options .arrow-up:hover{
+        background: #737373;
+      }
+      .options .arrow-up{
+          display: inline-block;
+          line-height: 0;
+      }
+      .options .hover:hover, .options .arrow-up:hover .fa-arrow-up{
+        color: #fff;
+      }
+      .options .fa-arrow-up{
+        transform: rotate(40deg);
+      }
+      .header-two{
+        border-top: 2px solid #35AC19;
+        background: #ECEFF1;
+        color: #5E6060;
+        padding: 8px 0px 4px 8px;
+        box-shadow: 0px 6px 13px -7px #c1c1c1;
+        z-index: 1000;
+          position: absolute;
+      }
+      .options-left i, .options-right i{
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .options-left i:hover, .options-right i:hover{
+        color: #000;
+      }
+      .chats{
+        height: 285px;
+          // overflow: scroll;
+        // overflow-x: scroll;
+        // overflow-x: auto;
+        background: #ECEFF1;
+        position: relative;
+          top: 35px;
+      }
+      .chats ul li{
+        display: inline-block;
+        list-style: none;
+        clear: both;
+        font-size: 13px;
+      }
+      .send-msg{
+        position: relative;
+      }
+      // .send-msg:after{
+      //   content: "";
+      //   width:0;
+      //   height:0;
+      //   top: 0px;
+      //   right: -8px;
+      //   position: absolute;
+      //   border-top: 8px solid #CFD8DC;
+      //   border-left: 8px solid transparent;
+      //   border-right: 8px solid transparent;
+      // }
+      .send-msg p{
+        background: #CFD8DC;
+      }
+      .sender-img{
+        display: inline;
+      }
+      .sender-img img{
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+      }
+      .receive-msg .receive-msg-desc{
+        display: inline-block;
+        position: relative;
+      }
+      .receive-msg-desc:before{
+        content: "";
+        width:0;
+        height:0;
+        top: 0px;
+        left: -8px;
+        position: absolute;
+        border-top: 8px solid #fff;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }
+      .receive-msg-time,.send-msg-time{
+        color: #7D7E87;
+        font-size: 10px;
+      }
+      .receive-msg-time i{
+        font-size: 4px;
+      }
+      .msg-box{
+        margin-top: 35px;
+      }
+      .msg-box i{
+        color: #404040;
+      }
+      .msg-box input{
+        font-size: 14px;
+      }
+      .msg-box input:focus{
+        outline: none;
+      }
+      .close{
+          display:none;
+      }
+      ::ng-deep.mat-menu-panel {
+        max-width: 400px !important;
+      }
+      
+.comment {
+
+
+  .comment-string {
+
+
+    .send-msg {
+      font-weight: normal;
+      color: #4CAF50;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &:hover {
+      .action {
+        display: inline-block !important;
+      }
+    }
+
+  .action {
+    display: none;
+    font-size: 17px !important;
+
+    &:hover {
+      // border: solid 1px #eee;
+      border-radius: 5px;
+      // color: white;
+      // background-color: #4CAF50;
+    }
+  }
+}

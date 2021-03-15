@@ -1,0 +1,182 @@
+<style>
+    .post {
+        text-align: center;
+        width:480px;
+        height: 35px;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        border-radius: 20px;
+            /* background-color:lightgreen;
+            color:#FFf; */
+            background-color:lightgoldenrodyellow;
+           
+        border:none;
+       
+
+    }
+</style>
+<div class="__dialogwrapper" style="left: 433px;top: 131.5px;">
+    <div class="__dialogwrapper-inner">
+        <div class="__dialogmain">
+            <div class="__dialogtitle ap-xdot">
+               
+            </div>
+            <div class="__dialogcontent simple-form">
+                <div id="post-status" class="__apdialog" title="" style="width: 500px;">
+                    <div class="title">
+                        <button mat-icon-button style="float: right;padding-bottom: 15px;">
+
+                       
+                        <mat-icon class="close" style="float: right; padding: 3px;" (click)="closeDia()">close</mat-icon>
+                    </button>
+                       <span style="font-size:20px;text-align:center;">Cập nhật tin </span>
+                        <div class="-close -wrap inside-popup-form__button inside-popup-form__button--close"
+                            onclick="AP.closeDialog(this);"></div>
+                    </div>
+                    <div *ngFor="let items of listTT_user" class="content">
+                        <form action="api/update/create" id="post-create-fly"> <input type="hidden" name="channel"
+                                value="1365"><input type="hidden" name="token" value="900dc248c1df516e568a2f2c8b55a089">
+                            <div class="textarea " style=" position: relative;height: 100px;">
+                                 <!-- <img
+                                src="{{items.Avatar}}"
+                                    alt=" CEO" class="icon"> 
+                                     -->
+                                                                
+                                    <span *ngIf="items.hinhanh===null||items.hinhanh==='';then e1; else e2"></span>
+                                    <ng-template #e2>
+                                        <img
+                                        src="{{items.Avatar}}"
+                                           class="icon"> 
+                                            
+                                    </ng-template>
+                                
+                                    <ng-template #e1>
+
+                                        <img
+                                        src="../../assets/media/users/avatar_macdinh.jpg"
+                                          class="icon"> 
+                                  
+                                    </ng-template>
+                                    
+                                    <mat-form-field class="mat-form-field-fluid" style="width:100%" style="width:100%;height:60px ;top:20px;margin-left: 60px;">
+                                        <!-- <textarea matInput placeholder="Leave a comment"></textarea>
+                                     -->
+                                    <textarea name="content"
+                                    [(ngModel)]="tinnhanh.title"
+                                   
+                                    matInput placeholder="{{items.Username}} Bạn muốn chia sẻ điều gì?"
+                                    #emailInput="ngModel"
+                                    id="content" class="__autoresized __autoc" data-role="editor" autocomplete="off"
+                                    style="overflow: hidden; overflow-wrap: break-word; height: 46px;margin-top: 12px;"></textarea>
+                                    
+
+                                  
+                                </mat-form-field>
+                               
+                                <div class="attachment">
+                                    <!-- up load file -->
+                                    <button style="float: right;" mat-icon-button type="button" (click)="hiddenfileinput.click()"
+                                      matTooltip="Upload File">
+                                      <mat-icon>attach_file</mat-icon>
+                                    </button>&nbsp;
+                                    <input type='file' id="PDFInpdd" #hiddenfileinput (change)="onSelectFile_PDF($event)" style="display: none;">
+                                    <!-- </div> -->
+                                  </div>
+
+
+                                </div>
+                            <div class="list list-simple-files inside-border-box"></div>
+                            <div  style="height: 40px;"class="actions extra">
+                                <div class="action"> <span class="label">
+                                       
+                                    </span>
+                                    <div class="bdrive -infow relative" id="js-basedrive-picker-ann"
+                                        style="display: block; width: 100%; margin-bottom: 7px;"> <span
+                                            class="icon -ap icon-folder-upload"></span>
+                                       
+                                        <div class="-info up" style="top: -30px; left:0px; width:210px">
+                                            <div class="-arrow left"></div>
+                                            <div class="-box">
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="action relative right" id="js-select-team-quick-update"> <span
+                                        class="label">
+                                       
+                                 
+                                       
+                                    </span> </div>
+                            </div>
+                          <!-- Kiểm tra hình ảnh  -->
+                            <span *ngIf="tinnhanh.hinhanh!='';then c1;else c2"></span>
+
+                                <ng-template #c1>
+                                    <span *ngIf="image;then k1;else k2 "></span>
+                                    <ng-template #k1>
+                                        <img style="width:480px;height: 250px;margin: 10px;" [src]="image" >
+                                    </ng-template>
+                                    <ng-template #k2>
+                                        <img style="width:480px;height: 250px;margin: 10px;" src="{{tinnhanh.image}}">
+                                    </ng-template>
+                                   
+                                </ng-template>
+                                <ng-template #c2>
+                                    <span *ngIf="image;then s1;else s2 "></span>
+                                    <ng-template #s1>
+                                        <div >
+                                            <img style="width:480px;height: 250px;margin: 10px;" [src]="image" >
+                                    </div>
+                                    </ng-template>
+                                    <ng-template #s2>
+                                        <span >
+                                            <!-- <img src="{{tinnhanh.image}}"> -->
+                                            <!-- <img style="width:480px;height: 250px;margin: 10px;" src="{{tinnhanh.image}}"> -->
+                                        </span>
+                                    </ng-template>
+                                </ng-template>
+                                   
+
+                            
+<!-- 
+                                <ng-template #s1>
+                                    <div >
+                                        <img style="width:480px;height: 250px;margin: 10px;" [src]="image" *ngIf="image" >
+                                </div>
+                                </ng-template>
+                                <ng-template #s2>
+                                    <span >
+                                       
+                                        <img style="width:480px;height: 250px;margin: 10px;" src="{{tinnhanh.image}}">
+                                    </span>
+                                </ng-template> -->
+                            
+                          
+                          
+                            <div class="is-disabled">
+
+                           
+                              <button class="post" [disabled]="tin===''"(click)=onSubmit()>
+                                <mat-icon style="font-size: 15px;" aria-hidden="false" aria-label="Example home icon">screen_share</mat-icon>
+                                  <span style="font-size:18px;">cập Nhật</span>
+                              </button> 
+                            </div>
+                            <!-- <div  class="buttons">
+                                <div class="button -second -main -rounded fluid is-disabled" id="button-quick-update"
+                                    disabled
+                                  
+                                    onclick="Update.post(this);">
+                                    <i  class="icon ficon-paper-plane"></i>
+                                        <span>Đăng Bài</span>
+                                </div>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
