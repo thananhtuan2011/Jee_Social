@@ -12,6 +12,7 @@ export const environment = {
 	//Apiroot: 'http://192.168.1.2//api/KhoaLuan'
 		Apiroot: 'https://localhost:44365/api/',
 		Api: 'https://localhost:44365/'
+	//	APITESST_Giht
 
 };
 
