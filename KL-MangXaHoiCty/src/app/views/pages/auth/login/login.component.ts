@@ -259,7 +259,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 		
 	
 		 //debugger
-		 user.ID_User =	this.id;
+		
 		user.TinhTrang =true;
 		
 		return user;
@@ -285,9 +285,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 		};
 		this.auth.login(authData) 
 		.pipe(
-			tap(({access_token}) => {
+			tap(({access_token,refresh_token}) => {
 			  this.authJwtService.storeAuthenticationToken(
 				access_token,
+				refresh_token,
 				true
 			  );
 			}),

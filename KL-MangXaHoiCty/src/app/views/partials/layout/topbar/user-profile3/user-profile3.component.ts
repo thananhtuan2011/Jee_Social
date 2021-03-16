@@ -43,6 +43,7 @@ export class UserProfile3Component implements OnInit {
 	pass:string;
 	sharedData:string;
 	testloadhinhanh :boolean=false;
+	isReset: any;
 	/**
 	 * Component constructor
 	 *
@@ -84,8 +85,37 @@ export class UserProfile3Component implements OnInit {
 		this.LoadData();
 		this.loadTTuser();
 		this.LoadListUserChat();
+		this.isReset = setInterval(() => {
+			this.resetSession();
+		}, 240000);
+	
 		
+	}
+
+	resetSession() {	
 		
+		this.AuthService.resetSession().subscribe(
+			response => {
+				debugger
+				if (response) {
+					// response.data.Token = response.data.Token;
+					this.jwt_service.storeAuthenticationToken(response.access_token,response.refresh_token,true);
+				} else {
+				//	clearInterval(this.isReset);
+				this.jwt_service.storeAuthenticationToken(response.access_token,response.refresh_token,true);
+					console.log('chay xuỗng clrear',this.isReset);
+					//this.jwt_service.clear();
+					// this.dialog.closeAll();
+					this.router.navigate(['/login']);
+				}
+				// console.log('Test refresh',response);
+			},
+			err => {
+				clearInterval(this.isReset);
+				this.jwt_service.clear();
+				// this.dialog.closeAll();
+				this.router.navigate(['/login']);
+			});
 	}
 
 	/**
@@ -123,7 +153,7 @@ export class UserProfile3Component implements OnInit {
 		   const user = new User();
 		
 			// debugger
-			user.ID_User =this.id_user;
+		
 		   user.TinhTrang =false;
 		   this.changeDetectorRefs.detectChanges();
 		   return user;
@@ -151,6 +181,11 @@ export class UserProfile3Component implements OnInit {
 		this.changeDetectorRefs.detectChanges();
 		this.router.navigate(['auth/login']);
 
+	}
+
+	test()
+	{
+		this.resetSession();
 	}
 	
 	LoadListUserChat()

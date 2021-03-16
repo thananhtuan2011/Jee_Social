@@ -265,6 +265,23 @@ isUserAuthenticated(): boolean {
 
 
 
+
+	resetSession(): Observable<any> {
+        debugger
+        const httpHeaders = this.httpUtils.getHTTPHeaders_Refresh();
+		return this.http.post<any>('https://identityserver.jee.vn/user/refresh',null,{ headers: httpHeaders });
+            
+        // .pipe(
+			// 	map((res: any) => {
+			// 		return res;
+			// 	}), 
+			// 	catchError(err => {
+			// 		return throwError(err);
+			// 	})
+			// );
+	}
+
+
     // UPDATE => PUT: update the user on the server
     updateTrangThaiUser(user:User): Observable<any> {
         const httpHeaders = this.httpUtils.getHTTPHeaders();

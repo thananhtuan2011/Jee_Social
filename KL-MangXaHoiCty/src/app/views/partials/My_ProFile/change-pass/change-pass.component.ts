@@ -134,7 +134,6 @@ export class ChangePassComponent implements OnInit {
     const user = new User();
  
    // debugger
-   user.ID_User =this.id_user;
     user.TinhTrang =false;
     this.cdr.detectChanges();
     return user;

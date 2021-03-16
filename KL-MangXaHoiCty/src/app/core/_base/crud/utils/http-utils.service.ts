@@ -81,6 +81,25 @@ export class HttpUtilsService {
 		});
 		return result;
 	}
+
+	getHTTPHeaders_Refresh(): HttpHeaders {
+		
+		debugger
+		var _token = '';
+	
+		_token=this.jwt_service.get_refresh_token();
+			// this.tokenStorage.getAccessToken().subscribe(t => {
+			// 		_token = t;
+			// 	 });
+			console.log('get_refresh_token',_token);
+			let result = new HttpHeaders({
+				'Content-Type': 'application/json',
+				'Authorization':_token,
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Headers': 'Content-Type'
+			});
+			return result;
+		}
 	// getHTTPHeaders(): HttpHeaders {
 	// 	var _token = '';
 	// 	this.tokenStorage.getAccessToken().subscribe(t => { _token = t; });

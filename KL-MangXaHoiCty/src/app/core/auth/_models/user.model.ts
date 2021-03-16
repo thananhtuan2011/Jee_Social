@@ -3,7 +3,7 @@ import { Address } from './address.model';
 import { SocialNetworks } from './social-networks.model';
 
 export class User extends BaseModel {
-    ID_User: number;
+    id_user: number;
     ID_NV:number;
     username: string;
     password: string;
@@ -19,7 +19,7 @@ export class User extends BaseModel {
     // socialNetworks: SocialNetworks;
 
     clear(): void {
-        this.ID_User = undefined;
+        this.id_user = undefined;
         this.username ='';
         this.password = '';
         this.email = '';

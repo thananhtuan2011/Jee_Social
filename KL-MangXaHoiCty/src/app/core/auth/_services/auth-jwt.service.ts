@@ -36,6 +36,12 @@ export class AuthJwtService {
     return token;
   }
 
+
+  get_refresh_token(){
+    const token = this.cookieService.get('refresh_token');
+    return token;
+  }
+
   setData(value: any) {
     const data = this.cookieService.set('currentUser',value);
     return data;
@@ -50,21 +56,27 @@ else {
   throwError({ msg: 'error' });
 }
 } 
-  storeAuthenticationToken(jwt: string, rememberMe?: boolean) {
+  storeAuthenticationToken(jwt: string,jwt_refresh_token:string, rememberMe?: boolean) {
     if (rememberMe) {
       const expiredTime = jwtHelperService.getTokenExpirationDate(jwt);
       // this.cookieService.set('authenticationToken', jwt, expiredTime);
       // this.cookieService.set('authenticationToken', jwt,expiredTime,null,null, true, 'Lax');
       this.cookieService.set( 'authenticationToken', jwt,expiredTime,'/' ,null,true,"Strict"); 
-     
+      this.cookieService.set('refresh_token',jwt_refresh_token);
       this.accessToken = jwt;
-    } else {``
+    } else {
       this.cookieService.set('authenticationToken', jwt);
     }
   }
+  clear()
+  {
+    this.cookieService.delete('authenticationToken');
+    localStorage.removeItem('currentUser');
+    this.cookieService.delete('refresh_token');
+  }
 
   logout(): void {
-    this.cookieService.delete('authenticationToken');
+    this.clear();
     this.accessToken = null;
   }
 }

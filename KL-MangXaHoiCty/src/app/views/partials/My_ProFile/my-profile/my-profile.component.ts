@@ -314,7 +314,7 @@ TrangThaiUpdate(): User {
 	
 
 	 //debugger
-	 user.ID_User =	this.id_user;
+	
 	user.TinhTrang =true;
 	this.cdr.detectChanges();
 	return user;
